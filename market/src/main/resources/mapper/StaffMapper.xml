@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hbh.dao.StaffMapper">
+  <select id="getStaff" parameterType="java.lang.String" resultType="Staff">
+    select u.* from staff  u where staffid=#{staffid}
+	
+  </select>
+  <update id="updateByid" parameterType="com.hbh.entity.Staff">
+    update staff
+    <set>
+      <if test="staffname != null">
+        staffname = #{staffname},
+      </if>
+      <if test="card != null">
+        card = #{card},
+      </if>
+      <if test="sex != null">
+        sex = #{sex},
+      </if>
+      <if test="tel != null">
+        tel = #{tel},
+      </if>
+      <if test="stafftype != null">
+        stafftype = #{stafftype},
+      </if>
+      <if test="pwd != null">
+        pwd = #{pwd},
+      </if>
+    </set>
+    where staffid = #{staffid}
+  </update>
+  
+</mapper>
