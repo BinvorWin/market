@@ -1,5 +1,7 @@
 package com.hbh.entity;
 
+import java.util.Date;
+
 public class Sale {
     private String saleid;
 
@@ -7,13 +9,13 @@ public class Sale {
 
     private String pname;
 
-    private String price;
+    private Double price;
 
-    private String num;
+    private Integer num;
 
     private String total;
 
-    private String saledate;
+    private Date saledate;
 
     private String marks;
 
@@ -41,20 +43,20 @@ public class Sale {
         this.pname = pname == null ? null : pname.trim();
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = price == null ? null : price.trim();
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public String getNum() {
+    public Integer getNum() {
         return num;
     }
 
-    public void setNum(String num) {
-        this.num = num == null ? null : num.trim();
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
     public String getTotal() {
@@ -65,12 +67,12 @@ public class Sale {
         this.total = total == null ? null : total.trim();
     }
 
-    public String getSaledate() {
+    public Date getSaledate() {
         return saledate;
     }
 
-    public void setSaledate(String saledate) {
-        this.saledate = saledate == null ? null : saledate.trim();
+    public void setSaledate(Date saledate) {
+        this.saledate = saledate;
     }
 
     public String getMarks() {
@@ -80,10 +82,4 @@ public class Sale {
     public void setMarks(String marks) {
         this.marks = marks == null ? null : marks.trim();
     }
-
-	@Override
-	public String toString() {
-		return "Sale [saleid=" + saleid + ", proid=" + proid + ", pname=" + pname + ", price=" + price + ", num=" + num
-				+ ", total=" + total + ", saledate=" + saledate + ", marks=" + marks + "]";
-	}
 }

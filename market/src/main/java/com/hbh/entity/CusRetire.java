@@ -1,5 +1,7 @@
 package com.hbh.entity;
 
+import java.util.Date;
+
 public class CusRetire {
     private String saleid;
 
@@ -7,15 +9,15 @@ public class CusRetire {
 
     private String pname;
 
-    private String price;
+    private Double price;
 
-    private String num;
+    private Integer num;
 
-    private String total;
+    private Double total;
 
-    private String saledate;
+    private Date saledate;
 
-    private String retdate;
+    private Date retdate;
 
     private String reason;
 
@@ -45,44 +47,44 @@ public class CusRetire {
         this.pname = pname == null ? null : pname.trim();
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = price == null ? null : price.trim();
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public String getNum() {
+    public Integer getNum() {
         return num;
     }
 
-    public void setNum(String num) {
-        this.num = num == null ? null : num.trim();
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
-    public String getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
-        this.total = total == null ? null : total.trim();
+    public void setTotal(Double total) {
+        this.total = total;
     }
 
-    public String getSaledate() {
+    public Date getSaledate() {
         return saledate;
     }
 
-    public void setSaledate(String saledate) {
-        this.saledate = saledate == null ? null : saledate.trim();
+    public void setSaledate(Date saledate) {
+        this.saledate = saledate;
     }
 
-    public String getRetdate() {
+    public Date getRetdate() {
         return retdate;
     }
 
-    public void setRetdate(String retdate) {
-        this.retdate = retdate == null ? null : retdate.trim();
+    public void setRetdate(Date retdate) {
+        this.retdate = retdate;
     }
 
     public String getReason() {
@@ -100,11 +102,4 @@ public class CusRetire {
     public void setMarks(String marks) {
         this.marks = marks == null ? null : marks.trim();
     }
-
-	@Override
-	public String toString() {
-		return "CusRetire [saleid=" + saleid + ", proid=" + proid + ", pname=" + pname + ", price=" + price + ", num="
-				+ num + ", total=" + total + ", saledate=" + saledate + ", retdate=" + retdate + ", reason=" + reason
-				+ ", marks=" + marks + "]";
-	}
 }

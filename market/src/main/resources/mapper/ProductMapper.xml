@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hbh.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.hbh.entity.Product">
+    <id column="proid" jdbcType="VARCHAR" property="proid" />
+    <result column="pname" jdbcType="VARCHAR" property="pname" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="inprice" jdbcType="DOUBLE" property="inprice" />
+    <result column="prodate" jdbcType="DATE" property="prodate" />
+    <result column="reledate" jdbcType="DATE" property="reledate" />
+    <result column="supname" jdbcType="VARCHAR" property="supname" />
+    <result column="protype" jdbcType="VARCHAR" property="protype" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="marks" jdbcType="VARCHAR" property="marks" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    proid, pname, price, inprice, prodate, reledate, supname, protype, unit, marks
+  </sql>
+  <select id="selectByExample" parameterType="com.hbh.entity.ProductExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where proid = #{proid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from product
+    where proid = #{proid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hbh.entity.Product">
+    insert into product (proid, pname, price, 
+      inprice, prodate, reledate, 
+      supname, protype, unit, 
+      marks)
+    values (#{proid,jdbcType=VARCHAR}, #{pname,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{inprice,jdbcType=DOUBLE}, #{prodate,jdbcType=DATE}, #{reledate,jdbcType=DATE}, 
+      #{supname,jdbcType=VARCHAR}, #{protype,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{marks,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hbh.entity.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="proid != null">
+        proid,
+      </if>
+      <if test="pname != null">
+        pname,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="inprice != null">
+        inprice,
+      </if>
+      <if test="prodate != null">
+        prodate,
+      </if>
+      <if test="reledate != null">
+        reledate,
+      </if>
+      <if test="supname != null">
+        supname,
+      </if>
+      <if test="protype != null">
+        protype,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="marks != null">
+        marks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="proid != null">
+        #{proid,jdbcType=VARCHAR},
+      </if>
+      <if test="pname != null">
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="inprice != null">
+        #{inprice,jdbcType=DOUBLE},
+      </if>
+      <if test="prodate != null">
+        #{prodate,jdbcType=DATE},
+      </if>
+      <if test="reledate != null">
+        #{reledate,jdbcType=DATE},
+      </if>
+      <if test="supname != null">
+        #{supname,jdbcType=VARCHAR},
+      </if>
+      <if test="protype != null">
+        #{protype,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="marks != null">
+        #{marks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hbh.entity.Product">
+    update product
+    <set>
+      <if test="pname != null">
+        pname = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="inprice != null">
+        inprice = #{inprice,jdbcType=DOUBLE},
+      </if>
+      <if test="prodate != null">
+        prodate = #{prodate,jdbcType=DATE},
+      </if>
+      <if test="reledate != null">
+        reledate = #{reledate,jdbcType=DATE},
+      </if>
+      <if test="supname != null">
+        supname = #{supname,jdbcType=VARCHAR},
+      </if>
+      <if test="protype != null">
+        protype = #{protype,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="marks != null">
+        marks = #{marks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where proid = #{proid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hbh.entity.Product">
+    update product
+    set pname = #{pname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      inprice = #{inprice,jdbcType=DOUBLE},
+      prodate = #{prodate,jdbcType=DATE},
+      reledate = #{reledate,jdbcType=DATE},
+      supname = #{supname,jdbcType=VARCHAR},
+      protype = #{protype,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      marks = #{marks,jdbcType=VARCHAR}
+    where proid = #{proid,jdbcType=VARCHAR}
+  </update>
+</mapper>

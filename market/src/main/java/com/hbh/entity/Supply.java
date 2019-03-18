@@ -60,10 +60,4 @@ public class Supply {
     public void setEmali(String emali) {
         this.emali = emali == null ? null : emali.trim();
     }
-
-	@Override
-	public String toString() {
-		return "Supply [supid=" + supid + ", suppname=" + suppname + ", tel=" + tel + ", person=" + person
-				+ ", address=" + address + ", emali=" + emali + "]";
-	}
 }

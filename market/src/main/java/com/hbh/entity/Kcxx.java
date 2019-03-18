@@ -5,7 +5,7 @@ public class Kcxx {
 
     private String pname;
 
-    private String num;
+    private Integer num;
 
     private String marks;
 
@@ -25,12 +25,12 @@ public class Kcxx {
         this.pname = pname == null ? null : pname.trim();
     }
 
-    public String getNum() {
+    public Integer getNum() {
         return num;
     }
 
-    public void setNum(String num) {
-        this.num = num == null ? null : num.trim();
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
     public String getMarks() {
@@ -40,9 +40,4 @@ public class Kcxx {
     public void setMarks(String marks) {
         this.marks = marks == null ? null : marks.trim();
     }
-
-	@Override
-	public String toString() {
-		return "Kcxx [proid=" + proid + ", pname=" + pname + ", num=" + num + ", marks=" + marks + "]";
-	}
 }

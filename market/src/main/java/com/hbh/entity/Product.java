@@ -1,17 +1,19 @@
 package com.hbh.entity;
 
+import java.util.Date;
+
 public class Product {
     private String proid;
 
     private String pname;
 
-    private String price;
+    private Double price;
 
-    private String inprice;
+    private Double inprice;
 
-    private String prodate;
+    private Date prodate;
 
-    private String reledate;
+    private Date reledate;
 
     private String supname;
 
@@ -37,36 +39,36 @@ public class Product {
         this.pname = pname == null ? null : pname.trim();
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = price == null ? null : price.trim();
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public String getInprice() {
+    public Double getInprice() {
         return inprice;
     }
 
-    public void setInprice(String inprice) {
-        this.inprice = inprice == null ? null : inprice.trim();
+    public void setInprice(Double inprice) {
+        this.inprice = inprice;
     }
 
-    public String getProdate() {
+    public Date getProdate() {
         return prodate;
     }
 
-    public void setProdate(String prodate) {
-        this.prodate = prodate == null ? null : prodate.trim();
+    public void setProdate(Date prodate) {
+        this.prodate = prodate;
     }
 
-    public String getReledate() {
+    public Date getReledate() {
         return reledate;
     }
 
-    public void setReledate(String reledate) {
-        this.reledate = reledate == null ? null : reledate.trim();
+    public void setReledate(Date reledate) {
+        this.reledate = reledate;
     }
 
     public String getSupname() {
@@ -100,11 +102,4 @@ public class Product {
     public void setMarks(String marks) {
         this.marks = marks == null ? null : marks.trim();
     }
-
-	@Override
-	public String toString() {
-		return "Product [proid=" + proid + ", pname=" + pname + ", price=" + price + ", inprice=" + inprice
-				+ ", prodate=" + prodate + ", reledate=" + reledate + ", supname=" + supname + ", protype=" + protype
-				+ ", unit=" + unit + ", marks=" + marks + "]";
-	}
 }

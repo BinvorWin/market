@@ -10,8 +10,9 @@
 <%@include file="common/head.jsp"%>
 
   <div class="layui-body">
-    <!-- 内容主体区域 -->
-    <div style="padding: 15px;">内容主体区域</div>
+  <span>Welcome,</span>
+							
+   <h>${staffSession.staffname }</h>
   </div>
   
 

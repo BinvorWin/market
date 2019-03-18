@@ -1,19 +1,19 @@
 package com.hbh.entity;
 
-public class CkRetire {
+import java.util.Date;
+
+public class Ckretire {
     private String inid;
 
     private String proid;
 
     private String pname;
 
-    private String num;
+    private Integer num;
 
-    private String total;
+    private Date indate;
 
-    private String indate;
-
-    private String retdate;
+    private Date retdate;
 
     private String reason;
 
@@ -43,36 +43,28 @@ public class CkRetire {
         this.pname = pname == null ? null : pname.trim();
     }
 
-    public String getNum() {
+    public Integer getNum() {
         return num;
     }
 
-    public void setNum(String num) {
-        this.num = num == null ? null : num.trim();
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total == null ? null : total.trim();
-    }
-
-    public String getIndate() {
+    public Date getIndate() {
         return indate;
     }
 
-    public void setIndate(String indate) {
-        this.indate = indate == null ? null : indate.trim();
+    public void setIndate(Date indate) {
+        this.indate = indate;
     }
 
-    public String getRetdate() {
+    public Date getRetdate() {
         return retdate;
     }
 
-    public void setRetdate(String retdate) {
-        this.retdate = retdate == null ? null : retdate.trim();
+    public void setRetdate(Date retdate) {
+        this.retdate = retdate;
     }
 
     public String getReason() {
@@ -90,10 +82,4 @@ public class CkRetire {
     public void setMarks(String marks) {
         this.marks = marks == null ? null : marks.trim();
     }
-
-	@Override
-	public String toString() {
-		return "CkRetire [inid=" + inid + ", proid=" + proid + ", pname=" + pname + ", num=" + num + ", total=" + total
-				+ ", indate=" + indate + ", retdate=" + retdate + ", reason=" + reason + ", marks=" + marks + "]";
-	}
 }

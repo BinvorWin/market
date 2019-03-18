@@ -1,6 +1,6 @@
 package com.hbh.entity;
 
-public class Custom {
+public class Sustom {
     private String cusid;
 
     private String cusname;
@@ -60,10 +60,4 @@ public class Custom {
     public void setEmali(String emali) {
         this.emali = emali == null ? null : emali.trim();
     }
-
-	@Override
-	public String toString() {
-		return "Custom [cusid=" + cusid + ", cusname=" + cusname + ", tel=" + tel + ", person=" + person + ", address="
-				+ address + ", emali=" + emali + "]";
-	}
 }

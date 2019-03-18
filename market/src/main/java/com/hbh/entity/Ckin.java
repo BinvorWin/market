@@ -1,5 +1,7 @@
 package com.hbh.entity;
 
+import java.util.Date;
+
 public class Ckin {
     private String inid;
 
@@ -7,11 +9,9 @@ public class Ckin {
 
     private String pname;
 
-    private String num;
+    private Integer num;
 
-    private String total;
-
-    private String indate;
+    private Date indate;
 
     private String marks;
 
@@ -39,28 +39,20 @@ public class Ckin {
         this.pname = pname == null ? null : pname.trim();
     }
 
-    public String getNum() {
+    public Integer getNum() {
         return num;
     }
 
-    public void setNum(String num) {
-        this.num = num == null ? null : num.trim();
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total == null ? null : total.trim();
-    }
-
-    public String getIndate() {
+    public Date getIndate() {
         return indate;
     }
 
-    public void setIndate(String indate) {
-        this.indate = indate == null ? null : indate.trim();
+    public void setIndate(Date indate) {
+        this.indate = indate;
     }
 
     public String getMarks() {
@@ -70,10 +62,4 @@ public class Ckin {
     public void setMarks(String marks) {
         this.marks = marks == null ? null : marks.trim();
     }
-
-	@Override
-	public String toString() {
-		return "Ckin [inid=" + inid + ", proid=" + proid + ", pname=" + pname + ", num=" + num + ", total=" + total
-				+ ", indate=" + indate + ", marks=" + marks + "]";
-	}
 }

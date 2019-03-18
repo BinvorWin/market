@@ -20,9 +20,4 @@ public class Type {
     public void setTypename(String typename) {
         this.typename = typename == null ? null : typename.trim();
     }
-
-	@Override
-	public String toString() {
-		return "Type [protypeid=" + protypeid + ", typename=" + typename + "]";
-	}
 }
