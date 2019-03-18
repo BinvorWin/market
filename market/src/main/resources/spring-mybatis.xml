@@ -15,13 +15,13 @@
 	
 	<context:annotation-config />
 	
-<!-- 	<context:property-placeholder location="classpath:db.properties"/>
- -->	
+	<context:property-placeholder location="classpath:db.properties"/>
+	
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/market"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value="123"></property>
+		<property name="driverClassName" value="${driver}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${user}"></property>
+		<property name="password" value="${password}"></property>
 	</bean>	
 	
 	<!-- 事务管理   -->
