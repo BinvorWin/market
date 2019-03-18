@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@ layui.use('element', function(){
           <dd><a href="">修改信息</a></dd>
         </dl>
       </li>
-      <li class="layui-nav-item"><a href="">退出</a></li>
+      <li class="layui-nav-item"><a href="${pageContext.request.contextPath }/staff/logout">退出</a></li>
     </ul>
   </div>
   
@@ -50,7 +51,7 @@ layui.use('element', function(){
         <li class="layui-nav-item">
           <a href="javascript:;">商品信息管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">商品信息</a></dd>
+            <dd><a href="product/getlist">商品信息</a></dd>
             <dd><a href="javascript:;">商品类别</a></dd>
           </dl>
         </li>
