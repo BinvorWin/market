@@ -15,7 +15,7 @@
 	<link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
 </head>
 <body class="nav-md">
-    <div class="container body">
+    <div class="container body" style="overflow-x: hidden;overflow-y: hidden; ">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
