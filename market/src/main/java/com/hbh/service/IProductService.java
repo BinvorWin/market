@@ -14,9 +14,8 @@ public interface IProductService {
     int deleteByPrimaryKey(String proid);
 
     int insert(Product record);
-    List<Product>  getlist();
     List<Product> selectByExample(ProductExample example);
-
+    public List<Product> getlist();
     Product selectByPrimaryKey(String proid);
 
     int updateByPrimaryKey(Product record);

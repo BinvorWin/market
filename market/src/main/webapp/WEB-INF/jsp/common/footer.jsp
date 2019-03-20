@@ -1,11 +1,17 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-	<div class="layui-footer">
-    <!-- 底部固定区域 -->
-    ©Binvor   github：https://github.com/BinvorWin/market
- 	</div>
-</div>
+        <footer>
+          <h4 class="text-center text-primary">
+          The system was by Binvor you can download these code by git <a href="https://github.com/BinvorWin/market">BinvorWin</a>
+          </h4>
+          <div class="clearfix"></div>
+        </footer>
+      </div>
+  </div>            
+<script src="${pageContext.request.contextPath }/statics/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath }/statics/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath }/statics/js/moment.min.js"></script>
+<script src="${pageContext.request.contextPath }/statics/js/daterangepicker.js"></script>
+<script src="${pageContext.request.contextPath }/statics/js/custom.min.js"></script>
+<script src="${pageContext.request.contextPath }/statics/js/nprogress.js"></script>
+<script src="${pageContext.request.contextPath }/statics/js/fastclick.js"></script>
 </body>
 </html>

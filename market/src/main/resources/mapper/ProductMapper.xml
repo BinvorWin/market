@@ -45,9 +45,6 @@
   <sql id="Base_Column_List">
     proid, pname, price, inprice, prodate, reledate, supname, protype, unit, marks
   </sql>
-  <select id="getlist" resultMap="BaseResultMap" >
-  	select * from product 
-  </select>
   <select id="selectByExample" parameterType="com.hbh.entity.ProductExample" resultMap="BaseResultMap">
     select
     <if test="distinct">

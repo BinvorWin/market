@@ -1,22 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>超市进销存管理系统</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath }/statics/layui/css/layui.css">
-</head>
+	pageEncoding="UTF-8"%>
 <%@include file="common/head.jsp"%>
-
-  <div class="layui-body">
-  <span>Welcome,</span>
-							
-   <h>${staffSession.staffname }</h>
-  </div>
-  
-
-
+        <div class="right_col" role="main"> <h3>欢迎：<strong>${staffSession.staffname }</strong>登录</h3></div>
+<div class="clearfix"></div>
 <%@include file="common/footer.jsp"%>
-</body>
-</html>

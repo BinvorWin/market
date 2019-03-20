@@ -40,10 +40,11 @@ public class ProductServiceImp  implements IProductService{
 	public int updateByPrimaryKey(Product record) {
 		return productMapper.updateByPrimaryKey(record);
 	}
-//查询所有
+//	获取所有
 	public List<Product> getlist() {
 		// TODO Auto-generated method stub
-		return null;
+		 return productMapper.selectByExample(null);
 	}
+
 
 }

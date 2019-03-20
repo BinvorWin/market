@@ -38,7 +38,13 @@
         </init-param>  
         <load-on-startup>1</load-on-startup>  
         <async-supported>true</async-supported>  
-    </servlet>  
+    </servlet> 
+    <!-- 日期格式处理 -->
+	  <servlet>
+	  	<servlet-name>DateConverterInitServlet</servlet-name>
+	  	<servlet-class>com.oa.util.DateConverterInitServlet</servlet-class>
+	  	<load-on-startup>3</load-on-startup>
+	  </servlet> 
     <servlet-mapping>  
         <servlet-name>SpringMVC</servlet-name>  
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->  

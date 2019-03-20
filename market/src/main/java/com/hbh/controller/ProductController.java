@@ -25,10 +25,9 @@ public class ProductController {
 	ProductServiceImp productServiceImp;
 	@RequestMapping("getlist")
 	public String getlist(ModelMap model,
-			@RequestParam(defaultValue="1",required=true,value="pageNum") Integer pageNum,
-			@RequestParam(required=true,defaultValue="3",value="pageSize") Integer pageSize
+			@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
 			) {
-		PageHelper.startPage(pageNum, pageSize);
+		PageHelper.startPage(pn, 4);
 		List<Product> products= productServiceImp.getlist();
 		PageInfo<Product> pageInfo=new PageInfo<Product>(products);
 		model.addAttribute("pageInfo", pageInfo);

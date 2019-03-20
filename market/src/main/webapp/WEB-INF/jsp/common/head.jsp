@@ -1,89 +1,119 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
- <link rel="stylesheet" href="${pageContext.request.contextPath }/statics/layui/css/layui.css">
+<title>超市进销存管理系统</title>
+	<link href="${pageContext.request.contextPath }/statics/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/statics/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/statics/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/statics/css/nprogress.css" rel="stylesheet">
+    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
 </head>
-<script src="${pageContext.request.contextPath }/statics/layui/layui.js"></script>
-<script>
-//JavaScript代码区域
-layui.use('element', function(){
-  var element = layui.element;
-});
-</script>
-<body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-  <div class="layui-header">
-    <div class="layui-logo">
-    <p>超市进销存管理系统</p>
+<body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Welcome!</span></a>
+            </div>
+					
+            <div class="clearfix"></div>
 
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+               	<h3 class="text-info">用心与你沟通</h3>
+            </div>
 
-    </div>
-    <!-- 头部区域（可配合layui已有的水平导航） -->
-    <ul class="layui-nav layui-layout-right">
-      <li class="layui-nav-item">
-        <a href="javascript:;">
-          ${staffSession.staffname }
-        </a>
-        <dl class="layui-nav-child">
-          <dd><a href="">基本资料</a></dd>
-          <dd><a href="">修改信息</a></dd>
-        </dl>
-      </li>
-      <li class="layui-nav-item"><a href="${pageContext.request.contextPath }/staff/logout">退出</a></li>
-    </ul>
-  </div>
-  
-  <div class="layui-side layui-bg-black">
-    <div class="layui-side-scroll">
-      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-        <li class="layui-nav-item layui-nav-itemed">
-          <a class="" href="javascript:;">进货管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">进货信息</a></dd>
-            <dd><a href="javascript:;">退货信息</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">商品信息管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="product/getlist">商品信息</a></dd>
-            <dd><a href="javascript:;">商品类别</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">库存管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">库存信息</a></dd>
-            <dd><a href="javascript:;">库存预警</a></dd>
-            <dd><a href="javascript:;">临期产品</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">销售管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">销售信息</a></dd>
-            <dd><a href="javascript:;">顾客退货办理</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">客户信息管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">客户信息</a></dd>
-          </dl>
-        </li>
-        <li class="layui-nav-item">
-          <a href="javascript:;">供应商信息管理</a>
-          <dl class="layui-nav-child">
-            <dd><a href="javascript:;">供应商信息</a></dd>
-          </dl>
-        </li>
-      </ul>
-    </div>
-  </div>
+            <br />
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> 进货管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.html">进货信息</a></li>
+                      <li><a href="index2.html">退货信息</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> 商品信息管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist">商品信息</a></li>
+                      <li><a href="form_advanced.html">商品类别</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i> 库存管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="general_elements.html">库存信息</a></li>
+                      <li><a href="media_gallery.html">库存预警</a></li>
+                      <li><a href="typography.html">临期产品</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="tables.html">销售信息</a></li>
+                      <li><a href="tables_dynamic.html">顾客退货办理</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i> 客户信息管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="chartjs.html">客户信息</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>供应商信息管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="fixed_sidebar.html">供应商信息</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+		<div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
 
-</html>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user">${staffSession.staffname }</span> 
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> 基本信息</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span>修改资料</span>
+                      </a>
+                    </li>
+                    <li><a href="${pageContext.request.contextPath }/staff/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
