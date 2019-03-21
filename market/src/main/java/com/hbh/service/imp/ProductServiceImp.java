@@ -37,7 +37,7 @@ public class ProductServiceImp  implements IProductService{
 		return productMapper.selectByPrimaryKey(proid);
 	}
 //根据主键更新
-	public int updateByPrimaryKey(Product record) {
+	public boolean updateByPrimaryKey(Product record) {
 		return productMapper.updateByPrimaryKey(record);
 	}
 //	获取所有

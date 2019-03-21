@@ -11,13 +11,21 @@
 	                  </div>
 					<!-- 按钮 -->
 					<div class="row">
-						<div class="col-md-4 col-md-offset-10">
-							<button class="btn btn-primary">新增</button>
-						</div>
+						<div class="mid_center">
+			                  <div class="col-xs-12 col-md-offset-10 ">
+			                    <div class="input-group">
+			                      <input type="text" class="form-control" placeholder="Search for...">
+			                      <span class="input-group-btn">
+			                              <button class="btn btn-primary" type="button">查询</button>
+			                              <button class="btn btn-primary">新增</button>
+			                      </span>
+			                    </div>
+			                  </div>
+		                </div>
 					</div>
 					<div class="row">
 	                  <div class="x_content">
-	                    <table id="datatable" class="table table-striped table-bordered">
+	                    <table id="datatable" class="table table-striped table-bordered table-hover">
 					    	<tr>
 					        	 <th>商品id</th>
 					        	 <th>名称</th>
@@ -44,12 +52,16 @@
 					                         <th>${product.unit}</th>
 					                         <th>${product.marks}</th>      
 					                         <th>
-					                            <button class="btn btn-primary btn-xs">
-					                                  编辑<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-					                            </button>
-					                            <button class="btn btn-primary btn-xs" aria-label="Left Align">
-					                                删除<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-					                            </button>
+					                            <div class="btn-group">
+												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												    编辑 <span class="caret"></span>
+												  </button>
+												  <ul class="dropdown-menu">
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/product/getpro?proid=${product.proid}" >查看</a></li>
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/product/editpro?proid=${product.proid}">修改</a></li>
+												  </ul>
+												</div>
+					                            <a href="${pageContext.request.contextPath }/staff/flatform/product/deletepro?proid=${product.proid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>

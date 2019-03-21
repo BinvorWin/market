@@ -13,6 +13,9 @@
     <link href="${pageContext.request.contextPath }/statics/css/nprogress.css" rel="stylesheet">
     <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath }/statics//vendors/jszip/dist/jszip.min.js"></script>
+    <script src="${pageContext.request.contextPath }/statics//vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="${pageContext.request.contextPath }/statics//vendors/pdfmake/build/vfs_fonts.js"></script>
 </head>
 <body class="nav-md">
     <div class="container body" style="overflow-x: hidden;overflow-y: hidden; ">

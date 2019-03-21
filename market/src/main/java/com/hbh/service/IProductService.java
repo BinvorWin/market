@@ -18,5 +18,5 @@ public interface IProductService {
     public List<Product> getlist();
     Product selectByPrimaryKey(String proid);
 
-    int updateByPrimaryKey(Product record);
+    boolean updateByPrimaryKey(Product record);
     }

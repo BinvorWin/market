@@ -2,8 +2,11 @@ package com.hbh.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,5 +37,32 @@ public class ProductController {
 		return "getlist";
 		
 	}
+    @RequestMapping("/getpro")  
+    public String getpro(String proid,HttpServletRequest request,Model model){  
+        request.setAttribute("product", productServiceImp.selectByPrimaryKey(proid));
+        model.addAttribute("product",productServiceImp.selectByPrimaryKey(proid));  
+        return "getpro";  
+    }
+	@RequestMapping("editpro")
+	public String editProduct(Product pro,HttpServletRequest request,Model model){
+		model.addAttribute("product", productServiceImp.selectByPrimaryKey(pro.getProid()));
+		return "editpro";
+	}	
+	@RequestMapping("updatepro")
+	public String updatepro(Product product,HttpServletRequest request,Model model){  
+    	productServiceImp.updateByPrimaryKey(product);
+        return "redirect:getlist";  
+    } 
+    @RequestMapping("/deletepro")  
+    public String deletetepro(String proid,HttpServletRequest request,Model model){  
+    	productServiceImp.deleteByPrimaryKey(proid);
+        return "redirect:getlist";  
+    } 
+    @RequestMapping("/insertpro")  
+    public String insertpro(Product product,HttpServletRequest request,Model model){  
+    	productServiceImp.insert(product);
+        return "getlist";  
+    } 
+    
 
 }

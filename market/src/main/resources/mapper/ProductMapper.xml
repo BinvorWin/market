@@ -61,10 +61,12 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from product
-    where proid = #{proid,jdbcType=VARCHAR}
+	SELECT
+		p.*
+	FROM
+		product p
+	WHERE
+		 p.proid= #{proid,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from product

@@ -22,8 +22,17 @@ public class Product {
     private String unit;
 
     private String marks;
+    private Kcxx kcxx;
+    
+    public Kcxx getkcxx() {
+		return kcxx;
+	}
 
-    public String getProid() {
+	public void setKcxx(Ckin ckxx) {
+		this.kcxx = kcxx;
+	}
+
+	public String getProid() {
         return proid;
     }
 

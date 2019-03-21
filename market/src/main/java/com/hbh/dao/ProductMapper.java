@@ -14,5 +14,5 @@ public interface ProductMapper {
 
     Product selectByPrimaryKey(String proid);
 
-    int updateByPrimaryKey(Product record);
+    boolean updateByPrimaryKey(Product record);
 }
