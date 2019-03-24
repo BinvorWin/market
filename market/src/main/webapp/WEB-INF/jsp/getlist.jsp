@@ -16,8 +16,10 @@
 			                    <div class="input-group">
 			                      <input type="text" class="form-control" placeholder="Search for...">
 			                      <span class="input-group-btn">
-			                              <button class="btn btn-primary" type="button">查询</button>
-			                              <button class="btn btn-primary">新增</button>
+<%-- 			                              <button class="btn btn-primary" type="button">查询</button>
+			                              <button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro">新增</button>
+ --%>			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
+									<a href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro" class="btn btn-primary " role="button">新增</a>
 			                      </span>
 			                    </div>
 			                  </div>

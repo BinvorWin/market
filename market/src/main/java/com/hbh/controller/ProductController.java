@@ -26,6 +26,7 @@ import com.hbh.service.imp.ProductServiceImp;
 public class ProductController {
 	@Autowired
 	ProductServiceImp productServiceImp;
+//	获取所有商品信息
 	@RequestMapping("getlist")
 	public String getlist(ModelMap model,
 			@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
@@ -37,31 +38,50 @@ public class ProductController {
 		return "getlist";
 		
 	}
+//	根据id查询单个商品信息
     @RequestMapping("/getpro")  
     public String getpro(String proid,HttpServletRequest request,Model model){  
         request.setAttribute("product", productServiceImp.selectByPrimaryKey(proid));
         model.addAttribute("product",productServiceImp.selectByPrimaryKey(proid));  
         return "getpro";  
     }
-	@RequestMapping("editpro")
-	public String editProduct(Product pro,HttpServletRequest request,Model model){
-		model.addAttribute("product", productServiceImp.selectByPrimaryKey(pro.getProid()));
-		return "editpro";
-	}	
+//	@RequestMapping("editpro")
+//	public String editProduct(Product pro,HttpServletRequest request,Model model){
+//		model.addAttribute("product", productServiceImp.selectByPrimaryKey(pro.getProid()));
+//		return "editpro";
+//	}	
 	@RequestMapping("updatepro")
 	public String updatepro(Product product,HttpServletRequest request,Model model){  
-    	productServiceImp.updateByPrimaryKey(product);
-        return "redirect:getlist";  
+    	if(productServiceImp.updateByPrimaryKey(product)) {
+    		product=productServiceImp.selectByPrimaryKey(product.getProid());
+    		model.addAttribute("product", product);
+    		return "redirect:getlist"; 
+    	}
+    	return null;
+         
     } 
     @RequestMapping("/deletepro")  
     public String deletetepro(String proid,HttpServletRequest request,Model model){  
     	productServiceImp.deleteByPrimaryKey(proid);
         return "redirect:getlist";  
     } 
+//  跳转到增加页面
+    @RequestMapping("/toaddpro")  
+  public String toaddpro(){  
+  	return "addpro";
+
+  } 
+    
     @RequestMapping("/insertpro")  
+//    先判断数据库有没有，有就更新，没有就新增
     public String insertpro(Product product,HttpServletRequest request,Model model){  
-    	productServiceImp.insert(product);
-        return "getlist";  
+    	if(null==productServiceImp.selectByPrimaryKey(product.getProid())) {
+        	productServiceImp.insert(product);    		
+    	}else {
+    		productServiceImp.updateByPrimaryKey(product);
+    	}
+    	return "redirect:getlist";
+
     } 
     
 
