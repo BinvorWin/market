@@ -31,6 +31,7 @@
 					    	<tr>
 					        	 <th>类名id</th>
 					        	 <th>商品类型</th>
+					        	 <th>操作</th>
 					        </tr>
 					        <c:forEach items="${pageInfo.list}" var="type">
 					        	<tr>
@@ -42,8 +43,8 @@
 												    编辑 <span class="caret"></span>
 												  </button>
 												  <ul class="dropdown-menu">
-												    <li><a href="" >查看</a></li>
-												    <li><a href="">修改</a></li>
+												    <li><a href="" data-toggle="modal" data-target="#myModal" >修改</a></li>
+												    <li><a  >查看</a></li>
 												  </ul>
 												</div>
 					                            <a href=""  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
@@ -52,6 +53,24 @@
 					         </c:forEach>
 	                    </table>
 	                  </div>
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						      </div>
+						      <div class="modal-body">
+						        ...
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-primary">Save changes</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>	                  
 	                  </div>
 						<!-- 显示分页信息 -->
 						<div class="row">

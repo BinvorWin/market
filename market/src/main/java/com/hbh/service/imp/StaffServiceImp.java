@@ -17,13 +17,13 @@ public class StaffServiceImp implements IStaffService {
 	@Autowired
 	private StaffMapper staffDao;
 	public Staff getStaff(String staffid, String pwd) {
-		Staff staff=null;
-		staff=staffDao.getStaff(staffid);
+		Staff staff=staffDao.getStaff(staffid);
+		
 		if(staff!=null) {
-			if(staff.getPwd()==pwd)
-				return null;
+			if(staff.getPwd().equals(pwd))
+				return staff;
 		}
-		return staff;
+		return null;
 	}
 	public int updateByid(String staffid) {
 		return staffDao.updateByid(staffid);
