@@ -2,82 +2,82 @@
     pageEncoding="UTF-8"%>
 <%@include file="common/head.jsp"%>
     <div class="right_col" role="main"> 
-	<form class="form-horizontal form-label-left" novalidate action="addpro" method="post">
+	<form class="form-horizontal form-label-left" method="post" action="updatepro">
 
-                      <span class="section">新增商品</span>
+                      <span class="section">修改商品信息</span>
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">商品id<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="proid" class="form-control input-small input-sm "   type="text"  >
+                          <input id="proid" name="proid" class="form-control input-small input-sm "  value="${product.proid}"  type="text" >
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="proname" class="form-control col-md-7 col-xs-5"   type="text"  >
+                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${product.pname}"  type="text" >
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >售价 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="price" class="form-control col-md-7 col-xs-5"   type="number"  >
+                          <input id="price" name="price" class="form-control col-md-7 col-xs-5" value="${product.price}"  type="text" >
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >进价 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5"   type="number"  >                        
+                          <input id="inprice"  name="inprice" class="form-control col-md-7 col-xs-5" value="${product.inprice}"  type="text" >                        
                       </div>
                       	</div>
-                      <div class="item form-group">
+                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >生产日期<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="prodate" class="form-control col-md-7 col-xs-5"  type="date"  >                        
+                          <input id="prodate"  name="prodate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.prodate}"/>" type="date" >                        
                           </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >过期时间<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5" type="date"   >
+                          <input id="reledate" name="reledate" class="form-control col-md-7 col-xs-5"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.reledate}"/>" type="date">
                         </div>
-                      </div>
+                      </div> 
                        <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >供应商名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5"   type="text"  >
+                          <input id="supname" name="supname"  class="form-control col-md-7 col-xs-5" value="${product.supname}"  type="text" >
                         </div>
                       </div>                      
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >商品类型<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5"   type="text"  >
+                          <input id="protype"  name="protype" class="form-control col-md-7 col-xs-5"  value="${product.protype}" type="text" >
                         </div>
                       </div>                      
                         <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >计件方式<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5"  type="text"  >
+                          <input id="unit"  name="unit" class="form-control col-md-7 col-xs-5" value="${product.unit}"  type="text" >
                         </div>
                         </div> 
                         <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >备注<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5"  type="text"  >
+                          <input id="marks" name="marks" class="form-control col-md-7 col-xs-5" value="${product.marks}"  type="text" >
                         </div>
                         </div>
-                      
-						<input type="submit" class="text-center" value="新增商品">		                      
+						<a href="${pageContext.request.contextPath }/staff/flatform/product/getlist" class=" text-left btn btn-default  " role="button">返回上页</a>
+						<input type="submit" value="修改">								                      
                     </form>
 	<div class="clearfix"></div>
 	</div>

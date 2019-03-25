@@ -17,14 +17,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="proname" name="proname" class="form-control col-md-7 col-xs-5" value="${product.pname}"  type="text" >
+                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${product.pname}"  type="text" >
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >售价 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="price" name="pice" class="form-control col-md-7 col-xs-5" value="${product.price}"  type="text" >
+                          <input id="price" name="price" class="form-control col-md-7 col-xs-5" value="${product.price}"  type="text" >
                         </div>
                       </div>
                       <div class="item form-group">
@@ -34,20 +34,20 @@
                           <input id="inprice"  name="inprice" class="form-control col-md-7 col-xs-5" value="${product.inprice}"  type="text" >                        
                       </div>
                       	</div>
-                      <div class="item form-group">
+                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >生产日期<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="prodate" name="prodate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.prodate}"/>" type="text" >                        
+                          <input id="prodate"  name="prodate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.prodate}"/>" type="date" >                        
                           </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >过期时间<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="reledate" name="reledate" class="form-control col-md-7 col-xs-5"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.reledate}"/>" type="text">
+                          <input id="reledate" name="reledate" class="form-control col-md-7 col-xs-5"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.reledate}"/>" type="date">
                         </div>
-                      </div>
+                      </div> 
                        <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >供应商名称<span >*</span>
                         </label>
@@ -76,10 +76,8 @@
                           <input id="marks" name="marks" class="form-control col-md-7 col-xs-5" value="${product.marks}"  type="text" >
                         </div>
                         </div>
-                      
 						<a href="${pageContext.request.contextPath }/staff/flatform/product/getlist" class=" text-left btn btn-default  " role="button">返回上页</a>
-						<a href="${pageContext.request.contextPath }/staff/flatform/product/getlist" class=" text-center btn btn-primary  col-md-offset-4 col-lg-offset-4col-xl-offset-4" role="button">新增</a>
-								                      
+						<input type="submit" value="增加">								                      
                     </form>
 	<div class="clearfix"></div>
 	</div>
