@@ -1,8 +1,10 @@
 package com.hbh.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.hbh.entity.Product;
 import com.hbh.entity.ProductExample;
-import java.util.List;
 
 public interface ProductMapper {
     int deleteByPrimaryKey(String proid);
@@ -15,4 +17,5 @@ public interface ProductMapper {
     Product selectByPrimaryKey(String proid);
 
     boolean updateByPrimaryKey(Product record);
+    List<Product> getbywhere(String proid,String pname,String protype );
 }

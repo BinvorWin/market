@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="javax.servlet.http.HttpServletRequest"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,7 @@
                   <li><a><i class="fa fa-edit"></i> 商品信息管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist">商品信息</a></li>
-                      <li><a href="form_advanced.html">商品类别</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/getall">商品类别</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 库存管理 <span class="fa fa-chevron-down"></span></a>

@@ -1,6 +1,7 @@
 package com.hbh.service.imp;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,11 @@ public class ProductServiceImp  implements IProductService{
 	public List<Product> getlist() {
 		// TODO Auto-generated method stub
 		 return productMapper.selectByExample(null);
+	}
+//	按输入的条件查询
+	public List<Product> getbywhere(String proid,String pname,String protype ) {
+		// TODO Auto-generated method stub
+		return productMapper.getbywhere(proid, pname, protype);
 	}
 
 

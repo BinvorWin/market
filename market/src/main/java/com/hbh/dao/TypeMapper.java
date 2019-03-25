@@ -5,17 +5,16 @@ import com.hbh.entity.TypeExample;
 import java.util.List;
 
 public interface TypeMapper {
+//	删除
     int deleteByPrimaryKey(String protypeid);
-
+//插入
     int insert(Type record);
 
-    int insertSelective(Type record);
-
+//查询所有
     List<Type> selectByExample(TypeExample example);
-
+//根据主键查询
     Type selectByPrimaryKey(String protypeid);
 
-    int updateByPrimaryKeySelective(Type record);
-
+//更新
     int updateByPrimaryKey(Type record);
 }

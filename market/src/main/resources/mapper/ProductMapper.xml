@@ -95,4 +95,8 @@
       marks = #{marks,jdbcType=VARCHAR}
     where proid = #{proid,jdbcType=VARCHAR}
   </update>
+  <select id="getbywhere"  resultMap="BaseResultMap">
+  	select * from product
+  	where  proid = #{proid,jdbcType=VARCHAR} or supname = #{supname,jdbcType=VARCHAR} or pname = #{pname,jdbcType=VARCHAR}
+  </select>
 </mapper>

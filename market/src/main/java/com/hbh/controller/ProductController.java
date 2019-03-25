@@ -3,6 +3,7 @@ package com.hbh.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -49,6 +50,13 @@ public class ProductController {
         request.setAttribute("product", productServiceImp.selectByPrimaryKey(proid));
         model.addAttribute("product",productServiceImp.selectByPrimaryKey(proid));  
         return "getpro";  
+    }
+//    根据条件查询
+    @RequestMapping("/getwhere")  
+    public String getwhere(String proid,String pname,String protype ,HttpServletRequest request,Model model){  
+        request.setAttribute("product", productServiceImp.getbywhere(proid, pname, protype));
+        model.addAttribute("product",productServiceImp.getbywhere(proid, pname, protype));  
+        return "getlist";  
     }
 	@RequestMapping("editpro")
 	public String editProduct(Product pro,HttpServletRequest request,Model model){

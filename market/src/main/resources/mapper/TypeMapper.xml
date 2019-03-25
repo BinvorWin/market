@@ -66,34 +66,6 @@
     insert into type (protypeid, typename)
     values (#{protypeid,jdbcType=VARCHAR}, #{typename,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hbh.entity.Type">
-    insert into type
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="protypeid != null">
-        protypeid,
-      </if>
-      <if test="typename != null">
-        typename,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="protypeid != null">
-        #{protypeid,jdbcType=VARCHAR},
-      </if>
-      <if test="typename != null">
-        #{typename,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hbh.entity.Type">
-    update type
-    <set>
-      <if test="typename != null">
-        typename = #{typename,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where protypeid = #{protypeid,jdbcType=VARCHAR}
-  </update>
   <update id="updateByPrimaryKey" parameterType="com.hbh.entity.Type">
     update type
     set typename = #{typename,jdbcType=VARCHAR}
