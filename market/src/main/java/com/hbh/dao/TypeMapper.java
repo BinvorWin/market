@@ -16,5 +16,5 @@ public interface TypeMapper {
     Type selectByPrimaryKey(String protypeid);
 
 //更新
-    int updateByPrimaryKey(Type record);
+    boolean updateByPrimaryKey(Type record);
 }

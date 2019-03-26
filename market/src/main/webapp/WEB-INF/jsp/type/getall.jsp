@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
-<%@include file="../common/head.jsp"%>    
+s<%@include file="../common/head.jsp"%> 
+   
 	<div class="right_col" role="main"> 
 	<div class="clearfix"></div>
 	<div class="col-md-12 col-sm-12 col-xs-12">
@@ -30,7 +31,7 @@
 	                    <table id="datatable" class="table table-striped table-bordered table-hover">
 					    	<tr>
 					        	 <th>类名id</th>
-					        	 <th>商品类型</th>
+					        	 <th>类别名称</th>
 					        	 <th>操作</th>
 					        </tr>
 					        <c:forEach items="${pageInfo.list}" var="type">
@@ -43,35 +44,50 @@
 												    编辑 <span class="caret"></span>
 												  </button>
 												  <ul class="dropdown-menu">
-												    <li><a href="" data-toggle="modal" data-target="#myModal" >修改</a></li>
-												    <li><a  >查看</a></li>
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getbyid?protypeid=${type.protypeid}" >查看</a></li>
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/kind/toupdate?protypeid=${type.protypeid}">修改</a></li>
 												  </ul>
 												</div>
-					                            <a href=""  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+					                            <a href="${pageContext.request.contextPath }/staff/flatform/kind/delete?protypeid=${type.protypeid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
 	                    </table>
 	                  </div>
-						<!-- Modal -->
+
+						<!-- Modal 做完之后再优化 -->
+<%-- 						<form class="form-horizontal form-label-left" id="getbyid" name="getbyid" method="post" action="update">
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						        <h4 class="modal-title" id="myModalLabel">修改类别</h4>
 						      </div>
 						      <div class="modal-body">
-						        ...
+								<div class="item form-group">
+		                        <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">类别id<span >*</span>
+		                        </label>
+		                        <div class="col-md-6 col-sm-6 col-xs-5">
+		                          <input id="protypeid" name="protypeid" class="form-control input-small input-sm "  value="${type.protypeid}"  type="text" >
+		                        </div>
+		                      </div>
+		                      <div class="item form-group">
+		                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >类别名称<span >*</span>
+		                        </label>
+		                        <div class="col-md-6 col-sm-6 col-xs-5">
+		                          <input id="typename" name="typename" class="form-control col-md-7 col-xs-5"  value="${type.typename}" type="text" >
+		                        </div>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        <button type="button" class="btn btn-primary">Save changes</button>
+						        <button type="submit" class="btn btn-primary" >Save changes</button>
 						      </div>
 						    </div>
 						  </div>
-						</div>	                  
+						</div>
 	                  </div>
+	                  </form> --%>
 						<!-- 显示分页信息 -->
 						<div class="row">
 							<!--分页文字信息  -->
@@ -81,9 +97,9 @@
 							<div class="col-md-6">
 								<nav aria-label="Page navigation">
 								<ul class="pagination">
-									<li><a href="${pageContext.request.contextPath }/staff/flatform/getall?pn=1">首页</a></li>
+									<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=1">首页</a></li>
 									<c:if test="${pageInfo.hasPreviousPage }">
-										<li><a href="${pageContext.request.contextPath }/staff/flatform/flatform/getall?pn=${pageInfo.pageNum-1}"
+										<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=${pageInfo.pageNum-1}"
 											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 										</a></li>
 									</c:if>
@@ -94,16 +110,16 @@
 											<li class="active"><a href="#">${page_Num }</a></li>
 										</c:if>
 										<c:if test="${page_Num != pageInfo.pageNum }">
-											<li><a href="${pageContext.request.contextPath }/staff/flatform/flatform/getall?pn=${page_Num }">${page_Num }</a></li>
+											<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=${page_Num }">${page_Num }</a></li>
 										</c:if>
 				
 									</c:forEach>
 									<c:if test="${pageInfo.hasNextPage }">
-										<li><a href="${pageContext.request.contextPath }/staff/flatform/getall?pn=${pageInfo.pageNum+1 }"
+										<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=${pageInfo.pageNum+1 }"
 											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 										</a></li>
 									</c:if>
-									<li><a href="${pageContext.request.contextPath }/staff/flatform/getall?pn=${pageInfo.pages}">末页</a></li>
+									<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=${pageInfo.pages}">末页</a></li>
 								</ul>
 								</nav>
 							</div>
@@ -112,4 +128,23 @@
 	                </div>
 	</div>
 </div>
+<!-- <script type="text/javascript">
+/* 	function gettype(protypeid){
+		alert(1);
+  	$.ajax({
+  		type:'post',
+  		url:'${pageContext.request.contextPath }/staff/flatform/getbyid?protypeid'=protypeid,
+  		success : function(result) {
+  			var typedata=result.extend.type;
+			$("#protypeid").attr("value",typedata.protypeid);
+			$("#typename").attr("value",typedata.typename);
+			}
+  		});
+	} */	
+	
+	function get(){
+		alert(1);
+  	
+	}	
+</script>    -->
 <%@include file="../common/footer.jsp"%>

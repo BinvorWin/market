@@ -21,6 +21,6 @@ public interface ITypeService {
     Type selectByid(String protypeid);
 
 //更新
-    int update(Type record);
+    boolean update(Type record);
 	
 }

@@ -12,11 +12,7 @@
     <link href="${pageContext.request.contextPath }/statics/css/font-awesome.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/statics/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/statics/css/nprogress.css" rel="stylesheet">
-    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath }/statics//vendors/jszip/dist/jszip.min.js"></script>
-    <script src="${pageContext.request.contextPath }/statics//vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="${pageContext.request.contextPath }/statics//vendors/pdfmake/build/vfs_fonts.js"></script>
 </head>
 <body class="nav-md">
     <div class="container body" style="overflow-x: hidden;overflow-y: hidden; ">
@@ -48,7 +44,7 @@
                   <li><a><i class="fa fa-edit"></i> 商品信息管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist">商品信息</a></li>
-                      <li><a href="${pageContext.request.contextPath }/staff/flatform/getall">商品类别</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall">商品类别</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 库存管理 <span class="fa fa-chevron-down"></span></a>

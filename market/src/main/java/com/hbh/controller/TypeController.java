@@ -24,28 +24,30 @@ import com.hbh.service.imp.TypeServiceImp;
  * @Des  商品类别控制器
  */
 @Controller
-@RequestMapping("/staff/flatform")
+@RequestMapping("/staff/flatform/kind")
 public class TypeController {
 	
 	@Autowired
 	TypeServiceImp typeServiceImp;
 	
 //  跳转到增加页面
-    @RequestMapping("/toadd")  
+	
+  @RequestMapping("/toadd")  
   public String toaddtype(){  
   	return "type/addtype";
 
   } 
 //  跳转到修改页面
+    
     @RequestMapping("/toupdate")  
 	public String editProduct(Type type,HttpServletRequest request,Model model){
-		model.addAttribute("product", typeServiceImp.selectByid(type.getProtypeid()));
-		return "editpro";
+		model.addAttribute("type", typeServiceImp.selectByid(type.getProtypeid()));
+		return "type/edittype";
 	}
+//  先判断数据库有没有，有就更新，没有就新增
     
     @RequestMapping("/insert")  
-//    先判断数据库有没有，有就更新，没有就新增
-    public String insertpro(Type type,HttpServletRequest request,Model model){  
+    public String insert(Type type,HttpServletRequest request,Model model){  
     	if(null==typeServiceImp.selectByid(type.getProtypeid())) {
     		typeServiceImp.insert(type);    		
     	}else {
@@ -55,22 +57,26 @@ public class TypeController {
 
     } 
 //    删除
+    
     @RequestMapping("/delete")
     public String delete(String protypeid) {
     	typeServiceImp.delete(protypeid);
     	return "type/getall";
     }
 //    修改类别
+    
     @RequestMapping("/update")
     public String update(Type type,HttpServletRequest request,Model model){
-    	if(type!=null) {
-    		typeServiceImp.update(type);
+    	if(typeServiceImp.update(type)) {
+    		type=typeServiceImp.selectByid(type.getProtypeid());
+    		model.addAttribute("type", type);
     	}
     	return "type/getall";
     }
     
 //    查询所有
-    @RequestMapping("/getall")
+    
+    @RequestMapping("getall")
     public String getall(ModelMap model,
 			@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
 			) {
@@ -82,11 +88,12 @@ public class TypeController {
 		
 	}
 //  查询单个
-    @RequestMapping("/getbyid")
+    
+  @RequestMapping("/getbyid")
   public String getbyid(String protypeid,HttpServletRequest request,Model model) {
-      request.setAttribute("product", typeServiceImp.selectByid(protypeid));
-      model.addAttribute("product",typeServiceImp.selectByid(protypeid));  
-      return "type/gettype"; 
+      request.setAttribute("type", typeServiceImp.selectByid(protypeid));
+      model.addAttribute("type",typeServiceImp.selectByid(protypeid));  
+      return "type/getall"; 
 		
 	}
 }

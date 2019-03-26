@@ -39,9 +39,9 @@ public class TypeServiceImp  implements ITypeService{
 		return typeMapper.selectByPrimaryKey(protypeid);
 	}
 
-	public int update(Type record) {
+	public boolean update(Type record) {
 		// TODO Auto-generated method stub
-		return 0;
+		return typeMapper.updateByPrimaryKey(record);
 	}
 	
 }
