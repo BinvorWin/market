@@ -22,7 +22,7 @@
 	  <listener>
 	    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	  </listener>
-！
+
     <!-- 编码过滤器 -->  
     <filter>  
         <filter-name>encodingFilter</filter-name>  

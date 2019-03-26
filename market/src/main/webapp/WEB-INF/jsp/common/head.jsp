@@ -44,7 +44,7 @@
                   <li><a><i class="fa fa-edit"></i> 商品信息管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist">商品信息</a></li>
-                      <li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall">商品类别</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/type/getall">商品类别</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 库存管理 <span class="fa fa-chevron-down"></span></a>
@@ -62,7 +62,7 @@
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> 客户信息管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="chartjs.html">客户信息</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/custom/getall">客户信息</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-clone"></i>供应商信息管理 <span class="fa fa-chevron-down"></span></a>

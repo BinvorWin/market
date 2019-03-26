@@ -3,14 +3,14 @@ package com.hbh.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SustomExample {
+public class CustomExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SustomExample() {
+    public CustomExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

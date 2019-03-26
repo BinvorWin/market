@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hbh.dao.SustomMapper">
-  <resultMap id="BaseResultMap" type="com.hbh.entity.Sustom">
+<mapper namespace="com.hbh.dao.CustomMapper">
+  <resultMap id="BaseResultMap" type="com.hbh.entity.Custom">
     <id column="cusid" jdbcType="VARCHAR" property="cusid" />
     <result column="cusname" jdbcType="VARCHAR" property="cusname" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
@@ -41,7 +41,7 @@
   <sql id="Base_Column_List">
     cusid, cusname, tel, person, address, emali
   </sql>
-  <select id="selectByExample" parameterType="com.hbh.entity.SustomExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.hbh.entity.CustomExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -66,7 +66,7 @@
     delete from custom
     where cusid = #{cusid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.hbh.entity.Sustom">
+  <insert id="insert" parameterType="com.hbh.entity.Custom">
     insert into custom (cusid, cusname, tel, 
       person, address, emali
       )
@@ -74,71 +74,7 @@
       #{person,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{emali,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.hbh.entity.Sustom">
-    insert into custom
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="cusid != null">
-        cusid,
-      </if>
-      <if test="cusname != null">
-        cusname,
-      </if>
-      <if test="tel != null">
-        tel,
-      </if>
-      <if test="person != null">
-        person,
-      </if>
-      <if test="address != null">
-        address,
-      </if>
-      <if test="emali != null">
-        emali,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="cusid != null">
-        #{cusid,jdbcType=VARCHAR},
-      </if>
-      <if test="cusname != null">
-        #{cusname,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null">
-        #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="person != null">
-        #{person,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null">
-        #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="emali != null">
-        #{emali,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hbh.entity.Sustom">
-    update custom
-    <set>
-      <if test="cusname != null">
-        cusname = #{cusname,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null">
-        tel = #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="person != null">
-        person = #{person,jdbcType=VARCHAR},
-      </if>
-      <if test="address != null">
-        address = #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="emali != null">
-        emali = #{emali,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where cusid = #{cusid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.hbh.entity.Sustom">
+  <update id="updateByPrimaryKey" parameterType="com.hbh.entity.Custom">
     update custom
     set cusname = #{cusname,jdbcType=VARCHAR},
       tel = #{tel,jdbcType=VARCHAR},

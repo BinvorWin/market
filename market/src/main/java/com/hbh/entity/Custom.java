@@ -1,6 +1,6 @@
 package com.hbh.entity;
 
-public class Sustom {
+public class Custom {
     private String cusid;
 
     private String cusname;

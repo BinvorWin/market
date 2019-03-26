@@ -24,7 +24,7 @@ import com.hbh.service.imp.TypeServiceImp;
  * @Des  商品类别控制器
  */
 @Controller
-@RequestMapping("/staff/flatform/kind")
+@RequestMapping("/staff/flatform/type")
 public class TypeController {
 	
 	@Autowired
@@ -34,7 +34,7 @@ public class TypeController {
 	
   @RequestMapping("/toadd")  
   public String toaddtype(){  
-  	return "type/addtype";
+  	return "addtype";
 
   } 
 //  跳转到修改页面
@@ -42,7 +42,7 @@ public class TypeController {
     @RequestMapping("/toupdate")  
 	public String editProduct(Type type,HttpServletRequest request,Model model){
 		model.addAttribute("type", typeServiceImp.selectByid(type.getProtypeid()));
-		return "type/edittype";
+		return "edittype";
 	}
 //  先判断数据库有没有，有就更新，没有就新增
     
@@ -53,7 +53,7 @@ public class TypeController {
     	}else {
     		typeServiceImp.update(type);
     	}
-    	return "type/getall";
+    	return "redirect:getall";
 
     } 
 //    删除
@@ -61,7 +61,7 @@ public class TypeController {
     @RequestMapping("/delete")
     public String delete(String protypeid) {
     	typeServiceImp.delete(protypeid);
-    	return "type/getall";
+    	return "redirect:getall";
     }
 //    修改类别
     
@@ -70,13 +70,14 @@ public class TypeController {
     	if(typeServiceImp.update(type)) {
     		type=typeServiceImp.selectByid(type.getProtypeid());
     		model.addAttribute("type", type);
+    		return "redirect:getall"; 
     	}
-    	return "type/getall";
+    	return null;
     }
     
 //    查询所有
     
-    @RequestMapping("getall")
+    @RequestMapping("/getall")
     public String getall(ModelMap model,
 			@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
 			) {
@@ -84,7 +85,7 @@ public class TypeController {
 		List<Type> types= typeServiceImp.getall();
 		PageInfo<Type> pageInfo=new PageInfo<Type>(types);
 		model.addAttribute("pageInfo", pageInfo);
-		return "type/getall";
+		return "getall";
 		
 	}
 //  查询单个
@@ -93,7 +94,7 @@ public class TypeController {
   public String getbyid(String protypeid,HttpServletRequest request,Model model) {
       request.setAttribute("type", typeServiceImp.selectByid(protypeid));
       model.addAttribute("type",typeServiceImp.selectByid(protypeid));  
-      return "type/getall"; 
+      return "getall"; 
 		
 	}
 }
