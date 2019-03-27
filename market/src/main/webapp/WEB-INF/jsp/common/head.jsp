@@ -37,7 +37,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> 进货管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">进货信息</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/ckin/getall">进货信息</a></li>
                       <li><a href="index2.html">退货信息</a></li>
                     </ul>
                   </li>

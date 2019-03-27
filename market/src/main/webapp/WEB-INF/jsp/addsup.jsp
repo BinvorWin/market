@@ -45,7 +45,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >邮箱<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="email"  name="emalisss" class="form-control col-md-7 col-xs-5"  value="${supply.emali}" type="text" >
+                          <input id="email"  name="emali" class="form-control col-md-7 col-xs-5"  value="${supply.emali}" type="text" >
                         </div>
                       </div> 
 						<a href="${pageContext.request.contextPath }/staff/flatform/supply/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
