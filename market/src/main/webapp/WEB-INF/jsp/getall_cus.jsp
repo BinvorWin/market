@@ -133,6 +133,7 @@
 	                </div>
 	</div>
 </div>
+</div>
 <!-- <script type="text/javascript">
 /* 	function gettype(protypeid){
 		alert(1);

@@ -9,13 +9,9 @@ public interface SupplyMapper {
 
     int insert(Supply record);
 
-    int insertSelective(Supply record);
-
     List<Supply> selectByExample(SupplyExample example);
 
     Supply selectByPrimaryKey(String supid);
 
-    int updateByPrimaryKeySelective(Supply record);
-
-    int updateByPrimaryKey(Supply record);
+    boolean updateByPrimaryKey(Supply record);
 }

@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
-s<%@include file="../common/head.jsp"%> 
-   
+<%@include file="common/head.jsp"%>  
 	<div class="right_col" role="main"> 
 	<div class="clearfix"></div>
 	<div class="col-md-12 col-sm-12 col-xs-12">
 	                <div class="x_panel">
 	                  <div class="x_title row">
-	                    <h2>分类信息列表 </h2>
+	                    <h2>供应商信息列表 </h2>
 	                    <div class="clearfix"></div>
 	                  </div>
 					<!-- 按钮 -->
@@ -17,10 +16,8 @@ s<%@include file="../common/head.jsp"%>
 			                    <div class="input-group">
 			                      <input type="text" class="form-control" placeholder="Search for...">
 			                      <span class="input-group-btn">
-<%-- 			                              <button class="btn btn-primary" type="button">查询</button>
-			                              <button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro">新增</button>
- --%>			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
-									<a href="${pageContext.request.contextPath }/staff/flatform/type/toadd" class="btn btn-primary " role="button">新增</a>
+			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
+									<a href="${pageContext.request.contextPath }/staff/flatform/supply/toadd" class="btn btn-primary " role="button">新增</a>
 			                      </span>
 			                    </div>
 			                  </div>
@@ -30,25 +27,33 @@ s<%@include file="../common/head.jsp"%>
 	                  <div class="x_content">
 	                    <table id="datatable" class="table table-striped table-bordered table-hover">
 					    	<tr>
-					        	 <th>类名id</th>
-					        	 <th>类别名称</th>
+					        	 <th>供应商id</th>
+					        	 <th>供应商姓名</th>
+					        	 <th>供应商电话</th>
+					        	 <th>负责人</th>
+					        	 <th>地址</th>
+					        	 <th>邮箱</th>
 					        	 <th>操作</th>
 					        </tr>
-					        <c:forEach items="${pageInfo.list}" var="type">
+					        <c:forEach items="${pageInfo.list}" var="supply">
 					        	<tr>
-					                         <th>${type.protypeid}</th>
-					                         <th>${type.typename}</th>
+					                         <th>${supply.supid}</th>
+					                         <th>${supply.suppname}</th>
+					                         <th>${supply.tel}</th>
+					                         <th>${supply.person}</th>
+					                         <th>${supply.address}</th>
+					                         <th>${supply.emali}</th>
 					                         <th>
 					                            <div class="btn-group">
 												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												    编辑 <span class="caret"></span>
 												  </button>
 												  <ul class="dropdown-menu">
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getbyid?protypeid=${type.protypeid}" >查看</a></li>
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/kind/toupdate?protypeid=${type.protypeid}">修改</a></li>
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getbyid?supid=${supply.supid}" >查看</a></li>
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/supply/toupdate?supid=${supply.supid}">修改</a></li>
 												  </ul>
 												</div>
-					                            <a href="${pageContext.request.contextPath }/staff/flatform/kind/delete?protypeid=${type.protypeid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+					                            <a href="${pageContext.request.contextPath }/staff/flatform/supply/delete?supid=${supply.supid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
@@ -97,9 +102,9 @@ s<%@include file="../common/head.jsp"%>
 							<div class="col-md-6">
 								<nav aria-label="Page navigation">
 								<ul class="pagination">
-									<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=1">首页</a></li>
+									<li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getall?pn=1">首页</a></li>
 									<c:if test="${pageInfo.hasPreviousPage }">
-										<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=${pageInfo.pageNum-1}"
+										<li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getall?pn=${pageInfo.pageNum-1}"
 											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 										</a></li>
 									</c:if>
@@ -110,16 +115,16 @@ s<%@include file="../common/head.jsp"%>
 											<li class="active"><a href="#">${page_Num }</a></li>
 										</c:if>
 										<c:if test="${page_Num != pageInfo.pageNum }">
-											<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=${page_Num }">${page_Num }</a></li>
+											<li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getall?pn=${page_Num }">${page_Num }</a></li>
 										</c:if>
 				
 									</c:forEach>
 									<c:if test="${pageInfo.hasNextPage }">
-										<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=${pageInfo.pageNum+1 }"
+										<li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getall?pn=${pageInfo.pageNum+1 }"
 											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 										</a></li>
 									</c:if>
-									<li><a href="${pageContext.request.contextPath }/staff/flatform/kind/getall?pn=${pageInfo.pages}">末页</a></li>
+									<li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getall?pn=${pageInfo.pages}">末页</a></li>
 								</ul>
 								</nav>
 							</div>
@@ -127,6 +132,7 @@ s<%@include file="../common/head.jsp"%>
 		
 	                </div>
 	</div>
+</div>
 </div>
 <!-- <script type="text/javascript">
 /* 	function gettype(protypeid){
@@ -147,4 +153,4 @@ s<%@include file="../common/head.jsp"%>
   	
 	}	
 </script>    -->
-<%@include file="../common/footer.jsp"%>
+<%@include file="common/footer.jsp"%>

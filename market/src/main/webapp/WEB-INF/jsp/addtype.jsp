@@ -20,7 +20,7 @@
                           <input id="typename"  name="typename" class="form-control col-md-7 col-xs-5"  value="${type.typename}" type="text" >
                         </div>
                       </div>                      
-						<a href="${pageContext.request.contextPath }/staff/flatform/kind/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
+						<a href="${pageContext.request.contextPath }/staff/flatform/type/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
 						<input type="submit" value="增加">								                      
                     </form>
 	<div class="clearfix"></div>

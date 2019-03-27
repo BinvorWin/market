@@ -67,7 +67,7 @@
                   </li>
                   <li><a><i class="fa fa-clone"></i>供应商信息管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">供应商信息</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getall">供应商信息</a></li>
                     </ul>
                   </li>
                 </ul>

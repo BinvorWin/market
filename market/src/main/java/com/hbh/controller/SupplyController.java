@@ -1,4 +1,9 @@
 package com.hbh.controller;
+/**
+ * @Author Binvor
+ * @Date 2019年3月27日上午10:53:15
+ * @Des 供应商控制器
+ */
 
 
 
@@ -15,11 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.hbh.entity.Custom;
-import com.hbh.entity.Product;
-import com.hbh.entity.Custom;
-import com.hbh.service.imp.CustomServiceImp;
-import com.hbh.service.imp.CustomServiceImp;
+import com.hbh.entity.Supply;
+import com.hbh.service.imp.SupplyMapperServiceImp;
 
 /**
  * @Author Binvor
@@ -27,34 +29,34 @@ import com.hbh.service.imp.CustomServiceImp;
  * @Des  客户类别控制器
  */
 @Controller
-@RequestMapping("/staff/flatform/custom")
-public class CustomController {
+@RequestMapping("/staff/flatform/supply")
+public class SupplyController {
 	
 	@Autowired
-	CustomServiceImp customServiceImp;
+	SupplyMapperServiceImp supplyMapperServiceImp;
 	
 //  跳转到增加页面
 	
   @RequestMapping("/toadd")  
-  public String toaddCustom(){  
-  	return "addcus";
+  public String toaddsupply(){  
+  	return "addsup";
 
   } 
 //  跳转到修改页面
     
     @RequestMapping("/toupdate")  
-	public String editProduct(Custom custom,HttpServletRequest request,Model model){
-		model.addAttribute("custom", customServiceImp.getByid(custom.getCusid()));
-		return "editcus";
+	public String editProduct(Supply supply,HttpServletRequest request,Model model){
+		model.addAttribute("supply", supplyMapperServiceImp.getbyid(supply.getSupid()));
+		return "editsup";
 	}
 //  先判断数据库有没有，有就更新，没有就新增
     
     @RequestMapping("/insert")  
-    public String insert(Custom custom,HttpServletRequest request,Model model){  
-    	if(null==customServiceImp.getByid(custom.getCusid())) {
-    		customServiceImp.insert(custom);    		
+    public String insert(Supply supply,HttpServletRequest request,Model model){  
+    	if(null==supplyMapperServiceImp.getbyid(supply.getSupid())) {
+    		supplyMapperServiceImp.insert(supply);    		
     	}else {
-    		customServiceImp.update(custom);
+    		supplyMapperServiceImp.update(supply);
     	}
     	return "redirect:getall";
 
@@ -62,17 +64,17 @@ public class CustomController {
 //    删除
     
     @RequestMapping("/delete")
-    public String delete(String cusid) {
-    	customServiceImp.delete(cusid);
+    public String delete(String supid) {
+    	supplyMapperServiceImp.delete(supid);
     	return "redirect:getall";
     }
 //    修改
     
     @RequestMapping("/update")
-    public String update(Custom custom,HttpServletRequest request,Model model){
-    	if(customServiceImp.update(custom)) {
-    		custom=customServiceImp.getByid(custom.getCusid());
-    		model.addAttribute("custom", custom);
+    public String update(Supply supply,HttpServletRequest request,Model model){
+    	if(supplyMapperServiceImp.update(supply)) {
+    		supply=supplyMapperServiceImp.getbyid(supply.getSupid());
+    		model.addAttribute("supply", supply);
     		return "redirect:getall"; 
     	}
     	return null;
@@ -85,20 +87,21 @@ public class CustomController {
 			@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
 			) {
 		PageHelper.startPage(pn, 4);
-		List<Custom> Customs= customServiceImp.getlist();
-		PageInfo<Custom> pageInfo=new PageInfo<Custom>(Customs);
+		List<Supply> supplys= supplyMapperServiceImp.getall();
+		PageInfo<Supply> pageInfo=new PageInfo<Supply>(supplys);
 		model.addAttribute("pageInfo", pageInfo);
-		return "getall_cus";
+		return "getall_sup";
 		
 	}
 //  查询单个
     
     @RequestMapping("/getbyid")
-    public String getbyid(String cusid,HttpServletRequest request,Model model) {
-        request.setAttribute("custom", customServiceImp.getByid(cusid));
-        model.addAttribute("custom",customServiceImp.getByid(cusid));  
+    public String getbyid(String supid,HttpServletRequest request,Model model) {
+        request.setAttribute("supply", supplyMapperServiceImp.getbyid(supid));
+        model.addAttribute("supply",supplyMapperServiceImp.getbyid(supid));  
         return "getall"; 
   		
   	}
 }
+
 
