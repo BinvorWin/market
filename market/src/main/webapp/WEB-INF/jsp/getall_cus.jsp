@@ -35,21 +35,21 @@
 					        	 <th>邮箱</th>
 					        	 <th>操作</th>
 					        </tr>
-					        <c:forEach items="${pageInfo.list}" var="type">
+					        <c:forEach items="${pageInfo.list}" var="custom">
 					        	<tr>
-					                         <th>${type.cusid}</th>
-					                         <th>${type.cusname}</th>
-					                         <th>${type.tel}</th>
-					                         <th>${type.person}</th>
-					                         <th>${type.address}</th>
-					                         <th>${type.emali}</th>
+					                         <th>${custom.cusid}</th>
+					                         <th>${custom.cusname}</th>
+					                         <th>${custom.tel}</th>
+					                         <th>${custom.person}</th>
+					                         <th>${custom.address}</th>
+					                         <th>${custom.emali}</th>
 					                         <th>
 					                            <div class="btn-group">
 												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												    编辑 <span class="caret"></span>
 												  </button>
 												  <ul class="dropdown-menu">
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/custom/getbyid?cusid=${type.cusid}" >查看</a></li>
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/custom/getbyid?cusid=${custom.cusid}" >查看</a></li>
 												    <li><a href="${pageContext.request.contextPath }/staff/flatform/custom/toupdate?cusid=${custom.cusid}">修改</a></li>
 												  </ul>
 												</div>

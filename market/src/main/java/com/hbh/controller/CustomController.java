@@ -37,15 +37,15 @@ public class CustomController {
 	
   @RequestMapping("/toadd")  
   public String toaddCustom(){  
-  	return "addcustom";
+  	return "addcus";
 
   } 
 //  跳转到修改页面
     
     @RequestMapping("/toupdate")  
 	public String editProduct(Custom custom,HttpServletRequest request,Model model){
-		model.addAttribute("Custom", customServiceImp.getByid(custom.getCusid()));
-		return "editCustom";
+		model.addAttribute("custom", customServiceImp.getByid(custom.getCusid()));
+		return "editcus";
 	}
 //  先判断数据库有没有，有就更新，没有就新增
     
@@ -56,7 +56,7 @@ public class CustomController {
     	}else {
     		customServiceImp.update(custom);
     	}
-    	return "redirect:getall_cus";
+    	return "redirect:getall";
 
     } 
 //    删除
@@ -64,7 +64,7 @@ public class CustomController {
     @RequestMapping("/delete")
     public String delete(String cusid) {
     	customServiceImp.delete(cusid);
-    	return "redirect:getall_cus";
+    	return "redirect:getall";
     }
 //    修改
     
@@ -72,8 +72,8 @@ public class CustomController {
     public String update(Custom custom,HttpServletRequest request,Model model){
     	if(customServiceImp.update(custom)) {
     		custom=customServiceImp.getByid(custom.getCusid());
-    		model.addAttribute("Custom", custom);
-    		return "redirect:getall_cus"; 
+    		model.addAttribute("custom", custom);
+    		return "redirect:getall"; 
     	}
     	return null;
     }
@@ -95,9 +95,9 @@ public class CustomController {
     
     @RequestMapping("/getbyid")
     public String getbyid(String cusid,HttpServletRequest request,Model model) {
-        request.setAttribute("type", customServiceImp.getByid(cusid));
-        model.addAttribute("type",customServiceImp.getByid(cusid));  
-        return "getall_cus"; 
+        request.setAttribute("custom", customServiceImp.getByid(cusid));
+        model.addAttribute("custom",customServiceImp.getByid(cusid));  
+        return "getall"; 
   		
   	}
 }
