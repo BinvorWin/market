@@ -14,8 +14,7 @@ public class Ckin {
     private Date indate;
 
     private String marks;
-
-    public String getInid() {
+    	public String getInid() {
         return inid;
     }
 

@@ -9,6 +9,7 @@
     <result column="indate" jdbcType="DATE" property="indate" />
     <result column="marks" jdbcType="VARCHAR" property="marks" />
   </resultMap>
+  
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

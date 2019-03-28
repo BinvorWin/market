@@ -9,13 +9,10 @@ public interface CkretireMapper {
 
     int insert(Ckretire record);
 
-    int insertSelective(Ckretire record);
-
     List<Ckretire> selectByExample(CkretireExample example);
 
     Ckretire selectByPrimaryKey(String inid);
 
-    int updateByPrimaryKeySelective(Ckretire record);
 
-    int updateByPrimaryKey(Ckretire record);
+    Boolean updateByPrimaryKey(Ckretire record);
 }
