@@ -49,8 +49,8 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> 库存管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">库存信息</a></li>
-                      <li><a href="media_gallery.html">库存预警</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/kcxx/getall">库存信息</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/kcxx/kcxxWithPronum">库存预警</a></li>
                       <li><a href="typography.html">临期产品</a></li>
                     </ul>
                   </li>

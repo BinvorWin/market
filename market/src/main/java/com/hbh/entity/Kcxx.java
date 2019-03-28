@@ -8,8 +8,19 @@ public class Kcxx {
     private Integer num;
 
     private String marks;
+    
+    private Product product;
 
-    public String getProid() {
+    	
+    public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public String getProid() {
         return proid;
     }
 

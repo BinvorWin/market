@@ -7,6 +7,60 @@
     <result column="num" jdbcType="INTEGER" property="num" />
     <result column="marks" jdbcType="VARCHAR" property="marks" />
   </resultMap>
+  <select id="kcxxWithPro" parameterType="java.lang.String" resultMap="kcxxWithPro">
+  SELECT
+	p.*,
+	c.* 
+FROM
+	product p,
+	kcxx c 
+WHERE
+	p.proid = #{proid} 
+	AND p.proid = c.proid
+  
+  </select>
+    <select id="kcxxWithPronum"  resultMap="kcxxWithPronum">
+  SELECT
+	p.*,
+	c.* 
+FROM
+	product p,
+	kcxx c 
+WHERE
+	 p.proid = c.proid and c.num &lt;60 
+  
+  </select>
+  
+  <resultMap type="com.hbh.entity.Kcxx" id="kcxxWithPro">
+  	<id column="proid" jdbcType="VARCHAR" property="proid" />
+    <result column="pname" jdbcType="VARCHAR" property="pname" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="marks" jdbcType="VARCHAR" property="marks" />
+    <result column="pname" jdbcType="VARCHAR" property="product.pname" />
+    <result column="price" jdbcType="DOUBLE" property="product.price" />
+    <result column="inprice" jdbcType="DOUBLE" property="product.inprice" />
+    <result column="prodate" jdbcType="DATE" property="product.prodate" />
+    <result column="reledate" jdbcType="DATE" property="product.reledate" />
+    <result column="supname" jdbcType="VARCHAR" property="product.supname" />
+    <result column="protype" jdbcType="VARCHAR" property="product.protype" />
+    <result column="unit" jdbcType="VARCHAR" property="product.unit" />
+    <result column="marks" jdbcType="VARCHAR" property="product.marks" />
+  </resultMap>
+  <resultMap type="com.hbh.entity.Kcxx" id="kcxxWithPronum">
+  	<id column="proid" jdbcType="VARCHAR" property="proid" />
+    <result column="pname" jdbcType="VARCHAR" property="pname" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="marks" jdbcType="VARCHAR" property="marks" />
+    <result column="pname" jdbcType="VARCHAR" property="product.pname" />
+    <result column="price" jdbcType="DOUBLE" property="product.price" />
+    <result column="inprice" jdbcType="DOUBLE" property="product.inprice" />
+    <result column="prodate" jdbcType="DATE" property="product.prodate" />
+    <result column="reledate" jdbcType="DATE" property="product.reledate" />
+    <result column="supname" jdbcType="VARCHAR" property="product.supname" />
+    <result column="protype" jdbcType="VARCHAR" property="product.protype" />
+    <result column="unit" jdbcType="VARCHAR" property="product.unit" />
+    <result column="marks" jdbcType="VARCHAR" property="product.marks" />
+  </resultMap>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
