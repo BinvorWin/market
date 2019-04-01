@@ -9,13 +9,11 @@ public interface SaleMapper {
 
     int insert(Sale record);
 
-    int insertSelective(Sale record);
 
     List<Sale> selectByExample(SaleExample example);
 
     Sale selectByPrimaryKey(String saleid);
 
-    int updateByPrimaryKeySelective(Sale record);
 
-    int updateByPrimaryKey(Sale record);
+    boolean updateByPrimaryKey(Sale record);
 }

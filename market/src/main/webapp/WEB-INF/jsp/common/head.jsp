@@ -58,7 +58,7 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="tables.html">销售信息</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/sale/getall">销售信息</a></li>
                       <li><a href="tables_dynamic.html">顾客退货办理</a></li>
                     </ul>
                   </li>

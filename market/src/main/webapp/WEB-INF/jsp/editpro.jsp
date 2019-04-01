@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="common/head.jsp"%>
     <div class="right_col" role="main"> 
-	<form class="form-horizontal form-label-left" method="post" action="updatepro">
+	<form class="form-horizontal form-label-left" method="post" action="update">
 
                       <span class="section">修改商品信息</span>
 
@@ -76,7 +76,7 @@
                           <input id="marks" name="marks" class="form-control col-md-7 col-xs-5" value="${product.marks}"  type="text" >
                         </div>
                         </div>
-						<a href="${pageContext.request.contextPath }/staff/flatform/product/getlist" class=" text-left btn btn-default  " role="button">返回上页</a>
+						<a href="${pageContext.request.contextPath }/staff/flatform/sale/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
 						<input type="submit" value="修改">								                      
                     </form>
 	<div class="clearfix"></div>
