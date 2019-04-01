@@ -106,6 +106,7 @@ public class KcxxController {
         return "getkcxx"; 
   		
   	}
+//    库存预警
     @RequestMapping("/kcxxWithPronum")
     public String kcxxWithPronum(ModelMap model,
 			@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
@@ -115,6 +116,18 @@ public class KcxxController {
 		PageInfo<Kcxx> pageInfo=new PageInfo<Kcxx>(kcxxs);
 		model.addAttribute("pageInfo", pageInfo);
 		return "getkcxx_num";
+		
+	}
+//    临期产品
+    @RequestMapping("/kcxxWithProdata")
+    public String kcxxWithProdata(ModelMap model,
+			@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
+			) {
+		PageHelper.startPage(pn, 4);
+		List<Kcxx> kcxxs= kcxxServiceImp.kcxxWithProdata();
+		PageInfo<Kcxx> pageInfo=new PageInfo<Kcxx>(kcxxs);
+		model.addAttribute("pageInfo", pageInfo);
+		return "getkcxx_data";
 		
 	}
     @InitBinder

@@ -39,7 +39,7 @@
 					                         <th>${kcxx.proid}</th>
 					                         <th>${kcxx.pname}</th>
 					                         <th>${kcxx.num}</th>
-					                         <th>value="库存不足"</th>      
+					                         <th>库存不足</th>      
 					                         <th>
 					                            <div class="btn-group">
 												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +50,6 @@
 												    <li><a href="${pageContext.request.contextPath }/staff/flatform/kcxx/toupdate?proid=${kcxx.proid}">进货</a></li>
 												  </ul>
 												</div>
-					                            <a href="${pageContext.request.contextPath }/staff/flatform/kcxx/delete?proid=${kcxx.proid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">退货</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>

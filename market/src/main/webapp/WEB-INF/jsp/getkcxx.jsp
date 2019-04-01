@@ -45,21 +45,21 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >过期时间<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${kcxx.product.reledate}"/>" type="text" readonly>
+                          <input id="reledate" class="form-control col-md-7 col-xs-5"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${kcxx.product.reledate}"/>" type="text" readonly>
                         </div>
                       </div>
                        <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >供应商名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5" value="${kcxx.product.supname}"  type="text" readonly>
+                          <input id="supname" class="form-control col-md-7 col-xs-5" value="${kcxx.product.supname}"  type="text" readonly>
                         </div>
                       </div>                      
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >商品类型<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5"  value="${kcxx.product.protype}" type="text" readonly>
+                          <input id="protype" class="form-control col-md-7 col-xs-5"  value="${kcxx.product.protype}" type="text" readonly>
                         </div>
                       </div>
                             <div class="item form-group">
@@ -73,19 +73,19 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >计件方式<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5" value="${kcxx.product.unit}"  type="text" readonly>
+                          <input id="unit" class="form-control col-md-7 col-xs-5" value="${kcxx.product.unit}"  type="text" readonly>
                         </div>
                         </div> 
                         <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >备注<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice" class="form-control col-md-7 col-xs-5" value="${kcxx.marks}"  type="text" readonly>
+                          <input id="marks" class="form-control col-md-7 col-xs-5" value="${kcxx.marks}"  type="text" readonly>
                         </div>
                         </div>
                       
 						<a href="${pageContext.request.contextPath }/staff/flatform/kcxx/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
-						<a href="${pageContext.request.contextPath }/staff/flatform/kcxx/edit?proid=${kcxx.proid}" class=" text-center btn btn-primary  col-md-offset-4 col-lg-offset-4col-xl-offset-4" role="button">修改</a>
+						<a href="${pageContext.request.contextPath }/staff/flatform/kcxx/toupdate?proid=${kcxx.proid}" class=" text-center btn btn-primary  col-md-offset-4 col-lg-offset-4col-xl-offset-4" role="button">修改</a>
 								                      
                     </form>
 	<div class="clearfix"></div>

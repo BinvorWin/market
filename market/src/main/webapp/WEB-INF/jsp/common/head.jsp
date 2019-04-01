@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
+<%@page import="java.util.*"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +53,7 @@
                     <ul class="nav child_menu">
                       <li><a href="${pageContext.request.contextPath }/staff/flatform/kcxx/getall">库存信息</a></li>
                       <li><a href="${pageContext.request.contextPath }/staff/flatform/kcxx/kcxxWithPronum">库存预警</a></li>
-                      <li><a href="typography.html">临期产品</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/kcxx/kcxxWithProdata">临期产品</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>

@@ -30,6 +30,24 @@ WHERE
 	 p.proid = c.proid and c.num &lt;60 
   
   </select>
+  <select id="kcxxWithProdata" resultMap="kcxxWithPro">
+	SELECT
+		k.proid,
+		k.pname,
+		k.num,
+		p.price,
+		p.inprice,
+		p.reledate,
+		p.protype,
+		p.supname,
+		DATEDIFF(p.reledate,NOW()) as days
+	FROM
+		kcxx k,
+		product p 
+	WHERE
+		k.proid = p.proid 
+		AND DATEDIFF(p.reledate,NOW()) &lt; 50
+  </select>
   
   <resultMap type="com.hbh.entity.Kcxx" id="kcxxWithPro">
   	<id column="proid" jdbcType="VARCHAR" property="proid" />
