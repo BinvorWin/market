@@ -52,11 +52,19 @@ public class ProductController {
         return "getpro";  
     }
 //    根据条件查询
-    @RequestMapping("/getwhere")  
-    public String getwhere(String proid,String pname,String protype ,HttpServletRequest request,Model model){  
-        request.setAttribute("product", productServiceImp.getbywhere(proid, pname, protype));
-        model.addAttribute("product",productServiceImp.getbywhere(proid, pname, protype));  
-        return "getlist";  
+    @RequestMapping("/getprobyparams")  
+    public String getbyparams(HttpServletRequest request,Model model,@RequestParam(value="proid",required=false)String proid,
+    		@RequestParam(value="supname",required=false)String supname,@RequestParam(value="pname",required=false)String pname,
+    		@RequestParam(value="protype",required=false)String protype,@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
+    		){
+    	PageHelper.startPage(pn, 4);
+    	List<Product> products= productServiceImp.getbyparams(proid, supname, pname, protype);
+    	PageInfo<Product> pageInfo=new PageInfo<Product>(products);
+		model.addAttribute("pageInfo", pageInfo);
+		return "getprobyparams";
+    	
+    	
+        
     }
 	@RequestMapping("editpro")
 	public String editProduct(Product pro,HttpServletRequest request,Model model){

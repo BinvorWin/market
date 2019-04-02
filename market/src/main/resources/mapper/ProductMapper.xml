@@ -95,8 +95,21 @@
       marks = #{marks,jdbcType=VARCHAR}
     where proid = #{proid,jdbcType=VARCHAR}
   </update>
-  <select id="getbywhere"  resultMap="BaseResultMap">
+  <select id="getbyparams"  resultMap="BaseResultMap">
   	select * from product
-  	where  proid = #{proid,jdbcType=VARCHAR} or supname = #{supname,jdbcType=VARCHAR} or pname = #{pname,jdbcType=VARCHAR}
+  	<where>
+		<if test="proid!=null and proid!=''">
+		and	proid = #{proid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="supname!=null and supname!=''">
+			and supname like concat('%',#{supname},'%')
+		</if>
+		<if test="pname!=null and pname!=''">
+			and pname like concat('%',#{pname},'%')
+		</if>	
+		<if test="protype!=null and protype!=''">
+			and protype=#{protype}
+		</if>
+	</where>	 
   </select>
 </mapper>

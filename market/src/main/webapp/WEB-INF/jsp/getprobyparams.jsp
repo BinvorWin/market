@@ -6,34 +6,14 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 	                <div class="x_panel">
 	                  <div class="x_title row">
-	                    <h2>商品信息列表 </h2>
+	                    <h2>查询商品信息列表 </h2>
 	                    <div class="clearfix"></div>
 	                  </div>
 					<!-- 按钮 -->
 					<div class="row">
-						<form class="form-inline" action="getprobyparams" method="post">
-			                      <div class="form-group">
-								    <label >商品id:</label>
-								    <input type="text" class="form-control" id="proid" name="proid" >
-								  </div>
-								  <div class="form-group">
-								    <label >供应商名称:</label>
-								    <input type="text" class="form-control" id="supname" name="supname" >
-								  </div>
-								  <div class="form-group">
-								    <label >商品名称:</label>
-								    <input type="text" class="form-control" id="pname" name="pname" >
-								  </div>
-								  <div class="form-group">
-								    <label >商品类型:</label>
-								    <input type="text" class="form-control" id="protype" name="protype">
-								  </div>
-<%-- 			                              <button class="btn btn-primary" type="button">查询</button>
-			                              <button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro">新增</button>
- --%>			                      	<button class="btn btn-primary" type="submit">查询</button>
-<%-- 										<button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro">新增</button>
- --%>			                    </form>
+						<div class="mid_center">
 		                </div>
+					</div>
 					<div class="row">
 	                  <div class="x_content">
 	                    <table id="datatable" class="table table-striped table-bordered table-hover">
@@ -88,9 +68,9 @@
 							<div class="col-md-6">
 								<nav aria-label="Page navigation">
 								<ul class="pagination">
-									<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist?pn=1">首页</a></li>
+									<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=1">首页</a></li>
 									<c:if test="${pageInfo.hasPreviousPage }">
-										<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist?pn=${pageInfo.pageNum-1}"
+										<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${pageInfo.pageNum-1}"
 											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 										</a></li>
 									</c:if>
@@ -101,16 +81,16 @@
 											<li class="active"><a href="#">${page_Num }</a></li>
 										</c:if>
 										<c:if test="${page_Num != pageInfo.pageNum }">
-											<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist?pn=${page_Num }">${page_Num }</a></li>
+											<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${page_Num }">${page_Num }</a></li>
 										</c:if>
 				
 									</c:forEach>
 									<c:if test="${pageInfo.hasNextPage }">
-										<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist?pn=${pageInfo.pageNum+1 }"
+										<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${pageInfo.pageNum+1 }"
 											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 										</a></li>
 									</c:if>
-									<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getlist?pn=${pageInfo.pages}">末页</a></li>
+									<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${pageInfo.pages}">末页</a></li>
 								</ul>
 								</nav>
 							</div>

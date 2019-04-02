@@ -47,9 +47,10 @@ public class ProductServiceImp  implements IProductService{
 		 return productMapper.selectByExample(null);
 	}
 //	按输入的条件查询
-	public List<Product> getbywhere(String proid,String pname,String protype ) {
+	
+	public List<Product> getbyparams(String proid, String supname, String pname, String protype) {
 		// TODO Auto-generated method stub
-		return productMapper.getbywhere(proid, pname, protype);
+		return productMapper.getbyparams(proid, supname, pname, protype);
 	}
 
 
