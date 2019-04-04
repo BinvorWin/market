@@ -2,6 +2,8 @@ package com.hbh.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hbh.entity.Type;
 import com.hbh.entity.TypeExample;
 
@@ -22,5 +24,8 @@ public interface ITypeService {
 
 //更新
     boolean update(Type record);
+    
+//    按条件查询
+    List<Type> getbyparams(String protypeid,String typename);
 	
 }

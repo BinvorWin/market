@@ -43,5 +43,10 @@ public class TypeServiceImp  implements ITypeService{
 		// TODO Auto-generated method stub
 		return typeMapper.updateByPrimaryKey(record);
 	}
+
+	public List<Type> getbyparams(String protypeid, String typename) {
+		// TODO Auto-generated method stub
+		return typeMapper.getbyparams(protypeid, typename);
+	}
 	
 }

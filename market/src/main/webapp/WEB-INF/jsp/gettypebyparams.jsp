@@ -6,7 +6,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 	                <div class="x_panel">
 	                  <div class="x_title row">
-	                    <h2>查询商品信息结果 </h2>
+	                    <h2>查询商品类型信息结果 </h2>
 	                    <div class="clearfix"></div>
 	                  </div>
 					<!-- 按钮 -->
@@ -17,42 +17,26 @@
 					<div class="row">
 	                  <div class="x_content">
 	                    <table id="datatable" class="table table-striped table-bordered table-hover">
-					    	<tr>
-					        	 <th>商品id</th>
-					        	 <th>名称</th>
-					         	 <th>售价</th>
-					         	 <th>进价</th>
-					        	 <th>生产日期</th>
-					        	 <th>过期时间</th>
-					        	 <th>供应商名称</th>
-					        	 <th>商品类型</th>
-					        	 <th>计件方式</th>
-					        	 <th>备注</th>
+					        <tr>
+					        	 <th>类名id</th>
+					        	 <th>类别名称</th>
 					        	 <th>操作</th>
 					        </tr>
-					        <c:forEach items="${pageInfo.list}" var="product">
+					        	 
+					        <c:forEach items="${pageInfo.list}" var="type">
 					        	<tr>
-					                         <th>${product.proid}</th>
-					                         <th>${product.pname}</th>
-					                         <th>${product.price}</th>
-					                         <th>${product.inprice}</th>
-					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${product.prodate}"/></th>
-					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${product.reledate}"/></th>
-					                         <th>${product.supname}</th>
-					                         <th>${product.protype}</th>
-					                         <th>${product.unit}</th>
-					                         <th>${product.marks}</th>      
+					                         <th>${type.protypeid}</th>
+					                         <th>${type.typename}</th>
 					                         <th>
 					                            <div class="btn-group">
 												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												    编辑 <span class="caret"></span>
 												  </button>
 												  <ul class="dropdown-menu">
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/product/getpro?proid=${product.proid}" >查看</a></li>
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/product/editpro?proid=${product.proid}">修改</a></li>
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/type/toupdate?protypeid=${type.protypeid}">修改</a></li>
 												  </ul>
 												</div>
-					                            <a href="${pageContext.request.contextPath }/staff/flatform/product/deletepro?proid=${product.proid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+					                            <a href="${pageContext.request.contextPath }/staff/flatform/type/delete?protypeid=${type.protypeid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
@@ -95,7 +79,7 @@
 								</nav>
 							</div> --%>
 						</div>
-								<a href="${pageContext.request.contextPath }/staff/flatform/product/getlist" class=" text-left btn btn-default  " role="button">返回上页</a>
+								<a href="${pageContext.request.contextPath }/staff/flatform/type/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
 	                </div>
 	</div>
 </div>

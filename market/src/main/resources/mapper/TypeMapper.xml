@@ -71,4 +71,16 @@
     set typename = #{typename,jdbcType=VARCHAR}
     where protypeid = #{protypeid,jdbcType=VARCHAR}
   </update>
+  <select id="getbyparams" resultMap="BaseResultMap">
+  	select * from type
+  	<where>
+		<if test="protypeid!=null and protypeid!=''">
+		and	protypeid = #{protypeid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="typename!=null and typename!=''">
+			and typename like concat('%',#{typename},'%')
+		</if>
+		
+	</where>
+  </select>
 </mapper>

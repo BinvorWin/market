@@ -97,4 +97,17 @@ public class TypeController {
       return "getall"; 
 		
 	}
+  
+//根据条件查询
+  @RequestMapping("getbyparams")
+  public String getbyparams(@RequestParam(value="typename",required=false)String typename,@RequestParam(value="protypeid",required=false)String protypeid,
+	@RequestParam(defaultValue="1",required=true,value="pn") Integer pn,HttpServletRequest request,Model model
+		) {
+	PageHelper.startPage(pn, 100);
+	List<Type> types= typeServiceImp.getbyparams(protypeid, typename);
+	PageInfo<Type> pageInfo=new PageInfo<Type>(types);
+	model.addAttribute("pageInfo", pageInfo);
+	return "gettypebyparams";
+ 
+  }
 }

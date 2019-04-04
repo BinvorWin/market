@@ -11,20 +11,22 @@
 	                  </div>
 					<!-- 按钮 -->
 					<div class="row">
-						<div class="mid_center">
-			                  <div class="col-xs-12 col-md-offset-10 ">
-			                    <div class="input-group">
-			                      <input type="text" class="form-control" placeholder="Search for...">
-			                      <span class="input-group-btn">
-<%-- 			                              <button class="btn btn-primary" type="button">查询</button>
-			                              <button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro">新增</button>
- --%>			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
-									<a href="${pageContext.request.contextPath }/staff/flatform/type/toadd" class="btn btn-primary " role="button">新增</a>
-			                      </span>
-			                    </div>
-			                  </div>
+						<form class="form-inline" action="getbyparams" method="post">
+			                      <span class="row">
+			                       <div class="form-group">
+								    <label >类名id:</label>
+								    <input type="text" class="form-control" id="protypeid" name="protypeid" >
+								  </div>
+								  <div class="form-group">
+								    <label >类别名称:</label>
+								    <input type="text" class="form-control" id="typename" name="typename">
+								  </div>
+								  <button class="btn btn-primary" type="submit">查询</button>
+								  <a href="${pageContext.request.contextPath }/staff/flatform/type/toadd" class="btn btn-primary " role="button">新增</a>	
+								  </span>
+								  
+		                    </form>
 		                </div>
-					</div>
 					<div class="row">
 	                  <div class="x_content">
 	                    <table id="datatable" class="table table-striped table-bordered table-hover">
@@ -38,16 +40,8 @@
 					                         <th>${type.protypeid}</th>
 					                         <th>${type.typename}</th>
 					                         <th>
-					                            <div class="btn-group">
-												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												    编辑 <span class="caret"></span>
-												  </button>
-												  <ul class="dropdown-menu">
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/type/getbyid?protypeid=${type.protypeid}" >查看</a></li>
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/type/toupdate?protypeid=${type.protypeid}">修改</a></li>
-												  </ul>
-												</div>
-					                            <a href="${pageContext.request.contextPath }/staff/flatform/type/delete?protypeid=${type.protypeid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+												<a href="${pageContext.request.contextPath }/staff/flatform/type/toupdate?protypeid=${type.protypeid}" class="btn btn-primary btn-xs">修改</a></li>
+					                            <a onclick="del(${type.protypeid})"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
@@ -55,7 +49,7 @@
 	                  </div>
 
 						<!-- Modal 做完之后再优化 -->
-<%-- 						<form class="form-horizontal form-label-left" id="getbyid" name="getbyid" method="post" action="update">
+						<form class="form-horizontal form-label-left" id="getbyid" name="getbyid" method="post" action="update">
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
@@ -86,7 +80,7 @@
 						  </div>
 						</div>
 	                  </div>
-	                  </form> --%>
+	                  </form> 
 						<!-- 显示分页信息 -->
 						<div class="row">
 							<!--分页文字信息  -->
@@ -128,23 +122,18 @@
 	</div>
 </div>
 </div>
-<!-- <script type="text/javascript">
-/* 	function gettype(protypeid){
-		alert(1);
-  	$.ajax({
-  		type:'post',
-  		url:'${pageContext.request.contextPath }/staff/flatform/getbyid?protypeid'=protypeid,
-  		success : function(result) {
-  			var typedata=result.extend.type;
-			$("#protypeid").attr("value",typedata.protypeid);
-			$("#typename").attr("value",typedata.typename);
-			}
-  		});
-	} */	
-	
-	function get(){
-		alert(1);
-  	
-	}	
-</script>    -->
+
 <%@include file="common/footer.jsp"%>
+<script type="text/javascript">
+	function del(id) {
+		var message=confirm("是否确认要删除?");
+		if (message==true) {
+			// 确认时做的操作 var 
+			window.location.href="${pageContext.request.contextPath }/staff/flatform/type/delete?protypeid="+id;
+			alert("删除成功");
+	} else {
+		// 取消时做的操作
+		alert("删除失败");
+	}
+}
+</script>
