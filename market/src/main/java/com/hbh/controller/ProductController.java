@@ -57,7 +57,7 @@ public class ProductController {
     		@RequestParam(value="supname",required=false)String supname,@RequestParam(value="pname",required=false)String pname,
     		@RequestParam(value="protype",required=false)String protype,@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
     		){
-    	PageHelper.startPage(pn, 4);
+    	PageHelper.startPage(pn, 100);
     	List<Product> products= productServiceImp.getbyparams(proid, supname, pname, protype);
     	PageInfo<Product> pageInfo=new PageInfo<Product>(products);
 		model.addAttribute("pageInfo", pageInfo);

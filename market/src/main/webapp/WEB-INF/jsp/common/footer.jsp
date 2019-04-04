@@ -13,5 +13,6 @@
 <script src="${pageContext.request.contextPath }/statics/js/custom.min.js"></script>
 <script src="${pageContext.request.contextPath }/statics/js/nprogress.js"></script>
 <script src="${pageContext.request.contextPath }/statics/js/fastclick.js"></script>
+<script src="${pageContext.request.contextPath }/statics/js/validator.js"></script>
 </body>
 </html>

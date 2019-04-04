@@ -18,17 +18,17 @@ var validator = (function($){
         invalid         : 'invalid input',
         checked         : 'must be checked',
         empty           : '请输入相应内容，谢谢',
-        min             : '太短',
+        min             : '太短了',
         max             : '太长',
         number_min      : '太小了，最小10Mb',
         number_max      : '太大了，最大500Mb',
         url             : 'invalid URL',
         number          : '输入的不是数字',
-        email           : 'email address is invalid',
+        email           : '邮箱格式不正确',
         email_repeat    : 'emails do not match',
-        password_repeat : 'passwords do not match',
+        password_repeat : '密码不匹配',
         repeat          : 'no match',
-        complete        : 'input is not complete',
+        complete        : '输入不完整',
         select          : '您还没有选择任何选项'
     };
 

@@ -12,27 +12,29 @@
 					<!-- 按钮 -->
 					<div class="row">
 						<form class="form-inline" action="getprobyparams" method="post">
+			                      <span class="row">
 			                      <div class="form-group">
+								    <label >商品类型:</label>
+								    <input type="text" class="form-control" id="protype" name="protype">
+								  </div>
+			                       <div class="form-group">
 								    <label >商品id:</label>
 								    <input type="text" class="form-control" id="proid" name="proid" >
 								  </div>
-								  <div class="form-group">
-								    <label >供应商名称:</label>
-								    <input type="text" class="form-control" id="supname" name="supname" >
-								  </div>
+								  <button class="btn btn-primary" type="submit">查询</button>
+								  </span>
+								  <span class="row">
 								  <div class="form-group">
 								    <label >商品名称:</label>
 								    <input type="text" class="form-control" id="pname" name="pname" >
 								  </div>
 								  <div class="form-group">
-								    <label >商品类型:</label>
-								    <input type="text" class="form-control" id="protype" name="protype">
+								    <label >供应商名称:</label>
+								    <input type="text" class="form-control" id="supname" name="supname" >
 								  </div>
-<%-- 			                              <button class="btn btn-primary" type="button">查询</button>
-			                              <button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro">新增</button>
- --%>			                      	<button class="btn btn-primary" type="submit">查询</button>
-<%-- 										<button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro">新增</button>
- --%>			                    </form>
+								  <a href="${pageContext.request.contextPath }/staff/flatform/product/toaddpro" class="btn btn-primary " role="button">新增</a>	
+								  </span>
+		                    </form>
 		                </div>
 					<div class="row">
 	                  <div class="x_content">
@@ -72,7 +74,7 @@
 												    <li><a href="${pageContext.request.contextPath }/staff/flatform/product/editpro?proid=${product.proid}">修改</a></li>
 												  </ul>
 												</div>
-					                            <a href="${pageContext.request.contextPath }/staff/flatform/product/deletepro?proid=${product.proid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+					                            <a  class="btn btn-danger btn-xs" aria-label="Left Align" role="button"  onclick="del(${product.proid})">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
@@ -120,3 +122,16 @@
 	</div>
 </div>
 <%@include file="common/footer.jsp"%>
+<script type="text/javascript">
+	function del(id) {
+		var message=confirm("是否确认要删除?");
+		if (message==true) {
+			// 确认时做的操作 var 
+			window.location.href="${pageContext.request.contextPath }/staff/flatform/product/deletepro?proid="+id;
+			alert("删除成功");
+	} else {
+		// 取消时做的操作
+		alert("删除失败");
+	}
+}
+</script>

@@ -62,10 +62,10 @@
 						<!-- 显示分页信息 -->
 						<div class="row">
 							<!--分页文字信息  -->
-							<div class="col-md-6">当前 ${pageInfo.pageNum }页,总${pageInfo.pages }
-								页,总 ${pageInfo.total } 条记录</div>
+							<div class="col-md-6"><%-- 当前 ${pageInfo.pageNum }页,总${pageInfo.pages }
+								页, --%>总 ${pageInfo.total } 条记录</div>
 							<!-- 分页条信息 -->
-							<div class="col-md-6">
+							<%-- <div class="col-md-6">
 								<nav aria-label="Page navigation">
 								<ul class="pagination">
 									<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=1">首页</a></li>
@@ -93,9 +93,9 @@
 									<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${pageInfo.pages}">末页</a></li>
 								</ul>
 								</nav>
-							</div>
+							</div> --%>
 						</div>
-		
+								<a href="${pageContext.request.contextPath }/staff/flatform/product/getlist" class=" text-left btn btn-default  " role="button">返回上页</a>
 	                </div>
 	</div>
 </div>
