@@ -10,28 +10,28 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">商品id<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="proid" name="proid" class="form-control input-small input-sm "  value="${product.proid}"  type="text" onblur="checkid()"><span id="demo4"></span>
+                          <input id="proid" name="proid" class="form-control input-small input-sm "  value="${product.proid}"  type="text" onblur="checkid()"><span id="demo4" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${product.pname}"  type="text" onblur="check()"><span id="demo1"></span>
+                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${product.pname}"  type="text" onblur="check()"><span id="demo1" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >售价 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="price" name="price" class="form-control col-md-7 col-xs-5" value="${product.price}"  type="text" onblur="ischeckNum()"><span id="demo2"></span>
+                          <input id="price" name="price" class="form-control col-md-7 col-xs-5" value="${product.price}"  type="text" onblur="ischeckNum()"><span id="demo2" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >进价 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inprice"  name="inprice" class="form-control col-md-7 col-xs-5" value="${product.inprice}"  type="text" onblur="ischeckinprice()">  <span id="demo3"></span>                      
+                          <input id="inprice"  name="inprice" class="form-control col-md-7 col-xs-5" value="${product.inprice}"  type="text" onblur="ischeckinprice()">  <span id="demo3" style="color: red;"></span>                      
                       </div>
                       	</div>
                      <div class="item form-group">

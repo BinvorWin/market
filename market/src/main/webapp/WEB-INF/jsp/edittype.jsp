@@ -17,7 +17,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5"  >商品类型<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="typename"  name="typename" class="form-control col-md-7 col-xs-5"  value="${type.typename}" onblur="check()" type="text" ><span id="demo1"></span>
+                          <input id="typename"  name="typename" class="form-control col-md-7 col-xs-5"  value="${type.typename}" onblur="check()" type="text" ><span id="demo1"  style="color: red;"></span>
                         </div>
                       </div>                      
 						<a href="${pageContext.request.contextPath }/staff/flatform/type/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
@@ -27,14 +27,17 @@
 	</div>
 <%@include file="common/footer.jsp"%>
 <script>
-/*  校验商品名称*/
+/*  校验商品类型名称*/
 function check(){
 	var name=document.getElementById('typename').value;
    if(name){
 	if(isNaN(name)){
 		document.getElementById("demo1").innerHTML=" ";
 		return true
-	}
+	}else {
+		document.getElementById("demo1").innerHTML="请输入商品类型名称！";
+		return false;
+		}
 
 }
 else {
