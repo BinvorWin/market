@@ -11,17 +11,20 @@
 	                  </div>
 					<!-- 按钮 -->
 					<div class="row">
-						<div class="mid_center">
-			                  <div class="col-xs-12 col-md-offset-10 ">
-			                    <div class="input-group">
-			                      <input type="text" class="form-control" placeholder="Search for...">
-			                      <span class="input-group-btn">
-			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
+						<span class="row">
+						<form class="form-inline" action="getbyparams" method="post">
+			                       <div class="form-group">
+								    <label >供应商id:</label>
+								    <input type="text" class="form-control" id="supid" name="supid" >
+								  </div>
+								  <div class="form-group">
+								    <label >供应商姓名:</label>
+								    <input type="text" class="form-control" id="suppname" name="suppname">
+								  </div>
+								  <button class="btn btn-primary" type="submit">查询</button>
 									<a href="${pageContext.request.contextPath }/staff/flatform/supply/toadd" class="btn btn-primary " role="button">新增</a>
-			                      </span>
-			                    </div>
-			                  </div>
-		                </div>
+						</form>
+						</span>
 					</div>
 					<div class="row">
 	                  <div class="x_content">
@@ -45,54 +48,13 @@
 					                         <th>${supply.emali}</th>
 					                         <th>
 					                            <div class="btn-group">
-												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												    编辑 <span class="caret"></span>
-												  </button>
-												  <ul class="dropdown-menu">
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getbyid?supid=${supply.supid}" >查看</a></li>
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/supply/toupdate?supid=${supply.supid}">修改</a></li>
-												  </ul>
-												</div>
-					                            <a href="${pageContext.request.contextPath }/staff/flatform/supply/delete?supid=${supply.supid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+												<a href="${pageContext.request.contextPath }/staff/flatform/supply/toupdate?supid=${supply.supid}" class= "btn  btn-primary btn-xs">修改</a>
+					                            <a onclick="del(${supply.supid})"  class= "btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
 	                    </table>
 	                  </div>
-
-						<!-- Modal 做完之后再优化 -->
-<%-- 						<form class="form-horizontal form-label-left" id="getbyid" name="getbyid" method="post" action="update">
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title" id="myModalLabel">修改类别</h4>
-						      </div>
-						      <div class="modal-body">
-								<div class="item form-group">
-		                        <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">类别id<span >*</span>
-		                        </label>
-		                        <div class="col-md-6 col-sm-6 col-xs-5">
-		                          <input id="protypeid" name="protypeid" class="form-control input-small input-sm "  value="${type.protypeid}"  type="text" >
-		                        </div>
-		                      </div>
-		                      <div class="item form-group">
-		                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >类别名称<span >*</span>
-		                        </label>
-		                        <div class="col-md-6 col-sm-6 col-xs-5">
-		                          <input id="typename" name="typename" class="form-control col-md-7 col-xs-5"  value="${type.typename}" type="text" >
-		                        </div>
-						      </div>
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        <button type="submit" class="btn btn-primary" >Save changes</button>
-						      </div>
-						    </div>
-						  </div>
-						</div>
-	                  </div>
-	                  </form> --%>
 						<!-- 显示分页信息 -->
 						<div class="row">
 							<!--分页文字信息  -->
@@ -134,23 +96,17 @@
 	</div>
 </div>
 </div>
-<!-- <script type="text/javascript">
-/* 	function gettype(protypeid){
-		alert(1);
-  	$.ajax({
-  		type:'post',
-  		url:'${pageContext.request.contextPath }/staff/flatform/getbyid?protypeid'=protypeid,
-  		success : function(result) {
-  			var typedata=result.extend.type;
-			$("#protypeid").attr("value",typedata.protypeid);
-			$("#typename").attr("value",typedata.typename);
-			}
-  		});
-	} */	
-	
-	function get(){
-		alert(1);
-  	
-	}	
-</script>    -->
+
 <%@include file="common/footer.jsp"%>
+<script type="text/javascript">
+	function del(id) {
+		var message=confirm("是否确认要删除?");
+		if (message==true) {
+			// 确认时做的操作 var 
+			window.location.href="${pageContext.request.contextPath }/staff/flatform/supply/delete?supid="+id;
+			alert("删除成功");
+	} else {
+		// 取消时做的操作
+		alert("删除失败");
+	}
+}</script>

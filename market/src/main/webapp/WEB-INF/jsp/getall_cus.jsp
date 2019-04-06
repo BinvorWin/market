@@ -11,17 +11,21 @@
 	                  </div>
 					<!-- 按钮 -->
 					<div class="row">
-						<div class="mid_center">
-			                  <div class="col-xs-12 col-md-offset-10 ">
-			                    <div class="input-group">
-			                      <input type="text" class="form-control" placeholder="Search for...">
-			                      <span class="input-group-btn">
-			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
-									<a href="${pageContext.request.contextPath }/staff/flatform/custom/toadd" class="btn btn-primary " role="button">新增</a>
-			                      </span>
-			                    </div>
-			                  </div>
-		                </div>
+					<form class="form-inline" action="getbyparams" method="post">
+			                      <span class="row">
+			                       <div class="form-group">
+								    <label >客户id:</label>
+								    <input type="text" class="form-control" id="cusid" name="cusid" >
+								  </div>
+								  <div class="form-group">
+								    <label >客户姓名:</label>
+								    <input type="text" class="form-control" id="cusname" name="cusname">
+								  </div>
+								  <button class="btn btn-primary" type="submit">查询</button>
+								  <a href="${pageContext.request.contextPath }/staff/flatform/custom/toadd" class="btn btn-primary " role="button">新增</a>
+								  </span>
+								  
+		                    </form>
 					</div>
 					<div class="row">
 	                  <div class="x_content">
@@ -44,16 +48,8 @@
 					                         <th>${custom.address}</th>
 					                         <th>${custom.emali}</th>
 					                         <th>
-					                            <div class="btn-group">
-												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												    编辑 <span class="caret"></span>
-												  </button>
-												  <ul class="dropdown-menu">
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/custom/getbyid?cusid=${custom.cusid}" >查看</a></li>
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/custom/toupdate?cusid=${custom.cusid}">修改</a></li>
-												  </ul>
-												</div>
-					                            <a href="${pageContext.request.contextPath }/staff/flatform/custom/delete?cusid=${custom.cusid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+					                            <a href="${pageContext.request.contextPath }/staff/flatform/custom/toupdate?cusid=${custom.cusid}" class="btn btn-primary btn-xs">修改</a>
+					                            <a onclick="del(${custom.cusid})"  class= "btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
@@ -154,3 +150,15 @@
 	}	
 </script>    -->
 <%@include file="common/footer.jsp"%>
+<script type="text/javascript">
+	function del(id) {
+		var message=confirm("是否确认要删除?");
+		if (message==true) {
+			// 确认时做的操作 var 
+			window.location.href="${pageContext.request.contextPath }/staff/flatform/custom/delete?cusid="+id;
+			alert("删除成功");
+	} else {
+		// 取消时做的操作
+		alert("删除失败");
+	}
+}</script>

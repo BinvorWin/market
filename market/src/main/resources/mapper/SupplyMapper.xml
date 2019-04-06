@@ -83,4 +83,16 @@
       emali = #{emali,jdbcType=VARCHAR}
     where supid = #{supid,jdbcType=VARCHAR}
   </update>
+  <select id="getbyparams" resultMap="BaseResultMap">
+  	select * from supply
+  	<where>
+		<if test="supid!=null and supid!=''">
+		and	supid = #{supid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="suppname!=null and suppname!=''">
+			and suppname like concat('%',#{suppname},'%')
+		</if>
+		
+	</where>	
+  </select>
 </mapper>

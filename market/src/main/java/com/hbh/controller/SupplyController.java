@@ -102,6 +102,18 @@ public class SupplyController {
         return "getall"; 
   		
   	}
+//    按条件查询
+    @RequestMapping("/getbyparams")
+    public String getbyparams(@RequestParam(value="supid",required=false)String supid,@RequestParam(value="suppname",required=false)String suppname,
+    	  	@RequestParam(defaultValue="1",required=true,value="pn") Integer pn,HttpServletRequest request,Model model) {
+		PageHelper.startPage(pn, 100);
+		List<Supply> supplys= supplyMapperServiceImp.getbyparams(supid, suppname);
+		PageInfo<Supply> pageInfo=new PageInfo<Supply>(supplys);
+		model.addAttribute("pageInfo", pageInfo);
+		return "getsupplybyparams";
+		
+	}
+    
 }
 
 

@@ -83,4 +83,16 @@
       emali = #{emali,jdbcType=VARCHAR}
     where cusid = #{cusid,jdbcType=VARCHAR}
   </update>
+  <select id="getbyparams" resultMap="BaseResultMap">
+  	select * from custom
+  	<where>
+		<if test="cusid!=null and cusid!=''">
+		and	cusid = #{cusid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="cusname!=null and cusname!=''">
+			and cusname like concat('%',#{cusname},'%')
+		</if>
+		
+	</where>	
+  </select>
 </mapper>

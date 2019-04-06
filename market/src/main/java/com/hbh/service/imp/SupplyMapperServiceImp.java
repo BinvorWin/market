@@ -44,6 +44,13 @@ public class SupplyMapperServiceImp implements ISupplyMapperService {
 		// TODO Auto-generated method stub
 		return supplyMapper.updateByPrimaryKey(record);
 	}
+
+	public List<Supply> getbyparams(String supid, String suppname) {
+		// TODO Auto-generated method stub
+		return supplyMapper.getbyparams(supid, suppname);
+	}
+
+	
 	
 	
 }

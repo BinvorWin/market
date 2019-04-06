@@ -17,6 +17,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hbh.entity.Custom;
 import com.hbh.entity.Product;
+import com.hbh.entity.Type;
 import com.hbh.entity.Custom;
 import com.hbh.service.imp.CustomServiceImp;
 import com.hbh.service.imp.CustomServiceImp;
@@ -100,5 +101,17 @@ public class CustomController {
         return "getall"; 
   		
   	}
+  //根据条件查询
+    @RequestMapping("getbyparams")
+    public String getbyparams(@RequestParam(value="cusid",required=false)String cusid,@RequestParam(value="cusname",required=false)String cusname,
+  	@RequestParam(defaultValue="1",required=true,value="pn") Integer pn,HttpServletRequest request,Model model
+  		) {
+  	PageHelper.startPage(pn, 100);
+  	List<Custom> customs= customServiceImp.getbyparams(cusid, cusname);
+  	PageInfo<Custom> pageInfo=new PageInfo<Custom>(customs);
+  	model.addAttribute("pageInfo", pageInfo);
+  	return "getcustombyparams";
+   
+    }
 }
 

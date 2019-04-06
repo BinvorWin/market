@@ -45,4 +45,9 @@ public class CustomServiceImp implements ICustomService{
 		return customMapper.selectByExample(null);
 	}
 
+	public List<Custom> getbyparams(String cusid, String cusname) {
+		// TODO Auto-generated method stub
+		return customMapper.getbyparams(cusid, cusname);
+	}
+
 }

@@ -48,36 +48,6 @@
 							<!--分页文字信息  -->
 							<div class="col-md-6"><%-- 当前 ${pageInfo.pageNum }页,总${pageInfo.pages }
 								页, --%>总 ${pageInfo.total } 条记录</div>
-							<!-- 分页条信息 -->
-							<%-- <div class="col-md-6">
-								<nav aria-label="Page navigation">
-								<ul class="pagination">
-									<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=1">首页</a></li>
-									<c:if test="${pageInfo.hasPreviousPage }">
-										<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${pageInfo.pageNum-1}"
-											aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-										</a></li>
-									</c:if>
-				
-				
-									<c:forEach items="${pageInfo.navigatepageNums }" var="page_Num">
-										<c:if test="${page_Num == pageInfo.pageNum }">
-											<li class="active"><a href="#">${page_Num }</a></li>
-										</c:if>
-										<c:if test="${page_Num != pageInfo.pageNum }">
-											<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${page_Num }">${page_Num }</a></li>
-										</c:if>
-				
-									</c:forEach>
-									<c:if test="${pageInfo.hasNextPage }">
-										<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${pageInfo.pageNum+1 }"
-											aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-										</a></li>
-									</c:if>
-									<li><a href="${pageContext.request.contextPath }/staff/flatform/product/getprobyparams?pn=${pageInfo.pages}">末页</a></li>
-								</ul>
-								</nav>
-							</div> --%>
 						</div>
 								<a href="${pageContext.request.contextPath }/staff/flatform/type/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
 	                </div>

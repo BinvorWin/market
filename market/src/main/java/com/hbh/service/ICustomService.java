@@ -17,4 +17,6 @@ public interface ICustomService {
 	    boolean update(Custom record);
 	    
 	    List<Custom> getlist();
+	    
+	    List<Custom> getbyparams(String cusid,String cusname);
 }
