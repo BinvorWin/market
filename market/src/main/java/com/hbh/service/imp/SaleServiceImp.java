@@ -36,4 +36,9 @@ public class SaleServiceImp implements ISaleService {
 		return saleMapper.updateByPrimaryKey(record);
 	}
 
+	public List<Sale> getbyparams(String proid, String cusid, String pname, String cusname) {
+		// TODO Auto-generated method stub
+		return saleMapper.getbyparams(proid, cusid, pname, cusname);
+	}
+
 }

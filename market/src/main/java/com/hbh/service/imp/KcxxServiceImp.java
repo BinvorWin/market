@@ -57,6 +57,11 @@ public class KcxxServiceImp implements IKcxxService {
 		return kcxxMapper.kcxxWithProdata();
 	}
 
+	public List<Kcxx> getbyparams(String proid, String pname) {
+		// TODO Auto-generated method stub
+		return kcxxMapper.getbyparams(proid, pname);
+	}
+
 	
 
 

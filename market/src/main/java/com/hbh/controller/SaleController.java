@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hbh.entity.Ckin;
 import com.hbh.entity.Sale;
 import com.hbh.service.imp.SaleServiceImp;
 
@@ -91,6 +92,18 @@ public class SaleController {
         return "getsale"; 
   		
   	}
+	@RequestMapping("getbyparams")
+	public String getbyparams(HttpServletRequest request,Model model,@RequestParam(value="proid",required=false)String proid,
+    		@RequestParam(value="cusid",required=false)String cusid,@RequestParam(value="pname",required=false)String pname,
+    		@RequestParam(value="cusname",required=false)String cusname,@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
+    		) {
+		PageHelper.startPage(pn, 100);
+		List<Sale> sale= saleServiceImp.getbyparams(proid, cusid, pname, cusname);
+		PageInfo<Sale> pageInfo=new PageInfo<Sale>(sale);
+		model.addAttribute("pageInfo", pageInfo);
+		return "getsalebyparams";
+		
+	}
 
 	
 }

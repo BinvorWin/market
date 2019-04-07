@@ -101,6 +101,20 @@ public class CkinController {
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
+    
+//	按条件获取所有进货信息
+	@RequestMapping("getbyparams")
+	public String getbyparams(HttpServletRequest request,Model model,@RequestParam(value="proid",required=false)String proid,
+    		@RequestParam(value="inid",required=false)String inid,@RequestParam(value="pname",required=false)String pname,
+    		@RequestParam(value="indate",required=false)String indate,@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
+    		) {
+		PageHelper.startPage(pn, 100);
+		List<Ckin> ckin= ckinServiceImp.getbyparams(proid, inid, pname, indate);
+		PageInfo<Ckin> pageInfo=new PageInfo<Ckin>(ckin);
+		model.addAttribute("pageInfo", pageInfo);
+		return "getckinbyparams";
+		
+	}
 
 }
 

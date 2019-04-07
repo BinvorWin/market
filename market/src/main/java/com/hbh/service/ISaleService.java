@@ -2,6 +2,7 @@ package com.hbh.service;
 
 import java.util.List;
 
+
 import com.hbh.entity.Sale;
 
 public interface ISaleService {
@@ -15,6 +16,8 @@ public interface ISaleService {
 
     Sale getbyid(String saleid);
 
-
     boolean update(Sale record);
+    
+    List<Sale> getbyparams( String proid,String cusid,String pname,String cusname );
+
 }

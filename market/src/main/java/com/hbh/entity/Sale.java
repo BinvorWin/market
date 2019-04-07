@@ -18,8 +18,27 @@ public class Sale {
     private Date saledate;
 
     private String marks;
+    private String cusid;
 
-    public String getSaleid() {
+    public String getCusid() {
+		return cusid;
+	}
+
+	public void setCusid(String cusid) {
+		this.cusid = cusid;
+	}
+
+	private String cusname;
+
+    public String getCusname() {
+		return cusname;
+	}
+
+	public void setCusname(String cusname) {
+		this.cusname = cusname;
+	}
+
+	public String getSaleid() {
         return saleid;
     }
 

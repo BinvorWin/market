@@ -10,20 +10,7 @@
 	                    <div class="clearfix"></div>
 	                  </div>
 					<!-- 按钮 -->
-					<div class="row">
-						<div class="mid_center">
-			                  <div class="col-xs-12 col-md-offset-10 ">
-			                    <div class="input-group">
-			                      <input type="text" class="form-control" placeholder="Search for...">
-			                      <span class="input-group-btn">
-<%-- 			                              <button class="btn btn-primary" type="button">查询</button>
-			                              <button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/kcxx/toaddpro">新增</button>
- --%>			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
-			                      </span>
-			                    </div>
-			                  </div>
-		                </div>
-					</div>
+					
 					<div class="row">
 	                  <div class="x_content">
 	                    <table id="datatable" class="table table-striped table-bordered table-hover">

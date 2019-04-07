@@ -169,4 +169,21 @@
       marks = #{marks,jdbcType=VARCHAR}
     where inid = #{inid,jdbcType=VARCHAR}
   </update>
+    <select id="getbyparams" resultMap="BaseResultMap">
+ 	 select * from ckretire
+  	<where>
+		<if test="proid!=null and proid!=''">
+		and	proid = #{proid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="retdate!=null and retdate!=''">
+			and retdate=#{retdate}
+		</if>
+		<if test="pname!=null and pname!=''">
+			and pname like concat('%',#{pname},'%')
+		</if>	
+		<if test="inid!=null and inid!=''">
+			and inid=#{inid}
+		</if>
+		</where>	
+  </select>
 </mapper>

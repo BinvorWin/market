@@ -44,4 +44,9 @@ public class CkretireServiceImp implements ICkretireService {
 		return ckretireMapper.updateByPrimaryKey(record);
 	}
 
+	public List<Ckretire> getbyparams(String proid, String inid, String pname, String retdate) {
+		// TODO Auto-generated method stub
+		return ckretireMapper.getbyparams(proid, inid, pname, retdate);
+	}
+
 }

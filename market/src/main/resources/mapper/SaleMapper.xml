@@ -9,6 +9,8 @@
     <result column="num" jdbcType="INTEGER" property="num" />
     <result column="total" jdbcType="VARCHAR" property="total" />
     <result column="saledate" jdbcType="DATE" property="saledate" />
+    <result column="cusid" jdbcType="VARCHAR" property="cusid" />
+    <result column="cusname" jdbcType="VARCHAR" property="cusname" />
     <result column="marks" jdbcType="VARCHAR" property="marks" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -41,7 +43,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    saleid, proid, pname, price, num, total, saledate, marks
+    saleid, proid, pname, price, num, total, saledate, marks,cusid,cusname
   </sql>
   <select id="selectByExample" parameterType="com.hbh.entity.SaleExample" resultMap="BaseResultMap">
     select
@@ -70,10 +72,11 @@
   </delete>
   <insert id="insert" parameterType="com.hbh.entity.Sale">
     insert into sale (saleid, proid, pname, 
-      price, num, total, saledate, 
+      price, num, total, saledate, cusid,cusname,
       marks)
     values (#{saleid,jdbcType=VARCHAR}, #{proid,jdbcType=VARCHAR}, #{pname,jdbcType=VARCHAR}, 
       #{price,jdbcType=DOUBLE}, #{num,jdbcType=INTEGER}, #{total,jdbcType=VARCHAR}, #{saledate,jdbcType=DATE}, 
+      #{cusid,jdbcType=VARCHAR}, #{cusname,jdbcType=VARCHAR},
       #{marks,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.hbh.entity.Sale">
@@ -152,6 +155,12 @@
       <if test="saledate != null">
         saledate = #{saledate,jdbcType=DATE},
       </if>
+      <if test="cusid != null">
+        cusid = #{cusid,jdbcType=VARCHAR},
+      </if>
+      <if test="cusname != null">
+        cusname = #{cusname,jdbcType=VARCHAR},
+      </if>
       <if test="marks != null">
         marks = #{marks,jdbcType=VARCHAR},
       </if>
@@ -166,7 +175,26 @@
       num = #{num,jdbcType=INTEGER},
       total = #{total,jdbcType=VARCHAR},
       saledate = #{saledate,jdbcType=DATE},
+       cusid = #{cusid,jdbcType=VARCHAR},
+       cusname = #{cusname,jdbcType=VARCHAR},
       marks = #{marks,jdbcType=VARCHAR}
     where saleid = #{saleid,jdbcType=VARCHAR}
   </update>
+      <select id="getbyparams" resultMap="BaseResultMap">
+ 	 select * from sale
+  	<where>
+		<if test="proid!=null and proid!=''">
+		and	proid = #{proid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="pname!=null and pname!=''">
+			and pname like concat('%',#{pname},'%')
+		</if>	
+			<if test="cusid!=null and cusid!=''">
+		and	cusid = #{cusid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="cusname!=null and cusname!=''">
+			and cusname like concat('%',#{cusname},'%')
+		</if>	
+		</where>	
+  </select>
 </mapper>

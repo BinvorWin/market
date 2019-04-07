@@ -101,7 +101,7 @@ function checkid()
 			}
 		}
 else{
-		document.getElementById("demo4").innerHTML="请输入商品售价！";
+		document.getElementById("demo4").innerHTML="请输入正确的id！";
 	document.getElementById('proid').focus();
 	return false;
 	}

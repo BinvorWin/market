@@ -2,6 +2,8 @@ package com.hbh.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hbh.entity.Kcxx;
 
 /**
@@ -25,4 +27,7 @@ public interface IKcxxService {
     List<Kcxx> kcxxWithPronum();
     
     List<Kcxx> kcxxWithProdata();
+    
+    List<Kcxx> getbyparams(String proid,String pname);
+
 }

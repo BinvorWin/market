@@ -11,20 +11,32 @@
 	                  </div>
 					<!-- 按钮 -->
 					<div class="row">
-						<div class="mid_center">
-			                  <div class="col-xs-12 col-md-offset-10 ">
-			                    <div class="input-group">
-			                      <input type="text" class="form-control" placeholder="Search for...">
-			                      <span class="input-group-btn">
-<%-- 			                              <button class="btn btn-primary" type="button">查询</button>
-			                              <button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/ckretire/toaddpro">新增</button>
- --%>			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
-									<a href="${pageContext.request.contextPath }/staff/flatform/ckretire/toadd" class="btn btn-primary " role="button">新增</a>
-			                      </span>
-			                    </div>
-			                  </div>
+						<form class="form-inline" action="getbyparams" method="post">
+			                      <span class="row">
+			                      <div class="form-group">
+								    <label >订单id:</label>
+								    <input type="text" class="form-control" id="inid" name="inid">
+								  </div>
+								  <div class="form-group">
+								    <label >商品名称:</label>
+								    <input type="text" class="form-control" id="pname" name="pname" >
+								  </div>
+			                       
+								  <button class="btn btn-primary" type="submit">查询</button>
+								  </span>
+								  <span class="row">
+								 <div class="form-group">
+								    <label >商品id:</label>
+								    <input type="text" class="form-control" id="proid" name="proid" >
+								  </div>
+								  <div class="form-group">
+								    <label >退货日期:</label>
+								    <input type="text" class="form-control" id="indate" name="indate" type="date" >
+								  </div>
+								  <a href="${pageContext.request.contextPath }/staff/flatform/ckretire/toadd" class="btn btn-primary " role="button">新增</a>	
+								  </span>
+		                    </form>
 		                </div>
-					</div>
 					<div class="row">
 	                  <div class="x_content">
 	                    <table id="datatable" class="table table-striped table-bordered table-hover">
@@ -48,16 +60,8 @@
 					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${ckretire.retdate}"/></th>
 					                         <th>${ckretire.marks}</th>      
 					                         <th>
-					                            <div class="btn-group">
-												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												    编辑 <span class="caret"></span>
-												  </button>
-												  <ul class="dropdown-menu">
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/ckretire/getbyid?inid=${ckretire.inid}" >查看</a></li>
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/ckretire/edit?inid=${ckretire.inid}">修改</a></li>
-												  </ul>
-												</div>
-					                            <a href="${pageContext.request.contextPath }/staff/flatform/ckretire/delete?inid=${ckretire.inid}"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+											   <a href="${pageContext.request.contextPath }/staff/flatform/ckretire/edit?inid=${ckretire.inid}" class="btn btn-primary btn-xs">修改</a>
+					                           <a onclick="del(${ckretire.inid})"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
@@ -105,3 +109,16 @@
 	</div>
 </div>
 <%@include file="common/footer.jsp"%>
+<script type="text/javascript">
+	function del(id) {
+		var message=confirm("是否确认要删除?");
+		if (message==true) {
+			// 确认时做的操作 var 
+			window.location.href="${pageContext.request.contextPath }/staff/flatform/ckretire/delete?inid="+id;
+			alert("删除成功");
+	} else {
+		// 取消时做的操作
+		alert("删除失败");
+	}
+}
+</script>

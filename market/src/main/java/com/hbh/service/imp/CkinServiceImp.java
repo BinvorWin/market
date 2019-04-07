@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hbh.dao.CkinMapper;
 import com.hbh.entity.Ckin;
 import com.hbh.entity.CkinExample;
+import com.hbh.entity.Product;
 import com.hbh.service.ICkinService;
 
 /**
@@ -42,6 +43,11 @@ public class CkinServiceImp implements ICkinService{
 	public boolean update(Ckin record) {
 		// TODO Auto-generated method stub
 		return ckinMapper.updateByPrimaryKey(record);
+	}
+
+	public List<Ckin> getbyparams(String proid, String inid, String pname, String indate) {
+		// TODO Auto-generated method stub
+		return ckinMapper.getbyparams(proid, inid, pname, indate);
 	}
 
 

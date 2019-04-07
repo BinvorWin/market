@@ -14,21 +14,7 @@
 	                    <h2>临期商品信息列表 </h2>
 	                    <div class="clearfix"></div>
 	                  </div>
-					<!-- 按钮 -->
-					<div class="row">
-						<div class="mid_center">
-			                  <div class="col-xs-12 col-md-offset-10 ">
-			                    <div class="input-group">
-			                      <input type="text" class="form-control" placeholder="Search for...">
-			                      <span class="input-group-btn">
-<%-- 			                              <button class="btn btn-primary" type="button">查询</button>
-			                              <button class="btn btn-primary"  type="button" href="${pageContext.request.contextPath }/staff/flatform/kcxx/toaddpro">新增</button>
- --%>			                      	<a href="#" class="btn btn-primary " role="button">查询 </a>
-			                      </span>
-			                    </div>
-			                  </div>
-		                </div>
-					</div>
+					
 					<div class="row">
 	                  <div class="x_content">
 	                    <table id="datatable" class="table table-striped table-bordered table-hover">
@@ -41,7 +27,6 @@
 					        	 <th>过期时间</th>
 					        	 <th>商品类型</th>
 					        	 <th>供应商</th>
-					        	 <th>剩余天数</th>
 					        	 <th>备注</th>
 					        	 <th>操作</th>
 					        </tr>
@@ -55,7 +40,6 @@
 					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${kcxx.product.reledate}"/></th>
 					                         <th>${kcxx.product.protype}</th>
 					                         <th>${kcxx.product.supname}</th>
-					                         <th></th>
 					                         <th>临期商品</th>      
 					                         <th>
 					                            <div class="btn-group">
@@ -64,7 +48,7 @@
 												  </button>
 												  <ul class="dropdown-menu">
 												    <li><a href="${pageContext.request.contextPath }/staff/flatform/kcxx/kcxxWithPro?proid=${kcxx.proid}" >查看</a></li>
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/kcxx/edit?proid=${kcxx.proid}">促销</a></li>
+												    <li><a href="${pageContext.request.contextPath }/staff/flatform/product/editpro?proid=${kcxx.proid}">促销</a></li>
 												  </ul>
 												</div>
 					                         </th>

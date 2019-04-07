@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hbh.entity.Ckin;
 import com.hbh.entity.Kcxx;
 import com.hbh.service.imp.KcxxServiceImp;
 
@@ -101,8 +102,9 @@ public class KcxxController {
   	}
     @RequestMapping("/kcxxWithPro")
     public String kcxxWithPro(String proid,HttpServletRequest request,Model model) {
-        request.setAttribute("kcxx", kcxxServiceImp.kcxxWithPro(proid));
-        model.addAttribute("kcxx",kcxxServiceImp.kcxxWithPro(proid));  
+    	Kcxx kcxx=kcxxServiceImp.kcxxWithPro(proid);
+        request.setAttribute("kcxx", kcxx);
+        model.addAttribute("kcxx",kcxx);  
         return "getkcxx"; 
   		
   	}
@@ -136,5 +138,17 @@ public class KcxxController {
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
+//	按条件获取所有进货信息
+	@RequestMapping("getbyparams")
+	public String getbyparams(HttpServletRequest request,Model model,@RequestParam(value="proid",required=false)String proid,
+    		@RequestParam(value="pname",required=false)String pname,@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
+    		) {
+		PageHelper.startPage(pn, 100);
+		List<Kcxx> ckin= kcxxServiceImp.getbyparams(proid,pname);
+		PageInfo<Kcxx> pageInfo=new PageInfo<Kcxx>(ckin);
+		model.addAttribute("pageInfo", pageInfo);
+		return "getkcxxbyparams";
+		
+	}
 
 }

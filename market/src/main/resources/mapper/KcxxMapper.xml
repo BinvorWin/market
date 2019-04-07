@@ -195,4 +195,15 @@ WHERE
       marks = #{marks,jdbcType=VARCHAR}
     where proid = #{proid,jdbcType=VARCHAR}
   </update>
+    <select id="getbyparams" resultMap="BaseResultMap">
+ 	 select * from kcxx
+  	<where>
+		<if test="proid!=null and proid!=''">
+		and	proid = #{proid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="pname!=null and pname!=''">
+			and pname like concat('%',#{pname},'%')
+		</if>	
+		</where>	
+  </select>
 </mapper>

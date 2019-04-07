@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hbh.entity.Ckin;
 import com.hbh.entity.Ckretire;
 import com.hbh.service.imp.CkretireServiceImp;
 
@@ -102,6 +103,20 @@ public class CkretireController {
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
     }
+    
+//	按条件获取所有进货信息
+	@RequestMapping("getbyparams")
+	public String getbyparams(HttpServletRequest request,Model model,@RequestParam(value="proid",required=false)String proid,
+    		@RequestParam(value="inid",required=false)String inid,@RequestParam(value="pname",required=false)String pname,
+    		@RequestParam(value="retdate",required=false)String retdate,@RequestParam(defaultValue="1",required=true,value="pn") Integer pn
+    		) {
+		PageHelper.startPage(pn, 100);
+		List<Ckretire> ckin= ckretireServiceImp.getbyparams(proid, inid, pname, retdate);
+		PageInfo<Ckretire> pageInfo=new PageInfo<Ckretire>(ckin);
+		model.addAttribute("pageInfo", pageInfo);
+		return "getckretirebyparams";
+		
+	}
 
 
 
