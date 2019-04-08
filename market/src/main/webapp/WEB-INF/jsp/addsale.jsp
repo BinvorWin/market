@@ -69,7 +69,8 @@ onkeyup="total()"><span id="demo4" style="color: red;"></span>
                           <input id="marks" name="marks" class="form-control col-md-7 col-xs-5" value="${sale.marks}"  type="text"  >
                         </div>
                         </div>
-						<a href="${pageContext.request.contextPath }/staff/flatform/sale/getall" class=" text-left btn btn-default  " role="button">返回上页</a>
+						<a onclick="javascript:history.back(-1);" class=" text-left btn btn-default  " role="button">返回上页</a>
+
 						<button type="submit" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >增加</button>							                      
                     </form>
 	<div class="clearfix"></div>
