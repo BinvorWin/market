@@ -80,106 +80,6 @@
       #{retdate,jdbcType=DATE}, #{reason,jdbcType=VARCHAR}, #{marks,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.hbh.entity.CusRetire">
-    insert into cusretire
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="saleid != null">
-        saleid,
-      </if>
-      <if test="proid != null">
-        proid,
-      </if>
-      <if test="pname != null">
-        pname,
-      </if>
-      <if test="price != null">
-        price,
-      </if>
-      <if test="num != null">
-        num,
-      </if>
-      <if test="total != null">
-        total,
-      </if>
-      <if test="saledate != null">
-        saledate,
-      </if>
-      <if test="retdate != null">
-        retdate,
-      </if>
-      <if test="reason != null">
-        reason,
-      </if>
-      <if test="marks != null">
-        marks,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="saleid != null">
-        #{saleid,jdbcType=VARCHAR},
-      </if>
-      <if test="proid != null">
-        #{proid,jdbcType=VARCHAR},
-      </if>
-      <if test="pname != null">
-        #{pname,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DOUBLE},
-      </if>
-      <if test="num != null">
-        #{num,jdbcType=INTEGER},
-      </if>
-      <if test="total != null">
-        #{total,jdbcType=DOUBLE},
-      </if>
-      <if test="saledate != null">
-        #{saledate,jdbcType=DATE},
-      </if>
-      <if test="retdate != null">
-        #{retdate,jdbcType=DATE},
-      </if>
-      <if test="reason != null">
-        #{reason,jdbcType=VARCHAR},
-      </if>
-      <if test="marks != null">
-        #{marks,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hbh.entity.CusRetire">
-    update cusretire
-    <set>
-      <if test="proid != null">
-        proid = #{proid,jdbcType=VARCHAR},
-      </if>
-      <if test="pname != null">
-        pname = #{pname,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        price = #{price,jdbcType=DOUBLE},
-      </if>
-      <if test="num != null">
-        num = #{num,jdbcType=INTEGER},
-      </if>
-      <if test="total != null">
-        total = #{total,jdbcType=DOUBLE},
-      </if>
-      <if test="saledate != null">
-        saledate = #{saledate,jdbcType=DATE},
-      </if>
-      <if test="retdate != null">
-        retdate = #{retdate,jdbcType=DATE},
-      </if>
-      <if test="reason != null">
-        reason = #{reason,jdbcType=VARCHAR},
-      </if>
-      <if test="marks != null">
-        marks = #{marks,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where saleid = #{saleid,jdbcType=VARCHAR}
-  </update>
   <update id="updateByPrimaryKey" parameterType="com.hbh.entity.CusRetire">
     update cusretire
     set proid = #{proid,jdbcType=VARCHAR},
@@ -193,4 +93,21 @@
       marks = #{marks,jdbcType=VARCHAR}
     where saleid = #{saleid,jdbcType=VARCHAR}
   </update>
+  <select id="getbyparams" resultMap="BaseResultMap">
+ 	 select * from cusretire
+  	<where>
+		<if test="proid!=null and proid!=''">
+		and	proid = #{proid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="retdate!=null and retdate!=''">
+			and retdate=#{retdate}
+		</if>
+		<if test="pname!=null and pname!=''">
+			and pname like concat('%',#{pname},'%')
+		</if>	
+		<if test="saleid!=null and saleid!=''">
+			and saleid=#{saleid}
+		</if>
+		</where>	
+  </select>
 </mapper>

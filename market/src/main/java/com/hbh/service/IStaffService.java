@@ -12,5 +12,8 @@ public interface IStaffService {
 	Staff getStaff(String staffid,String pwd);
 	
 //	修改个人信息
-	int updateByid(String staffid);
+	boolean update(Staff staff);
+	
+//	查看个人信息
+	Staff getbyid(String staffid);
 }

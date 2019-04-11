@@ -2,70 +2,84 @@
     pageEncoding="UTF-8"%>
 <%@include file="common/head.jsp"%>
     <div class="right_col" role="main"> 
-	<form class="form-horizontal form-label-left" method="post" action="insert" onsubmit="return checkall()">
+	<form class="form-horizontal form-label-left" method="post" action="update" onsubmit="return checkall()">
 
-                      <span class="section">新增退货信息</span>
+                      <span class="section">修改退货信息</span>
                       
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">订单id<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="inid" name="inid" class="form-control input-small input-sm " value="${ckretire.inid}"  type="text" onblur="checkinid()"><span id="demo1" style="color: red;"></span>
+                          <input id="saleid" name="saleid" class="form-control input-small input-sm " value="${cusretire.saleid}"  type="text" onblur="checksaleid()"><span id="demo1" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">商品id<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="proid" name="proid" class="form-control input-small input-sm "  value="${ckretire.proid}"  type="text" onblur="checkproid()"><span id="demo3" style="color: red;"></span>
+                          <input id="proid" name="proid" class="form-control input-small input-sm "  value="${cusretire.proid}"  type="text" onblur="checkproid()"><span id="demo3" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${ckretire.pname}" onblur="checkname()" type="text" ><span id="demo2" style="color: red;"></span>
+                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${cusretire.pname}" onblur="checkname()" type="text" ><span id="demo2" style="color: red;"></span>
+                        </div>
+                      </div>
+                       <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >售价 <span >*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-5">
+                          <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${cusretire.price}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >数量 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${ckretire.num}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
+                          <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${cusretire.num}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
+                        </div>
+                      </div>
+                       <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >总价 <span >*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-5">
+                          <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${cusretire.total}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
                         </div>
                       </div>
                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >进货日期<span >*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >售货日期<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="indate"  name="indate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ckretire.indate}"/>" type="date" >                        
+                          <input id="indate"  name="indate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${cusretire.indate}"/>" type="date" >                        
                           </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >退货日期<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="retdate"  name="retdate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ckretire.retdate}"/>" type="date" >                        
+                          <input id="retdate"  name="retdate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${cusretire.retdate}"/>" type="date" >                        
                           </div>
                       </div>
                         <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >备注<span ></span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="marks" name="marks" class="form-control col-md-7 col-xs-5" value="${ckretire.marks}"  type="text" >
+                          <input id="marks" name="marks" class="form-control col-md-7 col-xs-5" value="${cusretire.marks}"  type="text" >
                         </div>
                         </div>
 						<a onclick="javascript:history.back(-1);" class=" text-left btn btn-default  " role="button">返回上页</a>
-						<button type="submit" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >添加</button>								                      
+						<button type="submit" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >修改</button>								                      
                     </form>
 	<div class="clearfix"></div>
 	</div>
 <%@include file="common/footer.jsp"%>
 <script>
 /*判断输入id是不是数字  */
-function checkinid()
+function checksaleid()
 {
-	var num = document.getElementById('inid').value;
+	var num = document.getElementById('saleid').value;
 	if( num )
 		{
 		if( !isNaN( num ) )
@@ -74,14 +88,14 @@ function checkinid()
 		return true;
 		}else{
 			document.getElementById("demo1").innerHTML="请输入正确的订单id！";
-			document.getElementById('inid').value="";
-			document.getElementById('inid').focus();
+			document.getElementById('saleid').value="";
+			document.getElementById('saleid').focus();
 			return false;
 			}
 		}
 else{
 		document.getElementById("demo1").innerHTML="请输入订单id！";
-	document.getElementById('inid').focus();
+	document.getElementById('saleid').focus();
 	return false;
 	}
 }
@@ -146,12 +160,12 @@ else{
 }
 /* 校验整个表单 */
 function checkall(){
-			 var inid=checkinid();
+			 var saleid=checksaleid();
 	         var name = checkname();  
 	         var proid=checkproid(); 
 	         var num=checknum(); 
 	         
-	         if(inid&&name&&proid&&num){  
+	         if(saleid&&name&&proid&&num){  
 				 alert("添加成功"); 
 	             return true;
 	         }else{  

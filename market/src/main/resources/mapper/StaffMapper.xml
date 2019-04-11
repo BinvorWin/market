@@ -5,7 +5,7 @@
     select u.* from staff  u where staffid=#{staffid}
 	
   </select>
-  <update id="updateByid" parameterType="com.hbh.entity.Staff">
+  <update id="update" parameterType="com.hbh.entity.Staff">
     update staff
     <set>
       <if test="staffname != null">
@@ -29,5 +29,7 @@
     </set>
     where staffid = #{staffid}
   </update>
-  
+  <select id="getbyid" parameterType="java.lang.String" resultType="Staff">
+  	 select u.* from staff  u where staffid=#{staffid}
+  </select>
 </mapper>

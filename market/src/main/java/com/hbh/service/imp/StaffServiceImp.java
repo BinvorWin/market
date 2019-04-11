@@ -25,9 +25,13 @@ public class StaffServiceImp implements IStaffService {
 		}
 		return null;
 	}
-	public int updateByid(String staffid) {
-		return staffDao.updateByid(staffid);
+	public boolean update(Staff staff) {
+		return staffDao.update(staff);
 		
+	}
+	public Staff getbyid(String staffid) {
+		// TODO Auto-generated method stub
+		return staffDao.getbyid(staffid);
 	}
 
 }

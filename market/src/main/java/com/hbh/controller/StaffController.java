@@ -6,9 +6,12 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hbh.entity.Custom;
+import com.hbh.entity.Sale;
 import com.hbh.entity.Staff;
 import com.hbh.service.imp.StaffServiceImp;
 import com.hbh.tools.Constants;
@@ -57,5 +60,29 @@ public class StaffController {
 		return "stafflogin";
 		
 	}
+	@RequestMapping("/getbyid")
+	public String grxx(String staffid,HttpServletRequest request,Model model){
+		 request.setAttribute("staff", staffServiceImp.getbyid(staffid));
+	     model.addAttribute("staff",staffServiceImp.getbyid(staffid));  
+	     return "grxx"; 
+		
+	}
+	@RequestMapping("/update")
+    public String update(Staff staff,HttpServletRequest request,Model model){
+    	if(staffServiceImp.update(staff)) {
+    		staff=staffServiceImp.getbyid(staff.getStaffid());
+    		model.addAttribute("custom", staff);
+    		return "redirect:/staff/login"; 
+    	}
+    	return null;
+    }
+//  跳转到修改页面
+    
+    @RequestMapping("/toupdate")  
+	public String editstaff(Staff staff,HttpServletRequest request,Model model){
+		model.addAttribute("staff", staffServiceImp.getbyid(staff.getStaffid()));
+		return "editstaff";
+	}
+	
 }
 

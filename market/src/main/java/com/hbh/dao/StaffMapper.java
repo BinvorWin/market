@@ -13,5 +13,9 @@ public interface StaffMapper {
 //	验证登录信息
 	Staff getStaff(@Param("staffid") String staffid);
 //	修改个人信息
-	int updateByid(String staffid);
+	boolean update(Staff staff);
+
+//	查看个人信息
+	Staff getbyid(String staffid);
+	
 }

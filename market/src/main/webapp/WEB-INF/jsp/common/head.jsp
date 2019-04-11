@@ -16,6 +16,14 @@
     <link href="${pageContext.request.contextPath }/statics/css/nprogress.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
 </head>
+<script type="text/javascript">
+function update(id) {
+		window.location.href="${pageContext.request.contextPath }/staff/toupdate?staffid="+id;
+}  
+function get(id) {
+	window.location.href="${pageContext.request.contextPath }/staff/getbyid?staffid="+id;
+} 
+</script>
 <body class="nav-md">
     <div class="container body" style="overflow-x: hidden;overflow-y: hidden; ">
       <div class="main_container">
@@ -59,7 +67,7 @@
                   <li><a><i class="fa fa-table"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${pageContext.request.contextPath }/staff/flatform/sale/getall">销售信息</a></li>
-                      <li><a href="tables_dynamic.html">顾客退货办理</a></li>
+                      <li><a href="${pageContext.request.contextPath }/staff/flatform/cusretire/getall">顾客退货办理</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> 客户信息管理 <span class="fa fa-chevron-down"></span></a>
@@ -76,7 +84,7 @@
               </div>
             </div>
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
+<!--               <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
               <a data-toggle="tooltip" data-placement="top" title="FullScreen">
@@ -84,8 +92,8 @@
               </a>
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              </a> -->
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="${pageContext.request.contextPath }/staff/logout">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -102,17 +110,16 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <span class="glyphicon glyphicon-user">${staffSession.staffname }</span> 
+                    <span class="glyphicon glyphicon-user">${staffSession.staffname}</span> 
+                    <span class="glyphicon glyphicon-user" style="display:none" id="staffid">${staffSession.staffid}</span> 
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> 基本信息</a></li>
+                    <li><a onclick="get(${staffSession.staffid})"> 基本信息</a></li>
                     <li>
-                      <a href="javascript:;">
-                        <span>修改资料</span>
-                      </a>
+                      <a onclick="update(${staffSession.staffid})">修改资料</a>
                     </li>
-                    <li><a href="${pageContext.request.contextPath }/staff/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="${pageContext.request.contextPath }/staff/logout"><i class="fa fa-sign-out pull-right"></i> 退出</a></li>
                   </ul>
                 </li>
               </ul>

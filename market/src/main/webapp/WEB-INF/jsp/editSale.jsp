@@ -70,7 +70,7 @@ onkeyup="total()"><span id="demo4" style="color: red;"></span>
                         </div>
                         </div>
 						<a onclick="javascript:history.back(-1);" class=" text-left btn btn-default  " role="button">返回上页</a>
-						<button type="submit" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >增加</button>							                      
+						<button type="submit" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >修改</button>							                      
                     </form>
 	<div class="clearfix"></div>
 	</div>
@@ -234,10 +234,10 @@ onkeyup="total()"><span id="demo4" style="color: red;"></span>
 		var cusid=checkcusid();
 		var cusname=checkcusname();
 		if(saleid&&proid&&pname&&price&&num&&cusid&&cusname){
-			 alert("添加成功"); 
+			 alert("修改成功"); 
 			 return true;
 		}else{  
-	 			alert("添加失败，请重新填写数据");
+	 			alert("修改失败，请重新填写数据");
 			    return false;
 		 			
 			}  
