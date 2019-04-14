@@ -17,10 +17,7 @@
 					    		 <th>订单id</th>	
 					        	 <th>商品id</th>
 					        	 <th>名称</th>
-					        	 <th>售价</th>
 					         	 <th>数量</th>
-					         	 <th>总价</th>
-					        	 <th>售货日期</th>
 					        	 <th>退货日期</th>
 					        	 <th>备注</th>
 					        	 <th>操作</th>
@@ -30,14 +27,10 @@
 					        			     <th>${cusretire.saleid}</th>
 					        			     <th>${cusretire.proid}</th>
 					                         <th>${cusretire.pname}</th>
-					                         <th>${cusretire.price}</th>
 					                         <th>${cusretire.num}</th>
-					                         <th>${cusretire.total}</th>
-					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${cusretire.saledate}"/></th>
 					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${cusretire.retdate}"/></th>
 					                         <th>${cusretire.marks}</th>      
 					                         <th>
-											   <a href="${pageContext.request.contextPath }/staff/flatform/cusretire/edit?saleid=${cusretire.saleid}" class="btn btn-primary btn-xs">修改</a>
 					                           <a onclick="del(${cusretire.saleid})"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>

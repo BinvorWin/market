@@ -17,14 +17,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">商品id<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="proid" name="proid" class="form-control input-small input-sm "  value="${ckin.proid}"  type="text" onblur="checkproid()"><span id="demo3" style="color: red;"></span>
+                          <input id="proid" name="proid" class="form-control input-small input-sm "  value="${ckin.proid}"  type="text" onblur="checkproid()"><span id="demo3" style="color: red;" readonly></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${ckin.pname}" onblur="checkname()" type="text" ><span id="demo2" style="color: red;"></span>
+                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${ckin.pname}" onblur="checkname()" type="text" ><span id="demo2" style="color: red;" readonly></span>
                         </div>
                       </div>
                       <div class="item form-group">

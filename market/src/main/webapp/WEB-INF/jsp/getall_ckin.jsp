@@ -33,8 +33,8 @@
 								    <label >进货日期:</label>
 								    <input type="text" class="form-control" id="indate" name="indate" type="date" >
 								  </div>
-								  <a href="${pageContext.request.contextPath }/staff/flatform/ckin/toadd" class="btn btn-primary " role="button">新增</a>	
-								  </span>
+<%-- 								  <a href="${pageContext.request.contextPath }/staff/flatform/ckin/toadd" class="btn btn-primary " role="button">新增</a>	
+ --%>								  </span>
 		                    </form>
 		                </div>
 					<div class="row">

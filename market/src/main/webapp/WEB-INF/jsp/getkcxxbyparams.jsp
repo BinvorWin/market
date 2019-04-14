@@ -27,7 +27,7 @@
 					                         <th>${kcxx.marks}</th>      
 					                         <th>
 					                            <a href="${pageContext.request.contextPath }/staff/flatform/kcxx/toupdate?proid=${kcxx.proid}" class="btn btn-primary btn-xs">进货</a> 
-					                            <a onclick="del(${kcxx.proid})"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
+					                            <a onclick="del(${kcxx.proid})"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">退货</a>
 					                         </th>
 					          	</tr>
 					         </c:forEach>
@@ -48,14 +48,14 @@
 <%@include file="common/footer.jsp"%>
 <script type="text/javascript">
 	function del(id) {
-		var message=confirm("是否确认要删除?");
+		var message=confirm("是否确认要退货?");
 		if (message==true) {
 			// 确认时做的操作 var 
 			window.location.href="${pageContext.request.contextPath }/staff/flatform/kcxx/delete?proid="+id;
-			alert("删除成功");
+			alert("退货成功");
 	} else {
 		// 取消时做的操作
-		alert("删除失败");
+		alert("退货失败");
 	}
 }
 </script>

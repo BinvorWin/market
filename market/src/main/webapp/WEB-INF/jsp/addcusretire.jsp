@@ -27,33 +27,12 @@
                           <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${cusretire.pname}" onblur="checkname()" type="text" ><span id="demo2" style="color: red;"></span>
                         </div>
                       </div>
-                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >售价 <span >*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${cusretire.price}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
-                        </div>
-                      </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >数量 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
                           <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${cusretire.num}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
                         </div>
-                      </div>
-                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >总价 <span >*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${cusretire.total}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
-                        </div>
-                      </div>
-                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >售货日期<span >*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="indate"  name="indate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${cusretire.indate}"/>" type="date" >                        
-                          </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >退货日期<span >*</span>

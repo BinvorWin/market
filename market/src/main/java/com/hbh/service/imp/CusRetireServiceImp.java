@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hbh.dao.CusRetireMapper;
+import com.hbh.dao.KcxxMapper;
 import com.hbh.entity.CusRetire;
 import com.hbh.entity.CusRetireExample;
+import com.hbh.entity.Kcxx;
 import com.hbh.service.ICusRetireService;
 
 /**
@@ -20,13 +22,25 @@ public class CusRetireServiceImp implements ICusRetireService {
 
 	@Autowired
 	CusRetireMapper cusRetireMapper;
+	@Autowired
+	KcxxMapper kcxxMapper;
 	public int delete(String saleid) {
 		// TODO Auto-generated method stub
 		return cusRetireMapper.deleteByPrimaryKey(saleid);
 	}
 
 	public int insert(CusRetire record) {
-		// TODO Auto-generated method stub
+		String id=record.getProid();
+		Kcxx kcxx=new Kcxx();
+		kcxx=kcxxMapper.selectByPrimaryKey(id);
+		int kcnum=kcxx.getNum();
+		int salenum=record.getNum();
+		int nownum=kcnum+salenum-kcnum;
+		kcxx.setNum(nownum);
+		kcxx.setPname(record.getPname());
+		kcxx.setProid(record.getProid());
+		kcxx.setMarks(record.getMarks());
+		kcxxMapper.updateByPrimaryKey(kcxx);
 		return cusRetireMapper.insert(record);
 	}
 

@@ -191,7 +191,7 @@ WHERE
   <update id="updateByPrimaryKey" parameterType="com.hbh.entity.Kcxx">
     update kcxx
     set pname = #{pname,jdbcType=VARCHAR},
-      num = #{num,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER}+num,
       marks = #{marks,jdbcType=VARCHAR}
     where proid = #{proid,jdbcType=VARCHAR}
   </update>

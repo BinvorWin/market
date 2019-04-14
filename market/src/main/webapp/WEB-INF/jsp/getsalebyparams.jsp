@@ -37,15 +37,7 @@
 					                         <th>${sale.cusname}</th>
 					                         <th>${sale.marks}</th>      
 					                         <th>
-					                            <div class="btn-group">
-												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												    编辑 <span class="caret"></span>
-												  </button>
-												  <ul class="dropdown-menu">
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/sale/getbyid?saleid=${sale.saleid}" >查看</a></li>
-												    <li><a href="${pageContext.request.contextPath }/staff/flatform/sale/toupdate?saleid=${sale.saleid}">修改</a></li>
-												  </ul>
-												</div>
+												<a href="${pageContext.request.contextPath }/staff/flatform/sale/getbyid?saleid=${sale.saleid}" class="btn btn-primary btn-xs" >查看</a>
 					                            <a onclick="del(${sale.saleid})"  class="btn btn-danger btn-xs" aria-label="Left Align" role="button">删除</a>
 					                         </th>
 					          	</tr>

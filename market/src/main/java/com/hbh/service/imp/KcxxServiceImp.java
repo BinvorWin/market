@@ -1,11 +1,14 @@
 package com.hbh.service.imp;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hbh.dao.CkinMapper;
 import com.hbh.dao.KcxxMapper;
+import com.hbh.entity.Ckin;
 import com.hbh.entity.Kcxx;
 import com.hbh.service.IKcxxService;
 
@@ -18,6 +21,9 @@ import com.hbh.service.IKcxxService;
 public class KcxxServiceImp implements IKcxxService {
 	@Autowired
 	KcxxMapper kcxxMapper;
+	
+	@Autowired
+	CkinMapper ckinMapper;
 	public int delete(String proid) {
 		// TODO Auto-generated method stub
 		return kcxxMapper.deleteByPrimaryKey(proid);
@@ -39,7 +45,12 @@ public class KcxxServiceImp implements IKcxxService {
 	}
 
 	public Boolean update(Kcxx record) {
-		// TODO Auto-generated method stub
+		Ckin ckin = new Ckin();
+		ckin.setProid(record.getProid());
+		ckin.setIndate(new Date());
+		ckin.setNum(record.getNum());
+		ckin.setPname(record.getPname());
+		ckinMapper.insert(ckin);
 		return kcxxMapper.updateByPrimaryKey(record);
 	}
 
