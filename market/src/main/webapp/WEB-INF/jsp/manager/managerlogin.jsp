@@ -34,6 +34,7 @@
           <section class="login_content">
             <form action="dologin" method="post">
               <h1>超市进销存管理系统</h1>
+              <h2>管理员登录</h2>
               <div>
                 <input type="text" class="form-control" name="managerid" placeholder="请输入用户名" required="" />
               </div>
