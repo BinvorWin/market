@@ -15,6 +15,7 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hbh.entity.Ckin;
@@ -22,12 +23,12 @@ import com.hbh.service.imp.CkinServiceImp;
 
 /**
  * @Author Binvor
- * @Date 2019年3月27日下午3:28:51
- * @Des 进货管理
+ * @Date 2019年4月19日下午12:37:59
+ * @Des 
  */
 @Controller
-@RequestMapping("/staff/flatform/ckin")
-public class CkinController {
+@RequestMapping("/manager/flatform/ckin")
+public class MCkinController {
 	@Autowired
 	CkinServiceImp ckinServiceImp;
 //	获取所有进货信息
@@ -117,4 +118,5 @@ public class CkinController {
 	}
 
 }
+
 

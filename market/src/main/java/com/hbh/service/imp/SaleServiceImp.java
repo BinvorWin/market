@@ -30,11 +30,9 @@ public class SaleServiceImp implements ISaleService {
 		String name=record.getCusname();
 		Custom custom=new Custom();
 		custom=customMapper.selectByPrimaryKey(cusid);
-		if(custom==null) {
 			custom.setCusid(cusid);
 			custom.setCusname(name);
-			customMapper.insert(custom);
-		}
+			int a=customMapper.insert(custom);
 		Kcxx kcxx=new Kcxx();
 		kcxx=kcxxMapper.selectByPrimaryKey(id);
 		int kcnum=kcxx.getNum();

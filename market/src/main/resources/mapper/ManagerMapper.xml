@@ -42,113 +42,16 @@
   <sql id="Base_Column_List">
     managerid, managername, card, sex, tel, stafftype, pwd
   </sql>
-  <select id="selectByExample" parameterType="com.hbh.entity.ManagerExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    'false' as QUERYID,
-    <include refid="Base_Column_List" />
-    from manager
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+ 
+  <select id="getbyid" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from manager
     where managerid = #{managerid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from manager
-    where managerid = #{managerid,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.hbh.entity.Manager">
-    insert into manager (managerid, managername, card, 
-      sex, tel, stafftype, 
-      pwd)
-    values (#{managerid,jdbcType=VARCHAR}, #{managername,jdbcType=VARCHAR}, #{card,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{stafftype,jdbcType=VARCHAR}, 
-      #{pwd,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.hbh.entity.Manager">
-    insert into manager
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="managerid != null">
-        managerid,
-      </if>
-      <if test="managername != null">
-        managername,
-      </if>
-      <if test="card != null">
-        card,
-      </if>
-      <if test="sex != null">
-        sex,
-      </if>
-      <if test="tel != null">
-        tel,
-      </if>
-      <if test="stafftype != null">
-        stafftype,
-      </if>
-      <if test="pwd != null">
-        pwd,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="managerid != null">
-        #{managerid,jdbcType=VARCHAR},
-      </if>
-      <if test="managername != null">
-        #{managername,jdbcType=VARCHAR},
-      </if>
-      <if test="card != null">
-        #{card,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null">
-        #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="stafftype != null">
-        #{stafftype,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null">
-        #{pwd,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.hbh.entity.Manager">
-    update manager
-    <set>
-      <if test="managername != null">
-        managername = #{managername,jdbcType=VARCHAR},
-      </if>
-      <if test="card != null">
-        card = #{card,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        sex = #{sex,jdbcType=VARCHAR},
-      </if>
-      <if test="tel != null">
-        tel = #{tel,jdbcType=VARCHAR},
-      </if>
-      <if test="stafftype != null">
-        stafftype = #{stafftype,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null">
-        pwd = #{pwd,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where managerid = #{managerid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.hbh.entity.Manager">
+  
+  
+  <update id="update" parameterType="com.hbh.entity.Manager">
     update manager
     set managername = #{managername,jdbcType=VARCHAR},
       card = #{card,jdbcType=VARCHAR},
