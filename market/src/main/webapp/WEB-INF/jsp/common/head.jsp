@@ -80,6 +80,11 @@ function get(id) {
                       <li><a href="${pageContext.request.contextPath }/staff/flatform/supply/getall">供应商信息</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-clone"></i>员工信息管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="${pageContext.request.contextPath }/manager/flatform/staff/getall">供应商信息</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>

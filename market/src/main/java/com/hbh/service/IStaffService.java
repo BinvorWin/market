@@ -1,5 +1,10 @@
 package com.hbh.service;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.hbh.entity.SaleExample;
 import com.hbh.entity.Staff;
 
 /**
@@ -16,4 +21,15 @@ public interface IStaffService {
 	
 //	查看个人信息
 	Staff getbyid(String staffid);
+	
+//	删除员工信息
+	int delete(String staffid);
+	
+//添加员工
+	int insert(Staff staff);
+	
+//	获取所有员工信息
+	List<Staff> getall();
+	
+	 List<Staff> getbyparams(String staffid,String staffname);
 }

@@ -1,5 +1,7 @@
 package com.hbh.service.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,22 @@ public class StaffServiceImp implements IStaffService {
 	public Staff getbyid(String staffid) {
 		// TODO Auto-generated method stub
 		return staffDao.getbyid(staffid);
+	}
+	public int delete(String staffid) {
+		// TODO Auto-generated method stub
+		return staffDao.delete(staffid);
+	}
+	public int insert(Staff staff) {
+		// TODO Auto-generated method stub
+		return staffDao.insert(staff);
+	}
+	public List<Staff> getall() {
+		// TODO Auto-generated method stub
+		return staffDao.selectByExample();
+	}
+	public List<Staff> getbyparams(String staffid, String staffname) {
+		// TODO Auto-generated method stub
+		return staffDao.getbyparams(staffid, staffname);
 	}
 
 }

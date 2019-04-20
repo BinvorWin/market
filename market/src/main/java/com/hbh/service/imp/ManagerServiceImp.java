@@ -33,4 +33,9 @@ public class ManagerServiceImp implements IManagerService{
 		return managerMapper.update(manager);
 	}
 
+	public Manager getmanager(String managerid) {
+		// TODO Auto-generated method stub
+		return managerMapper.getbyid(managerid);
+	}
+
 }

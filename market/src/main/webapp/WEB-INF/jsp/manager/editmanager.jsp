@@ -2,61 +2,61 @@
     pageEncoding="UTF-8"%>
 <%@include file="common/head.jsp"%>
     <div class="right_col" role="main"> 
-	<form class="form-horizontal form-label-left"  method="post" action="updatestaff" onsubmit="return checkall()" >
+	<form class="form-horizontal form-label-left"  method="post" action="update" onsubmit="return checkall()" >
 
-                      <span class="section">个人信息</span>
+                      <span class="section">修改个人信息</span>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">员工id<span >*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">id<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="staffid" name="staffid" class="form-control input-small input-sm "  value="${staff.staffid}"  type="text"  >
+                          <input id="managerid" name="managerid" class="form-control input-small input-sm "  value="${manager.managerid}"  type="text" readonly="readonly" >
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >姓名<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="staffname" name="staffname" class="form-control col-md-7 col-xs-5" value="${staff.staffname}"  type="text" onblur="checkname()" ><span id="demo1" style="color: red;"></span>
+                          <input id="managername" name="managername" class="form-control col-md-7 col-xs-5" value="${manager.managername}"  type="text" onblur="checkname()" ><span id="demo1" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >身份证 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="card" name="card" class="form-control col-md-7 col-xs-5" value="${staff.card}"  type="text" onblur="checkcard()" ><span id="demo2" style="color: red;"></span>
+                          <input id="card" name="card" class="form-control col-md-7 col-xs-5" value="${manager.card}"  type="text" onblur="checkcard()" ><span id="demo2" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >性别 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="sex" name="sex" class="form-control col-md-7 col-xs-5" value="${staff.sex}"  type="text"  >                        
+                          <input id="sex" name="sex" class="form-control col-md-7 col-xs-5" value="${manager.sex}"  type="text"  >                        
                       </div>
                       	</div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >电话<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="tel" name="tel" class="form-control col-md-7 col-xs-5"  value="${staff.tel}" type="text" onblur="checktel()" >   <span id="demo3" style="color: red;"></span>                     
+                          <input id="tel" name="tel" class="form-control col-md-7 col-xs-5"  value="${manager.tel}" type="text" onblur="checktel()" >   <span id="demo3" style="color: red;"></span>                     
                           </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >身份类型<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="stafftype" name="stafftype" class="form-control col-md-7 col-xs-5"  value="${staff.stafftype}" type="text"  >
+                          <input id="stafftype" name="stafftype" class="form-control col-md-7 col-xs-5"  value="${manager.stafftype}" type="text"  >
                         </div>
                       </div>
                        <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >密码<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="pwd" name="pwd" class="form-control col-md-7 col-xs-5" value="${staff.pwd}"  type="password" placeholder="请填写密码"  >
+                          <input id="pwd" name="pwd" class="form-control col-md-7 col-xs-5" value="${ manager.pwd}"  type="password" placeholder="请填写密码"  >
                         </div>
                       </div> 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >密码<span >*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5">密码<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
                           <input id="pwd2" name="pwd2" class="form-control col-md-7 col-xs-5"   type="password" placeholder="请再次填写密码"  onkeyup="validate()"><span id="tishi"></span>
@@ -71,7 +71,7 @@
 <%@include file="common/footer.jsp"%>
 <script type="text/javascript">
 	function checkname(){
-		var name= document.getElementById('staffname').value;
+		var name= document.getElementById('managername').value;
 		var regName =/^[\u4e00-\u9fa5]{2,4}$/; 
 		if(!regName.test(name)){  
 			document.getElementById("demo1").innerHTML="请输入正确的姓名！"; 
@@ -128,10 +128,10 @@
 		var tel=checktel();
 		var card=checkcard();
 		if(name&&tel&&card){
-			 alert("修改成功!"); 
+			 alert("修改成功,请重新登录"); 
 			 return true;
 		}else{  
-	 			alert("修改失败!");
+	 			alert("修改失败，请重新填写数据");
 			    return false;
 		 			
 			}  

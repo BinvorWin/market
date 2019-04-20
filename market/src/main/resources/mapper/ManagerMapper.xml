@@ -39,13 +39,10 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
-    managerid, managername, card, sex, tel, stafftype, pwd
-  </sql>
+
  
   <select id="getbyid" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
+    select *
     from manager
     where managerid = #{managerid,jdbcType=VARCHAR}
   </select>
@@ -61,4 +58,8 @@
       pwd = #{pwd,jdbcType=VARCHAR}
     where managerid = #{managerid,jdbcType=VARCHAR}
   </update>
+  
+  <select id="getmanager" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select * from manager  where managerid = #{managerid,jdbcType=VARCHAR}
+  </select>
 </mapper>

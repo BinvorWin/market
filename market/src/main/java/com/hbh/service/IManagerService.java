@@ -13,4 +13,6 @@ public interface IManagerService {
 	   Manager getbyid( String managerid,String pwd);
 	   
 	   boolean update(Manager manager);
+	   
+	   Manager getmanager(String managerid);
 }

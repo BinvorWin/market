@@ -85,7 +85,7 @@ public class TypeController {
 		List<Type> types= typeServiceImp.getall();
 		PageInfo<Type> pageInfo=new PageInfo<Type>(types);
 		model.addAttribute("pageInfo", pageInfo);
-		return "getall";
+		return "getall_staff";
 		
 	}
 //  查询单个

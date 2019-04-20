@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@include file="common/head.jsp"%>
     <div class="right_col" role="main"> 
-	<form class="form-horizontal form-label-left"  method="post" action="updatestaff" onsubmit="return checkall()" >
+	<form class="form-horizontal form-label-left"  method="post" action="insert" onsubmit="return checkall()" >
 
-                      <span class="section">个人信息</span>
+                      <span class="section">添加员工</span>
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">员工id<span >*</span>
@@ -64,7 +64,7 @@
                       </div>                     
                       
 						<a onclick="javascript:history.back(-1);" class=" text-left btn btn-default  " role="button">返回上页</a>
-						<button type="submit" id="button" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >修改</button>								                      
+						<button type="submit" id="button" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >添加</button>								                      
                     </form>
 	<div class="clearfix"></div>
 	</div>
@@ -128,10 +128,10 @@
 		var tel=checktel();
 		var card=checkcard();
 		if(name&&tel&&card){
-			 alert("修改成功!"); 
+			 alert("添加成功"); 
 			 return true;
 		}else{  
-	 			alert("修改失败!");
+	 			alert("添加失败");
 			    return false;
 		 			
 			}  

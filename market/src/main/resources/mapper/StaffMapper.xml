@@ -32,4 +32,35 @@
   <select id="getbyid" parameterType="java.lang.String" resultType="Staff">
   	 select u.* from staff  u where staffid=#{staffid}
   </select>
+  
+  <select id="selectByExample" parameterType="com.hbh.entity.StaffExample" resultType="Staff">
+    select *
+    from staff
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.String">
+    delete from staff
+    where staffid = #{staffid,jdbcType=VARCHAR}
+  </delete>
+  
+  <insert id="insert" parameterType="com.hbh.entity.Staff">
+    insert into staff (staffid, staffname, card, 
+      sex, tel, stafftype, 
+      pwd)
+    values (#{staffid,jdbcType=VARCHAR}, #{staffname,jdbcType=VARCHAR}, #{card,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{stafftype,jdbcType=VARCHAR}, 
+      #{pwd,jdbcType=VARCHAR})
+  </insert>
+  <select id="getbyparams" resultType="Staff">
+  select * from staff
+  	<where>
+		<if test="staffid!=null and staffid!=''">
+		and	staffid = #{staffid,jdbcType=VARCHAR}
+		</if>		 	
+		<if test="staffname!=null and staffname''">
+			and staffname like concat('%',#{staffname},'%')
+		</if>
+		
+	</where>
+  </select>
 </mapper>
