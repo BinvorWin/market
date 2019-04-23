@@ -96,11 +96,13 @@ public class MProductController {
 //    先判断数据库有没有，有就更新，没有就新增
     public String insertpro(Product product,HttpServletRequest request,Model model){  
     	if(null==productServiceImp.selectByPrimaryKey(product.getProid())) {
-        	productServiceImp.insert(product);    		
+        	productServiceImp.insert(product);  
+        	return "redirect:getlist";
     	}else {
-    		productServiceImp.updateByPrimaryKey(product);
+    		request.setAttribute("msg", "新增失败，系统中存在该id的商品，请重新输入！");
+    		return "addpro";
     	}
-    	return "redirect:getlist";
+    	
 
     } 
     @InitBinder

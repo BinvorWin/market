@@ -1,6 +1,6 @@
         <footer>
           <h4 class="text-center text-primary">
-          The system was by Binvor you can download these code by git <a href="https://github.com/BinvorWin/market">BinvorWin</a>
+          The system was coded by Binvor you can download these codes from git <a href="https://github.com/BinvorWin/market">BinvorWin</a>
           </h4>
           <div class="clearfix"></div>
         </footer>

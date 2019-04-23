@@ -79,10 +79,12 @@
 						<a href="${pageContext.request.contextPath }/staff/flatform/product/getlist" class=" text-left btn btn-default  " role="button">返回上页</a>
 						<button type="submit" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >增加</button>							                      
                     </form>
+                    
 	<div class="clearfix"></div>
 	</div>
 <%@include file="common/footer.jsp"%>
 <script>
+alert(${msg});
 /*判断输入id是不是数字  */
 function checkid()
 {

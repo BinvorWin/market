@@ -134,7 +134,6 @@ function checknum()
 		}else{
 			document.getElementById("demo4").innerHTML="请输入正确的商品数量！";
 			document.getElementById('num').value="";
-			document.getElementById('num').focus();
 			return false;
 			}
 		}
