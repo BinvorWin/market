@@ -32,7 +32,9 @@ public class SaleServiceImp implements ISaleService {
 		if(customMapper.getbyparams(cusid, name).size()==0) {
 			custom.setCusid(cusid);
 			custom.setCusname(name);
-			int a=customMapper.insert(custom);
+			if(record.getTotal()>500) {
+				int a=customMapper.insert(custom);
+				}
 			}else {
 				customMapper.updateByPrimaryKey(custom);
 			}

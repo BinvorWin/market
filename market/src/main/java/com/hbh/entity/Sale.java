@@ -13,9 +13,17 @@ public class Sale {
 
     private Integer num;
 
-    private String total;
+    private Double total;
 
-    private Date saledate;
+    public Double getTotal() {
+		return total;
+	}
+
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+
+	private Date saledate;
 
     private String marks;
     private String cusid;
@@ -78,13 +86,7 @@ public class Sale {
         this.num = num;
     }
 
-    public String getTotal() {
-        return total;
-    }
 
-    public void setTotal(String total) {
-        this.total = total == null ? null : total.trim();
-    }
 
     public Date getSaledate() {
         return saledate;

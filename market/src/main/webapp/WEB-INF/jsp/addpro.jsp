@@ -35,31 +35,31 @@
                       </div>
                       	</div>
                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >生产日期<span ></span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >生产日期<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="prodate"  name="prodate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.prodate}"/>" type="date" >                        
+                          <input id="prodate"  name="prodate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.prodate}"/>" type="date" required="">                        
                           </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >过期时间<span ></span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >过期时间<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="reledate" name="reledate" class="form-control col-md-7 col-xs-5"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.reledate}"/>" type="date">
+                          <input id="reledate" name="reledate" class="form-control col-md-7 col-xs-5"  value="<fmt:formatDate pattern="yyyy-MM-dd" value="${product.reledate}"/>" type="date" required="">
                         </div>
                       </div> 
                        <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >供应商名称<span ></span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >供应商名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="supname" name="supname"  class="form-control col-md-7 col-xs-5" value="${product.supname}"  type="text" >
+                          <input id="supname" name="supname"  class="form-control col-md-7 col-xs-5" value="${product.supname}"  type="text" required="">
                         </div>
                       </div>                      
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >商品类型<span ></span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >商品类型<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="protype"  name="protype" class="form-control col-md-7 col-xs-5"  value="${product.protype}" type="text" >
+                          <input id="protype"  name="protype" class="form-control col-md-7 col-xs-5"  value="${product.protype}" type="text" required="">
                         </div>
                       </div>                      
                         <div class="item form-group">
@@ -131,7 +131,7 @@ function ischeckNum()
 		if( !isNaN( num ) )
 			{
 				document.getElementById("demo2").innerHTML=" ";
-		return true;
+				return true;
 		}else{
 			document.getElementById("demo2").innerHTML="你输入的数据不是数字！";
 			document.getElementById('price').value="";
@@ -154,7 +154,6 @@ function ischeckinprice()
 			{
 				document.getElementById("demo3").innerHTML=" ";
 				return true;
-		return true;
 		}else{
 			document.getElementById("demo3").innerHTML="你输入的数据不是数字！";
 			document.getElementById('inprice').value="";
