@@ -1,6 +1,9 @@
 package com.hbh.service.imp;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,6 +72,21 @@ public class SaleServiceImp implements ISaleService {
 	public List<Sale> getbyparams(String proid, String cusid, String pname, String cusname) {
 		// TODO Auto-generated method stub
 		return saleMapper.getbyparams(proid, cusid, pname, cusname);
+	}
+
+	public List<Map<String, Object>> pieData() {
+		List<Map<String,Object>> data =new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> listdata=saleMapper.count();
+        if(listdata.size()>0){
+            for(int i=0;i<listdata.size();i++){
+                Map<String,Object> map=new HashMap<String, Object>();
+                map.put("name", listdata.get(i).get("pname"));
+                map.put("value", listdata.get(i).get("num"));
+                data.add(map);
+            }
+        }
+        return data;
+
 	}
 
 }

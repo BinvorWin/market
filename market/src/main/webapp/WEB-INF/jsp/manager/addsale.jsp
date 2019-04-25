@@ -23,29 +23,28 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${sale.pname}"  type="text" onblur="checkproname()" ><span id="demo3" style="color: red;"></span>
+                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${sale.pname}"  type="text" onblur="checkproname()" readonly><span id="demo3" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >售价 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="price" name="price" class="form-control col-md-7 col-xs-5" value="${sale.price}"  type="number" onblur="checkprice()" 
-onkeyup="total()"><span id="demo4" style="color: red;"></span>
+                          <input id="price" name="price" class="form-control col-md-7 col-xs-5" value="${sale.price}"  type="number" onblur="checkprice()"  readonly><span id="demo4" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >数量<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${sale.num}"  type="number" onkeyup="total()" onblur="checknum()"><span id="demo5" style="color: red;"></span>
+                          <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${sale.num}"  type="number"  onblur="checknum()"><span id="demo5" style="color: red;"></span>
                         </div>  
                         </div> 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >总价 <span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="total" name="total" class="form-control col-md-7 col-xs-5"  type="number" onblur="total()" >                        
+                          <input id="total" name="total" class="form-control col-md-7 col-xs-5"  type="number"  readonly>                        
                         </div>
                       	</div>
                       	<div class="item form-group">
@@ -63,7 +62,7 @@ onkeyup="total()"><span id="demo4" style="color: red;"></span>
                         </div>
                       </div>
                         <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >备注<span >*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >备注<span ></span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
                           <input id="marks" name="marks" class="form-control col-md-7 col-xs-5" value="${sale.marks}"  type="text"  >
@@ -225,6 +224,7 @@ onkeyup="total()"><span id="demo4" style="color: red;"></span>
 		return true
 		}
 	}
+	
 	/* 验证整个表单 */
 	function checkall(){
 		var saleid=checksaleid();
@@ -240,7 +240,8 @@ onkeyup="total()"><span id="demo4" style="color: red;"></span>
 		}else{  
 	 			alert("添加失败，请重新填写数据");
 			    return false;
-		 			
 			}  
 	}
 	</script>
+	<script src="${pageContext.request.contextPath}/statics/localjs/maddsale.js"></script>
+	

@@ -30,7 +30,7 @@ function get(id) {
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Welcome!</span></a>
+              <a href="${pageContext.request.contextPath }/manager/flatform/main" class="site_title"><i class="fa fa-paw"></i> <span>Welcome!</span></a>
             </div>
 					
             <div class="clearfix"></div>
@@ -67,7 +67,9 @@ function get(id) {
                   <li><a><i class="fa fa-table"></i> 销售管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="${pageContext.request.contextPath }/manager/flatform/sale/getall">销售信息</a></li>
+                      <li><a href="${pageContext.request.contextPath}/manager/flatform/sale/toechart">销售统计</a></li>
                       <li><a href="${pageContext.request.contextPath }/manager/flatform/cusretire/getall">顾客退货办理</a></li>
+                      
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> 客户信息管理 <span class="fa fa-chevron-down"></span></a>

@@ -1,7 +1,7 @@
 package com.hbh.service;
 
 import java.util.List;
-
+import java.util.Map;
 
 import com.hbh.entity.Sale;
 
@@ -19,5 +19,6 @@ public interface ISaleService {
     boolean update(Sale record);
     
     List<Sale> getbyparams( String proid,String cusid,String pname,String cusname );
+    public List<Map<String,Object>> pieData();
 
 }

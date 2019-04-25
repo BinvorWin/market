@@ -1,6 +1,7 @@
 package com.hbh.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -108,6 +111,19 @@ public class MSaleController {
 		return "manager/getsalebyparams";
 		
 	}
+    @RequestMapping(value="echartsData",method=RequestMethod.POST)
+    @ResponseBody
+    public List<Map<String, Object>> initChart(){
+        return saleServiceImp.pieData();
+    }
+
+//  跳转到增加页面
+	
+  @RequestMapping("/toechart")  
+  public String toechart(){  
+  	return "manager/echart";
+
+  } 
 
 	
 }
