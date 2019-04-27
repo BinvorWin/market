@@ -22,11 +22,7 @@
 					        	 <th>商品id</th>
 					        	 <th>名称</th>
 					        	 <th>数量</th>
-					        	 <th>售价</th>
-					        	 <th>进价</th>
 					        	 <th>过期时间</th>
-					        	 <th>商品类型</th>
-					        	 <th>供应商</th>
 					        	 <th>备注</th>
 					        	 <th>操作</th>
 					        </tr>
@@ -35,12 +31,8 @@
 					                         <th>${kcxx.proid}</th>
 					                         <th>${kcxx.pname}</th>
 					                         <th>${kcxx.num}</th>
-					                         <th>${kcxx.product.price}</th>
-					                         <th>${kcxx.product.inprice}</th>
 					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${kcxx.product.reledate}"/></th>
-					                         <th>${kcxx.product.protype}</th>
-					                         <th>${kcxx.product.supname}</th>
-					                         <th>临期商品</th>      
+					                         <th style="color: red;">临期商品</th>      
 					                         <th>
 					                            <div class="btn-group">
 												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

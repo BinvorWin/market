@@ -181,3 +181,4 @@ function checkall(){
 	         }  
 }
 </script>
+	<script src="${pageContext.request.contextPath}/statics/localjs/maddpro.js"></script>

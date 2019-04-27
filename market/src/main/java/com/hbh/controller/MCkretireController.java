@@ -15,11 +15,16 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hbh.entity.Ckin;
 import com.hbh.entity.Ckretire;
+import com.hbh.entity.Sale;
+import com.hbh.service.imp.CkinServiceImp;
 import com.hbh.service.imp.CkretireServiceImp;
+import com.hbh.service.imp.SaleServiceImp;
 
 /**
  * @Author Binvor
@@ -31,6 +36,8 @@ import com.hbh.service.imp.CkretireServiceImp;
 public class MCkretireController {
 	@Autowired
 	CkretireServiceImp ckretireServiceImp;
+	@Autowired
+	CkinServiceImp ckinServiceImp;
 //	获取所有退货信息
 	@RequestMapping("getall")
 	public String getlist(ModelMap model,
@@ -116,7 +123,15 @@ public class MCkretireController {
 		return "manager/getckretirebyparams";
 		
 	}
-
+	
+//	根据id查询单个信息
+    @RequestMapping("/getckret")  
+    @ResponseBody
+    public Ckin ckretire(String inid,HttpServletRequest request,Model model){  
+    	Ckin ckretire=new Ckin();
+        ckretire= ckinServiceImp.getbyid(inid);
+        return ckretire;  
+    }
 
 
 }

@@ -17,14 +17,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" width="15">商品id<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="proid" name="proid" class="form-control input-small input-sm "  value="${ckretire.proid}"  type="text" onblur="checkproid()"><span id="demo3" style="color: red;"></span>
+                          <input id="proid" name="proid" class="form-control input-small input-sm " readonly value="${ckretire.proid}"  type="text" onblur="checkproid()"><span id="demo3" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >名称<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" value="${ckretire.pname}" onblur="checkname()" type="text" ><span id="demo2" style="color: red;"></span>
+                          <input id="pname" name="pname" class="form-control col-md-7 col-xs-5" readonly value="${ckretire.pname}" onblur="checkname()" type="text" ><span id="demo2" style="color: red;"></span>
                         </div>
                       </div>
                       <div class="item form-group">
@@ -34,13 +34,13 @@
                           <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${ckretire.num}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
                         </div>
                       </div>
-                     <div class="item form-group">
+                   <%--   <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >进货日期<span >*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="indate"  name="indate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ckretire.indate}"/>" type="date" >                        
+                          <input id="indate"  name="indate" class="form-control col-md-7 col-xs-5"  readonly value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ckretire.indate}"/>" type="date" >                        
                           </div>
-                      </div>
+                      </div> --%>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >退货日期<span >*</span>
                         </label>
@@ -75,13 +75,11 @@ function checkinid()
 		}else{
 			document.getElementById("demo1").innerHTML="请输入正确的订单id！";
 			document.getElementById('inid').value="";
-			document.getElementById('inid').focus();
 			return false;
 			}
 		}
 else{
 		document.getElementById("demo1").innerHTML="请输入订单id！";
-	document.getElementById('inid').focus();
 	return false;
 	}
 }
@@ -93,7 +91,6 @@ function checkname(){
 	return true;
 }else{
 	document.getElementById("demo2").innerHTML="请输入商品名称！";
-	document.getElementById('pname').focus();
 	return false;
 }
 }
@@ -112,13 +109,11 @@ function checkproid()
 		}else{
 			document.getElementById("demo3").innerHTML="请输入正确的商品id！";
 			document.getElementById('proid').value="";
-			document.getElementById('proid').focus();
 			return false;
 			}
 		}
 else{
 		document.getElementById("demo3").innerHTML="请输入商品id！";
-	document.getElementById('proid').focus();
 	return false;
 	}
 }
@@ -139,7 +134,6 @@ function checknum()
 		}
 else{
 		document.getElementById("demo4").innerHTML="请输入商品数量！";
-	document.getElementById('num').focus();
 	return false;
 	}
 }
@@ -160,3 +154,4 @@ function checkall(){
 	         }  
 }
 </script>
+	<script src="${pageContext.request.contextPath}/statics/localjs/maddckretire.js"></script>

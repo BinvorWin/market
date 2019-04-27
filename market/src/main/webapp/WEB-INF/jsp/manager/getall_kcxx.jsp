@@ -31,7 +31,6 @@
 					        	 <th>商品id</th>
 					        	 <th>名称</th>
 					        	 <th>数量</th>
-					        	 <th>备注</th>
 					        	 <th>操作</th>
 					        </tr>
 					        <c:forEach items="${pageInfo.list}" var="kcxx">
@@ -39,7 +38,6 @@
 					                         <th>${kcxx.proid}</th>
 					                         <th>${kcxx.pname}</th>
 					                         <th>${kcxx.num}</th>
-					                         <th>${kcxx.marks}</th>      
 					                         <th>
 					                         	<a href="${pageContext.request.contextPath }/manager/flatform/kcxx/kcxxWithPro?proid=${kcxx.proid}" class="btn btn-success  btn-xs" >查看</a>
 					                            <a href="${pageContext.request.contextPath }/manager/flatform/kcxx/toupdate?proid=${kcxx.proid}" class="btn btn-primary btn-xs">进货</a> 

@@ -60,7 +60,7 @@
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
+   *
     from ckretire
     where inid = #{inid,jdbcType=VARCHAR}
   </select>
