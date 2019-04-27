@@ -22,7 +22,6 @@
 					        	 <th>商品id</th>
 					        	 <th>名称</th>
 					        	 <th>数量</th>
-					        	 <th>过期时间</th>
 					        	 <th>备注</th>
 					        	 <th>操作</th>
 					        </tr>
@@ -31,7 +30,6 @@
 					                         <th>${kcxx.proid}</th>
 					                         <th>${kcxx.pname}</th>
 					                         <th>${kcxx.num}</th>
-					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${kcxx.product.reledate}"/></th>
 					                         <th style="color: red;">临期商品</th>      
 					                         <th>
 					                            <div class="btn-group">

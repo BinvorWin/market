@@ -27,7 +27,7 @@
 					        	<tr>
 					                         <th>${staff.staffid}</th>
 					                         <th>${staff.staffname}</th>
-					                         <th>${staff.card} }</th>
+					                         <th>${staff.card}</th>
 					                         <th>${staff.tel}</th>
 					                         <th>${staff.sex}</th>
 					                         <th>${staff.stafftype}</th>

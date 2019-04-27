@@ -24,7 +24,6 @@
 								  <button class="btn btn-primary" type="submit">查询</button>
 								  <a href="${pageContext.request.contextPath }/manager/toadd" class="btn btn-primary " role="button">新增</a>
 								  </span>
-								  
 		                    </form>
 					</div>
 					<div class="row">

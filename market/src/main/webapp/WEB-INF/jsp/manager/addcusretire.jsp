@@ -154,3 +154,4 @@ function checkall(){
 	         }  
 }
 </script>
+<script src="${pageContext.request.contextPath}/statics/localjs/maddcusretire.js"></script>

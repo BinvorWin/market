@@ -57,7 +57,7 @@
 		<if test="staffid!=null and staffid!=''">
 		and	staffid = #{staffid,jdbcType=VARCHAR}
 		</if>		 	
-		<if test="staffname!=null and staffname''">
+		<if test="staffname!=null and staffname!=''">
 			and staffname like concat('%',#{staffname},'%')
 		</if>
 		
