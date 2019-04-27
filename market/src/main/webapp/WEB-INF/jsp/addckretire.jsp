@@ -34,13 +34,6 @@
                           <input id="num" name="num" class="form-control col-md-7 col-xs-5" value="${ckretire.num}"  type="text" onblur="checknum()"><span id="demo4" style="color: red;"></span>
                         </div>
                       </div>
-                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-5" >进货日期<span >*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-5">
-                          <input id="indate"  name="indate" class="form-control col-md-7 col-xs-5" value="<fmt:formatDate pattern="yyyy-MM-dd" value="${ckretire.indate}"/>" type="date" >                        
-                          </div>
-                      </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-5" >退货日期<span >*</span>
                         </label>
@@ -56,7 +49,7 @@
                         </div>
                         </div>
 						<a onclick="javascript:history.back(-1);" class=" text-left btn btn-default  " role="button">返回上页</a>
-						<button type="submit" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >添加</button>								                      
+						<button type="submit" id="submit" class="btn btn-primary text-center  col-md-offset-4 col-lg-offset-4col-xl-offset-4" >添加</button>								                      
                     </form>
 	<div class="clearfix"></div>
 	</div>
@@ -160,3 +153,4 @@ function checkall(){
 	         }  
 }
 </script>
+	<script src="${pageContext.request.contextPath}/statics/localjs/addckretire.js"></script>

@@ -84,7 +84,6 @@
 	</div>
 <%@include file="common/footer.jsp"%>
 <script>
-alert(${msg});
 /*判断输入id是不是数字  */
 function checkid()
 {
@@ -184,3 +183,4 @@ function checkall(){
 	         }  
 }
 </script>
+<script src="${pageContext.request.contextPath}/statics/localjs/addpro.js"></script>

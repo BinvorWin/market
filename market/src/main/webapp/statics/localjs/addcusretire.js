@@ -6,7 +6,7 @@
 		$.ajax({
 			type:'post',
 			data:{"saleid":saleid},
-			url:'/chaoshi/manager/flatform/cusretire/getCus?saleid='+saleid,
+			url:'/chaoshi/staff/flatform/cusretire/getCus?saleid='+saleid,
 			dataType:'json',
 			success:function(data){
 				$("#proid").val(data.proid);
@@ -26,7 +26,7 @@
 	$.ajax({
 		type:'post',
 		data:{"saleid":saleid},
-		url:'/chaoshi/manager/flatform/cusretire/getCus?saleid='+saleid,
+		url:'/chaoshi/staff/flatform/cusretire/getCus?saleid='+saleid,
 		dataType:'json',
 		success:function(data){
 			var num=$("#num").val();

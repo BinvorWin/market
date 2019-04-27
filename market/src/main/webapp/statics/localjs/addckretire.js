@@ -6,7 +6,7 @@
 		$.ajax({
 			type:'post',
 			data:{"inid":inid},
-			url:'/chaoshi/manager/flatform/ckretire/getckret?inid='+inid,
+			url:'/chaoshi/staff/flatform/ckretire/getckret?inid='+inid,
 			dataType:'json',
 			success:function(data){
 				$("#proid").val(data.proid);
@@ -23,7 +23,7 @@
 	$.ajax({
 		type:'post',
 		data:{"inid":inid},
-		url:'/chaoshi/manager/flatform/ckretire/getckret?inid='+inid,
+		url:'/chaoshi/staff/flatform/ckretire/getckret?inid='+inid,
 		dataType:'json',
 		success:function(data){
 			var num=$("#num").val();

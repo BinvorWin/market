@@ -15,11 +15,14 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hbh.entity.CusRetire;
+import com.hbh.entity.Sale;
 import com.hbh.service.imp.CusRetireServiceImp;
+import com.hbh.service.imp.SaleServiceImp;
 
 /**
  * @Author Binvor
@@ -32,6 +35,9 @@ public class CusRetireController {
 	
 	@Autowired
 	CusRetireServiceImp cusRetireServiceImp;
+	
+	@Autowired
+	SaleServiceImp saleServiceImp;
 	
 //	获取所有退货信息
 	@RequestMapping("getall")
@@ -112,7 +118,13 @@ public class CusRetireController {
 		return "getCusRetirebyparams";
 		
 	}
-
+    @RequestMapping("/getCus") 
+    @ResponseBody
+    public Sale getCus(String saleid,HttpServletRequest request,Model model){
+    	Sale sale=new Sale();
+    	sale=saleServiceImp.getbyid(saleid);
+        return sale;  
+    }
 
 
 

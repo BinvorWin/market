@@ -244,3 +244,5 @@ onkeyup="total()"><span id="demo4" style="color: red;"></span>
 			}  
 	}
 	</script>
+	<script src="${pageContext.request.contextPath}/statics/localjs/addsale.js"></script>
+	

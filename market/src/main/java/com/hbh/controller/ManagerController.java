@@ -64,6 +64,7 @@ public class ManagerController {
 	public String logout(HttpSession session) {
 //		退出清除esison
 		session.removeAttribute(Constants.Staff_SESSION);
+		session.invalidate();
 		return "redirect:/manager/login";
 		
 	}

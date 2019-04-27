@@ -15,6 +15,7 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -150,5 +151,13 @@ public class KcxxController {
 		return "getkcxxbyparams";
 		
 	}
+	@RequestMapping("getkcxx")
+	@ResponseBody
+    public Kcxx getkcxx(String proid,HttpServletRequest request,Model model) {
+        Kcxx kcxx=new Kcxx();
+        kcxx=kcxxServiceImp.getbyid(proid);
+        return kcxx; 
+  		
+  	}
 
 }
