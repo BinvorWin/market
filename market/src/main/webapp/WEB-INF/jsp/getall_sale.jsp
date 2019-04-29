@@ -21,7 +21,9 @@
 								    <label >商品id:</label>
 								    <input type="text" class="form-control" id="proid" name="proid" >
 								  </div>
-								  
+								  <button class="btn btn-primary" type="submit">查询</button>
+								  </span>
+								  <span class="row">
 								 <div class="form-group" class="col-xs-2">
 								    <label >客户名称:</label>
 								    <input type="text" class="form-control" id="cusname" name="cusname" >
@@ -30,12 +32,10 @@
 								    <label >客户id:</label>
 								    <input type="text" class="form-control" id="cusid" name="cusid" >
 								  </div>
-								  
-								  <div class="col-md-offset-10 col-lg-offset-10 col-xl-offset-10">
-								  <button class="btn btn-primary" type="submit">查询</button>
 								  <a href="${pageContext.request.contextPath }/staff/flatform/sale/toadd" class="btn btn-primary " role="button">新增</a>	
-								  </div>
+								  
 								  </span>
+								  
 		                    </form>
 		                </div>
 					<div class="row">

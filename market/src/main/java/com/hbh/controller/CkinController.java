@@ -39,7 +39,7 @@ public class CkinController {
 		List<Ckin> ckin= ckinServiceImp.getall();
 		PageInfo<Ckin> pageInfo=new PageInfo<Ckin>(ckin);
 		model.addAttribute("pageInfo", pageInfo);
-		return "staff/getall_ckin";
+		return "getall_ckin";
 		
 	}
 //	根据id查询单个信息
@@ -47,7 +47,7 @@ public class CkinController {
     public String getbyid(String inid,HttpServletRequest request,Model model){  
         request.setAttribute("ckin", ckinServiceImp.getbyid(inid));
         model.addAttribute("ckin",ckinServiceImp.getbyid(inid));  
-        return "staff/getckin";  
+        return "getckin";  
     }
 //    根据条件查询
    /* @RequestMapping("/getwhere")  
@@ -59,7 +59,7 @@ public class CkinController {
 	@RequestMapping("edit")
 	public String edit(Ckin ckin,HttpServletRequest request,Model model){
 		model.addAttribute("ckin", ckinServiceImp.getbyid(ckin.getInid()));
-		return "staff/editckin";
+		return "editckin";
 	}	
 	@RequestMapping("update")
 	public String update(Ckin ckin,HttpServletRequest request,Model model){  
@@ -79,7 +79,7 @@ public class CkinController {
 //  跳转到增加页面
     @RequestMapping("/toadd")  
   public String toadd (){  
-  	return "staff/addckin";
+  	return "addckin";
 
   } 
     
@@ -112,7 +112,7 @@ public class CkinController {
 		List<Ckin> ckin= ckinServiceImp.getbyparams(proid, inid, pname, indate);
 		PageInfo<Ckin> pageInfo=new PageInfo<Ckin>(ckin);
 		model.addAttribute("pageInfo", pageInfo);
-		return "staff/getckinbyparams";
+		return "getckinbyparams";
 		
 	}
 
