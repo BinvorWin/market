@@ -45,7 +45,6 @@
 					        	 <th>商品id</th>
 					        	 <th>名称</th>
 					         	 <th>数量</th>
-					        	 <th>进货日期</th>
 					        	 <th>退货日期</th>
 					        	 <th>备注</th>
 					        	 <th>操作</th>
@@ -56,7 +55,6 @@
 					        			     <th>${ckretire.proid}</th>
 					                         <th>${ckretire.pname}</th>
 					                         <th>${ckretire.num}</th>
-					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${ckretire.indate}"/></th>
 					                         <th><fmt:formatDate pattern="yyyy-MM-dd" value="${ckretire.retdate}"/></th>
 					                         <th>${ckretire.marks}</th>      
 					                         <th>

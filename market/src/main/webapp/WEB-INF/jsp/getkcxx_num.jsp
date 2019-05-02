@@ -26,7 +26,7 @@
 					                         <th>${kcxx.proid}</th>
 					                         <th>${kcxx.pname}</th>
 					                         <th>${kcxx.num}</th>
-					                         <th>库存不足</th>      
+					                         <th style="color: red;">库存不足</th>      
 					                         <th>
 					                            <div class="btn-group">
 												  <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
