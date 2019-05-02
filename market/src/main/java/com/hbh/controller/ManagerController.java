@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hbh.entity.Kcxx;
 import com.hbh.entity.Manager;
 import com.hbh.entity.Staff;
+import com.hbh.service.imp.KcxxServiceImp;
 import com.hbh.service.imp.ManagerServiceImp;
 import com.hbh.service.imp.StaffServiceImp;
 import com.hbh.tools.Constants;
@@ -34,6 +36,9 @@ public class ManagerController {
 	ManagerServiceImp managerServiceImp;
 	@Autowired
 	StaffServiceImp staffServiceImp;
+	
+	@Autowired
+	KcxxServiceImp kcxxServiceImp;
 	@RequestMapping("/login")
 	public String login() {
 		logger.debug("LoginController welcome AppInfoSystem develpor==================");
@@ -52,11 +57,18 @@ public class ManagerController {
 		}
 	}
 	@RequestMapping(value="/flatform/main")
-	public String main(HttpSession session) {
+	public String main(HttpSession session,HttpServletRequest request) {
 //		验证是否有session信息，防止非法登录，没有就跳转到登录页面
 		if(session.getAttribute(Constants.Manager_SESSION)==null)
 		{
 			return "redirect:/manager/login";
+		}
+		List<Kcxx> kcxx=kcxxServiceImp.kcxxWithProdata();
+		List<Kcxx> kcxx2=kcxxServiceImp.kcxxWithPronum();
+		if(!kcxx.isEmpty()||!kcxx2.isEmpty()) {
+			request.setAttribute("msg", "存在预警信息请及时处理");
+		}else {
+			request.setAttribute("msg", "");
 		}
 		return "manager/main";
 	}

@@ -41,7 +41,7 @@
               <div>
                 <input type="password" class="form-control" name="pwd" placeholder="请输入密码" required="" />
               </div>
-              <span>${error }</span>
+              <span>${error}</span>
               <div>
               	<button type="submit" class="btn btn-success">登     录</button>
               	<button type="reset" class="btn btn-default">重　填</button>
