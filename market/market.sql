@@ -11,7 +11,7 @@
  Target Server Version : 50515
  File Encoding         : 65001
 
- Date: 01/04/2019 17:57:55
+ Date: 16/05/2019 15:05:21
 */
 
 SET NAMES utf8mb4;
@@ -22,31 +22,34 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `ckin`;
 CREATE TABLE `ckin`  (
-  `inid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `proid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `inid` int(7) NOT NULL AUTO_INCREMENT,
+  `proid` int(7) NOT NULL,
   `pname` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `num` int(25) UNSIGNED NULL DEFAULT NULL,
+  `num` int(25) UNSIGNED NULL DEFAULT 100,
   `indate` date NULL DEFAULT NULL,
   `marks` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`inid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 129 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ckin
 -- ----------------------------
-INSERT INTO `ckin` VALUES ('2', '2', '绿萝', 100, '2019-03-02', NULL);
-INSERT INTO `ckin` VALUES ('3', '3', '可乐', 100, '2019-03-07', NULL);
-INSERT INTO `ckin` VALUES ('4', '4', '雪碧', 100, '2019-03-12', NULL);
-INSERT INTO `ckin` VALUES ('5', '5', '开心果', 100, '2019-03-19', NULL);
-INSERT INTO `ckin` VALUES ('6', '6', '碧根果', 100, '2019-03-20', NULL);
+INSERT INTO `ckin` VALUES (121, 1260300, '苹果', 100, '2019-04-27', NULL);
+INSERT INTO `ckin` VALUES (122, 1260300, '苹果', 10000, '2019-04-27', NULL);
+INSERT INTO `ckin` VALUES (123, 5287527, '瓜子', 100, '2019-05-01', NULL);
+INSERT INTO `ckin` VALUES (124, 5287527, '瓜子', 100, '2019-05-02', NULL);
+INSERT INTO `ckin` VALUES (125, 8556504, '绿萝', 100, '2019-05-02', NULL);
+INSERT INTO `ckin` VALUES (126, 241677, '怡宝矿泉水', 100, '2019-05-12', NULL);
+INSERT INTO `ckin` VALUES (127, 241677, '怡宝矿泉水', 20, '2019-05-12', NULL);
+INSERT INTO `ckin` VALUES (128, 241677, '怡宝矿泉水', 100, '2019-05-12', NULL);
 
 -- ----------------------------
 -- Table structure for ckretire
 -- ----------------------------
 DROP TABLE IF EXISTS `ckretire`;
 CREATE TABLE `ckretire`  (
-  `inid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `proid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `inid` int(8) NOT NULL AUTO_INCREMENT,
+  `proid` int(8) NOT NULL,
   `pname` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `num` int(25) NULL DEFAULT NULL,
   `indate` date NULL DEFAULT NULL,
@@ -54,21 +57,20 @@ CREATE TABLE `ckretire`  (
   `reason` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `marks` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`inid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 124 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ckretire
 -- ----------------------------
-INSERT INTO `ckretire` VALUES ('1', '2', '绿罗', 10, '2019-03-14', '2019-03-27', NULL, '1');
-INSERT INTO `ckretire` VALUES ('2', '3', '可乐', 22, '2019-03-12', '2019-03-26', NULL, '');
+INSERT INTO `ckretire` VALUES (123, 5287527, '瓜子', 100, NULL, '2019-05-11', NULL, '');
 
 -- ----------------------------
 -- Table structure for cusretire
 -- ----------------------------
 DROP TABLE IF EXISTS `cusretire`;
 CREATE TABLE `cusretire`  (
-  `saleid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `proid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `saleid` int(25) NOT NULL,
+  `proid` int(25) NOT NULL,
   `pname` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `price` double(25, 3) NULL DEFAULT NULL,
   `num` int(25) NULL DEFAULT NULL,
@@ -81,13 +83,20 @@ CREATE TABLE `cusretire`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Records of cusretire
+-- ----------------------------
+INSERT INTO `cusretire` VALUES (3718799, 1260300, '苹果', NULL, 10, NULL, NULL, '2019-04-12', NULL, '');
+INSERT INTO `cusretire` VALUES (5595579, 1260300, '苹果', NULL, 6, NULL, NULL, '2019-04-19', NULL, '');
+INSERT INTO `cusretire` VALUES (8749456, 241677, '怡宝矿泉水', NULL, 10, NULL, NULL, '2019-05-12', NULL, '');
+
+-- ----------------------------
 -- Table structure for custom
 -- ----------------------------
 DROP TABLE IF EXISTS `custom`;
 CREATE TABLE `custom`  (
-  `cusid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `cusid` int(25) NOT NULL,
   `cusname` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `tel` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `tel` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `person` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `address` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `emali` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -97,17 +106,14 @@ CREATE TABLE `custom`  (
 -- ----------------------------
 -- Records of custom
 -- ----------------------------
-INSERT INTO `custom` VALUES ('1', '清风', '13517064592', '刘经理', '庐山南大道', '3078343267@qq.com');
-INSERT INTO `custom` VALUES ('10', '利总', '12333232312', '周易', '江西景德镇', NULL);
-INSERT INTO `custom` VALUES ('11', '绿箭', '12312312312', '张建翔', '江西南昌', NULL);
-INSERT INTO `custom` VALUES ('2', '百事可乐', '13517064591', '小刘', '湖北武汉', '3078343267@qq.com');
+INSERT INTO `custom` VALUES (5, '5', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for kcxx
 -- ----------------------------
 DROP TABLE IF EXISTS `kcxx`;
 CREATE TABLE `kcxx`  (
-  `proid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `proid` int(25) NOT NULL,
   `pname` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `num` int(25) NULL DEFAULT NULL,
   `marks` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -117,17 +123,10 @@ CREATE TABLE `kcxx`  (
 -- ----------------------------
 -- Records of kcxx
 -- ----------------------------
-INSERT INTO `kcxx` VALUES ('1', '手帕纸', 100, '3453');
-INSERT INTO `kcxx` VALUES ('10', '剃须刀', 40, NULL);
-INSERT INTO `kcxx` VALUES ('11', '水杯', 20, NULL);
-INSERT INTO `kcxx` VALUES ('2', '绿萝', 50, NULL);
-INSERT INTO `kcxx` VALUES ('3', '可乐', 50, NULL);
-INSERT INTO `kcxx` VALUES ('4', '雪碧', 40, NULL);
-INSERT INTO `kcxx` VALUES ('5', '开心果', 30, NULL);
-INSERT INTO `kcxx` VALUES ('6', '碧根果', 1000, NULL);
-INSERT INTO `kcxx` VALUES ('7', '辣条', 100, NULL);
-INSERT INTO `kcxx` VALUES ('8', '奥利奥', 30, NULL);
-INSERT INTO `kcxx` VALUES ('9', '口香糖', 30, NULL);
+INSERT INTO `kcxx` VALUES (241677, '怡宝矿泉水', 129, '');
+INSERT INTO `kcxx` VALUES (1260300, '苹果', 9513, '');
+INSERT INTO `kcxx` VALUES (5287527, '瓜子', 100, '');
+INSERT INTO `kcxx` VALUES (8556504, '绿萝', 100, NULL);
 
 -- ----------------------------
 -- Table structure for manager
@@ -145,11 +144,16 @@ CREATE TABLE `manager`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Records of manager
+-- ----------------------------
+INSERT INTO `manager` VALUES ('15203111', '贺彬华', '362430199712207275', '男', '13517064592', '管理员', '1234');
+
+-- ----------------------------
 -- Table structure for product
 -- ----------------------------
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product`  (
-  `proid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `proid` int(25) NOT NULL AUTO_INCREMENT,
   `pname` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `price` double(25, 3) NOT NULL,
   `inprice` double(25, 3) NULL DEFAULT NULL,
@@ -160,35 +164,30 @@ CREATE TABLE `product`  (
   `unit` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `marks` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`proid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8556505 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES ('1', '手帕纸', 1.000, 0.500, '2019-01-02', '2019-03-25', '清风', '生活用品', '包', '');
-INSERT INTO `product` VALUES ('10', '剃须刀', 79.000, 50.000, '2018-08-01', '2019-03-05', '超人', '个人护理', '个', '');
-INSERT INTO `product` VALUES ('11', '水杯', 32.000, 22.000, '2019-03-22', '2019-03-29', '富光', '水杯', '2', '1');
-INSERT INTO `product` VALUES ('2', '绿萝', 15.000, 8.000, '2019-03-01', '2019-03-25', '花鸟市场', '盆栽', '盆', '1');
-INSERT INTO `product` VALUES ('3', '可乐', 3.000, 1.000, '2018-12-06', '2019-10-01', '百事可乐', '饮料', '瓶', '');
-INSERT INTO `product` VALUES ('4', '雪碧', 3.000, 1.000, '2019-01-16', '2019-10-01', '百事可乐', '饮料', '瓶', '');
-INSERT INTO `product` VALUES ('5', '开心果', 30.000, 20.000, '2018-12-01', '2019-10-01', '三只松鼠', '休闲零食', '斤', NULL);
-INSERT INTO `product` VALUES ('6', '碧根果', 20.000, 17.000, '2018-12-01', '2019-10-01', '百草味', '休闲零食', '斤', NULL);
-INSERT INTO `product` VALUES ('7', '辣条', 4.000, 3.000, '2018-12-01', '2019-10-01', '卫龙', '休闲零食', '包', NULL);
-INSERT INTO `product` VALUES ('8', '奥利奥', 7.000, 3.800, '2018-12-01', '2019-10-01', '利总', '饼干', '包', '');
-INSERT INTO `product` VALUES ('9', '口香糖', 3.000, 2.000, '2018-12-01', '2019-10-01', '绿箭', '休闲零食', '条', '');
+INSERT INTO `product` VALUES (241677, '怡宝矿泉水', 2.000, 1.000, '2019-01-01', '2019-05-08', '怡宝', '矿泉水', '瓶', '');
+INSERT INTO `product` VALUES (1260300, '苹果', 23.000, 17.000, '2019-01-01', '2019-11-15', '百果园', '水果', '斤', '');
+INSERT INTO `product` VALUES (5287527, '瓜子', 5.000, 3.000, '2019-04-05', '2019-07-26', '恰恰', '零食', '袋', '');
+INSERT INTO `product` VALUES (8556504, '绿萝', 12.000, 7.000, '2019-05-17', '2019-05-25', '花鸟市场', '绿植盆栽', '盆', '');
 
 -- ----------------------------
 -- Table structure for sale
 -- ----------------------------
 DROP TABLE IF EXISTS `sale`;
 CREATE TABLE `sale`  (
-  `saleid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `proid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `saleid` int(25) NOT NULL,
+  `proid` int(25) NOT NULL,
   `pname` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `price` double(25, 3) NULL DEFAULT NULL,
   `num` int(25) NULL DEFAULT NULL,
   `total` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `saledate` date NULL DEFAULT NULL,
+  `cusname` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `cusid` varchar(25) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `marks` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`saleid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
@@ -196,8 +195,13 @@ CREATE TABLE `sale`  (
 -- ----------------------------
 -- Records of sale
 -- ----------------------------
-INSERT INTO `sale` VALUES ('1', '1', '手帕纸', 1.000, 5, '5', '2019-03-31', NULL);
-INSERT INTO `sale` VALUES ('2', '2', '剃须刀', 79.000, 1, '79', '2019-04-01', '');
+INSERT INTO `sale` VALUES (30579, 1260300, '苹果', 23.000, 600, '13800.0', NULL, '5', '5', '');
+INSERT INTO `sale` VALUES (3007323, 241677, '怡宝矿泉水', 2.000, 69, '138.0', NULL, 'hbh', '20', '');
+INSERT INTO `sale` VALUES (3718799, 1260300, '苹果', 23.000, 5, '115.0', NULL, '10', '324', '1');
+INSERT INTO `sale` VALUES (5595579, 1260300, '苹果', 23.000, 12, '276.0', NULL, '10', '2312', '');
+INSERT INTO `sale` VALUES (8749456, 241677, '怡宝矿泉水', 2.000, 12, '24.0', NULL, 'hbh', '134', '');
+INSERT INTO `sale` VALUES (9092816, 241677, '怡宝矿泉水', 2.000, 20, '40.0', NULL, 'hbh', '12', '');
+INSERT INTO `sale` VALUES (9841755, 1260300, '苹果', 23.000, 2, '46.0', NULL, '1', '2', '');
 
 -- ----------------------------
 -- Table structure for staff
@@ -217,49 +221,126 @@ CREATE TABLE `staff`  (
 -- ----------------------------
 -- Records of staff
 -- ----------------------------
-INSERT INTO `staff` VALUES ('15203122', '贺彬华', '1234', '男', '110', '2', '123456');
+INSERT INTO `staff` VALUES ('15203122', '贺彬华', '362430199712207275', '男', '13517064592', '普通员工', '123456');
+INSERT INTO `staff` VALUES ('15203123', '贺彬华', '234123412341234', '142', '13519081234', '普通员工', '123456');
+INSERT INTO `staff` VALUES ('15203124', '小贺同学', '362430199712207275', '男', '13517064592', '普通员工', '123456');
+INSERT INTO `staff` VALUES ('154203129', '小贺同学', '362430199712207275', '男', '13517064592', '普通员工', '1234');
 
 -- ----------------------------
 -- Table structure for supply
 -- ----------------------------
 DROP TABLE IF EXISTS `supply`;
 CREATE TABLE `supply`  (
-  `supid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `supid` int(25) NOT NULL AUTO_INCREMENT,
   `suppname` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `tel` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `tel` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `person` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `address` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `emali` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`supid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of supply
 -- ----------------------------
-INSERT INTO `supply` VALUES ('1', '清风', '13517064592', '贺彬华', '江西南昌', '123@163.com');
-INSERT INTO `supply` VALUES ('2', '超人', '13517064591', '罗天赐', '江西吉安', '123@163.com');
-INSERT INTO `supply` VALUES ('3', '富光', '18239328283', '刘经理', '江西南昌', '124@163.com');
-INSERT INTO `supply` VALUES ('4', '百事可乐', '13473273221', '李总', '江西赣州', '134@163.com');
-INSERT INTO `supply` VALUES ('5', '三只松鼠', '13123454521', '松果', '江西南昌', '2412@163.com');
-INSERT INTO `supply` VALUES ('6', '百草味', '13711312312', '贺生', '江西吉安', '1231@163.com');
+INSERT INTO `supply` VALUES (16, '百果园', '13517064592', '某总', '吉安永新', '3078343267@qq.com');
+INSERT INTO `supply` VALUES (17, '恰恰', '13517064592', '贺天', '吉安永新', '3078343267@qq.com');
+INSERT INTO `supply` VALUES (18, '花鸟市场', NULL, NULL, NULL, NULL);
+INSERT INTO `supply` VALUES (19, '怡宝', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for type
 -- ----------------------------
 DROP TABLE IF EXISTS `type`;
 CREATE TABLE `type`  (
-  `protypeid` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `protypeid` int(25) UNSIGNED NOT NULL AUTO_INCREMENT,
   `typename` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`protypeid`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of type
 -- ----------------------------
-INSERT INTO `type` VALUES ('1', '个人护理');
-INSERT INTO `type` VALUES ('2', '休闲零食');
-INSERT INTO `type` VALUES ('3', '生活用品');
-INSERT INTO `type` VALUES ('4', '水杯');
-INSERT INTO `type` VALUES ('6', '饼干');
+INSERT INTO `type` VALUES (26, '水果');
+INSERT INTO `type` VALUES (27, '零食');
+INSERT INTO `type` VALUES (28, '绿植盆栽');
+INSERT INTO `type` VALUES (29, '矿泉水');
+
+-- ----------------------------
+-- Triggers structure for table ckin
+-- ----------------------------
+DROP TRIGGER IF EXISTS `xgjhxx`;
+delimiter ;;
+CREATE TRIGGER `xgjhxx` AFTER UPDATE ON `ckin` FOR EACH ROW begin
+UPDATE kcxx set num=num+new.num-old.num where proid=new.proid;
+end
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table ckretire
+-- ----------------------------
+DROP TRIGGER IF EXISTS `th`;
+delimiter ;;
+CREATE TRIGGER `th` AFTER INSERT ON `ckretire` FOR EACH ROW BEGIN
+UPDATE kcxx set num=num-new.num where proid=new.proid;
+end
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table ckretire
+-- ----------------------------
+DROP TRIGGER IF EXISTS `xgth`;
+delimiter ;;
+CREATE TRIGGER `xgth` AFTER UPDATE ON `ckretire` FOR EACH ROW BEGIN
+update kcxx set num=num+old.num-new.num where proid=new.proid;
+end
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table product
+-- ----------------------------
+DROP TRIGGER IF EXISTS `tg1`;
+delimiter ;;
+CREATE TRIGGER `tg1` AFTER INSERT ON `product` FOR EACH ROW begin 
+set @flag3=(SELECT count(*)  from ckin where proid=NEW.proid);
+if(@flag3=0)
+THEN
+INSERT into ckin(proid,pname,indate) VALUES (NEW.proid,NEW.pname,now());
+end if;
+
+set @flag4=(SELECT count(*)  from kcxx where proid=NEW.proid);
+if(@flag4=0)
+THEN
+INSERT INTO kcxx(proid,pname,num) VALUES (NEW.proid,NEW.pname,100);
+end if;
+
+set @flag=(select COUNT(*) FROM type where typename=NEW.protype);
+if(@flag=0)
+then
+INSERT INTO type(typename) VALUES(NEW.protype);
+end if;
+
+set @flag2=(SELECT count(*)  from supply where suppname=NEW.supname);
+if(@flag2=0)
+THEN
+INSERT INTO supply(suppname) VALUES (NEW.supname);
+end if;
+end
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table type
+-- ----------------------------
+DROP TRIGGER IF EXISTS `xglb`;
+delimiter ;;
+CREATE TRIGGER `xglb` AFTER UPDATE ON `type` FOR EACH ROW begin
+update product set protype=new.typename where protype=old.typename;
+end
+;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;
