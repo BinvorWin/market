@@ -98,7 +98,7 @@
 		<dependency>
 		    <groupId>com.alibaba</groupId>
 		    <artifactId>fastjson</artifactId>
-		    <version>1.2.47</version>
+		    <version>1.2.83</version>
 		</dependency>
  
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -161,7 +161,7 @@
 		<dependency>
 		    <groupId>com.alibaba</groupId>
 		    <artifactId>fastjson</artifactId>
-		    <version>1.2.47</version>
+		    <version>1.2.83</version>
 		</dependency>
 		
 		
